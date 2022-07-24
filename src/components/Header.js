@@ -65,7 +65,7 @@ export default function Header() {
         });
       }
     });
-  });
+  },[]);
   //
   const [modalOpen, setModalOpen] = useState(false);
 
