@@ -11,6 +11,7 @@ import Datapage from "./routes/Datapage";
 import Tracepage from "./routes/Tracepage";
 import Searchpage from "./routes/Searchpage";
 import Statisticspage from "./routes/Statisticspage";
+import Sharepage from "./routes/Sharepage";
 
 import Title from "./components/Title";
 
@@ -68,6 +69,7 @@ function App() {
                 <Route path="trace" element={<Tracepage />} />
                 <Route path="data" element={<Datapage />} />
                 <Route path="search" element={<Searchpage />} />
+                <Route path="share" element={<Sharepage />} />
                 <Route path="statistics" element={<Statisticspage />} />
                 <Route path="signup" element={<SignUp />} />
                 <Route path="forgotpw" element={<ForgotPW />} />

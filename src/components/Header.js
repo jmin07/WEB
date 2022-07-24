@@ -73,16 +73,21 @@ export default function Header() {
     }));
     const response = postSearchData(props);
     response.then((res) => {
-      let data;
-      if (e.target[0].value === "전국") {
-        data = get_stData(res.result.total);
-        setDBdata(res.result.total);
+      let resData;
+      if (res.isSuccess) {
+        if (e.target[0].value === "전국") {
+          resData = get_stData(res.result.total);
+          setDBdata(res.result.total);
+        } else {
+          resData = get_stData(res.result.local);
+          setDBdata(res.result.local);
+        }
+        setAllDBdata(res.result.total);
+        setSumData(data);
+        navigate("/statistics");
       } else {
-        data = get_stData(res.result.local);
-        setDBdata(res.result.local);
+        alert(`${res.message}`);
       }
-      setAllDBdata(res.result.total);
-      setSumData(data);
     });
     //더미데이터 쓸때
     // const dummy = get_stData(dummydata);
@@ -237,7 +242,6 @@ export default function Header() {
                         간편 데이터
                       </Button>
                     </Link> */}
-
                     <Link
                       to="/statistics"
                       style={{ textDecorationLine: "none" }}
@@ -255,7 +259,6 @@ export default function Header() {
                         시세 통계
                       </Button>
                     </Link>
-
                     <Link to="/search" style={{ textDecorationLine: "none" }}>
                       <Button
                         sx={{
@@ -268,6 +271,21 @@ export default function Header() {
                         color="warning"
                       >
                         판매 현황
+                      </Button>
+                    </Link>
+
+                    <Link to="/share" style={{ textDecorationLine: "none" }}>
+                      <Button
+                        sx={{
+                          ml: 2,
+                          fontWeight: "bold",
+                          color: "white",
+                          background: "coral",
+                        }}
+                        variant="contained"
+                        color="warning"
+                      >
+                        나눔 현황
                       </Button>
                     </Link>
 
@@ -285,7 +303,6 @@ export default function Header() {
                         추적 알림
                       </Button>
                     </Link>
-
                     <Link to="/main" style={{ textDecorationLine: "none" }}>
                       <Button
                         sx={{

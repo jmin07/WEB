@@ -22,7 +22,12 @@ import HomeIcon from "@mui/icons-material/Home";
 import { TitleContext } from "../contexts/TitleContext";
 import React, { useContext, useState } from "react";
 import SelectArea from "./SelectArea";
+import { AllDBdataContext } from "../contexts/AllDBdataContext";
+import { DBdataContext } from "../contexts/DBdataContext";
+import { SumDataContext } from "../contexts/SumDataContext";
 import { SearchDataContext } from "../contexts/SearchDataContext";
+import { get_stData } from "../script/searchTable";
+import { dummydata } from "../script/dummydata";
 import { postSearchData } from "../api";
 //
 Modal.setAppElement("Title");
@@ -31,6 +36,9 @@ export default function Title() {
   //
   const { setTitleOn } = useContext(TitleContext);
   const { setSearchData } = useContext(SearchDataContext);
+  const { DBdata, setDBdata } = useContext(DBdataContext);
+  const { setAllDBdata } = useContext(AllDBdataContext);
+  const { sumData, setSumData } = useContext(SumDataContext);
 
   //
   const navigate = useNavigate();
@@ -51,15 +59,29 @@ export default function Title() {
       userArea: area,
       userValue: value,
     };
-    setTitleOn(false);
-    navigate("/statistics");
+    // setTitleOn(false);
     setSearchData((searchData) => ({
       ...props,
     }));
     const response = postSearchData(props);
     response.then((res) => {
-      // setSearchData(res);
+      let resData;
+      if (res.isSuccess) {
+        if (e.target[0].value === "전국") {
+          resData = get_stData(res.result.total);
+          setDBdata(res.result.total);
+        } else {
+          resData = get_stData(res.result.local);
+          setDBdata(res.result.local);
+        }
+        setAllDBdata(res.result.total);
+        setSumData(data);
+        navigate("/statistics");
+      } else {
+        alert(`${res.message}`);
+      }
     });
+    // setAllDBdata(dummydata);
   };
 
   const [sideBar, setSideBar] = useState(false);
