@@ -21,8 +21,8 @@ import { SearchDataContext } from "./contexts/SearchDataContext";
 import { DBdataContext } from "./contexts/DBdataContext";
 import { SumDataContext } from "./contexts/SumDataContext";
 import { AllDBdataContext } from "./contexts/AllDBdataContext";
-// import { LoadingContext } from "./contexts/LoadingContext";
-// import { Loading } from "./components/Loading";
+import { LoadingContext } from "./contexts/LoadingContext";
+import { Loading } from "./components/Loading";
 
 function App() {
   const [titleOn, setTitleOn] = useState(true);
@@ -59,7 +59,7 @@ function App() {
   ]);
   const [sumData, setSumData] = useState([]);
 
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   return (
     <TitleContext.Provider value={{ titleOn, setTitleOn }}>
@@ -67,17 +67,23 @@ function App() {
         <DBdataContext.Provider value={{ DBdata, setDBdata }}>
           <SumDataContext.Provider value={{ sumData, setSumData }}>
             <AllDBdataContext.Provider value={{ allDBdata, setAllDBdata }}>
-              <Routes>
-                <Route path="/" element={<Title />} />
-                <Route path="main" element={<Mainpage />} />
-                <Route path="trace" element={<Tracepage />} />
-                <Route path="data" element={<Datapage />} />
-                <Route path="search" element={<Searchpage />} />
-                <Route path="share" element={<Sharepage />} />
-                <Route path="statistics" element={<Statisticspage />} />
-                <Route path="signup" element={<SignUp />} />
-                <Route path="forgotpw" element={<ForgotPW />} />
-              </Routes>
+              <LoadingContext.Provider value={{ loading, setLoading }}>
+                {loading ? (
+                  <Loading />
+                ) : (
+                  <Routes>
+                    <Route path="/" element={<Title />} />
+                    <Route path="main" element={<Mainpage />} />
+                    <Route path="trace" element={<Tracepage />} />
+                    <Route path="data" element={<Datapage />} />
+                    <Route path="search" element={<Searchpage />} />
+                    <Route path="share" element={<Sharepage />} />
+                    <Route path="statistics" element={<Statisticspage />} />
+                    <Route path="signup" element={<SignUp />} />
+                    <Route path="forgotpw" element={<ForgotPW />} />
+                  </Routes>
+                )}
+              </LoadingContext.Provider>
             </AllDBdataContext.Provider>
           </SumDataContext.Provider>
         </DBdataContext.Provider>
