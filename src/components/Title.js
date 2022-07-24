@@ -26,6 +26,8 @@ import { AllDBdataContext } from "../contexts/AllDBdataContext";
 import { DBdataContext } from "../contexts/DBdataContext";
 import { SumDataContext } from "../contexts/SumDataContext";
 import { SearchDataContext } from "../contexts/SearchDataContext";
+import { LoadingContext } from "../contexts/LoadingContext"; //로딩 컨텍스트
+
 import { get_stData } from "../script/searchTable";
 import { dummydata } from "../script/dummydata";
 import { postSearchData } from "../api";
@@ -39,15 +41,14 @@ export default function Title() {
   const { DBdata, setDBdata } = useContext(DBdataContext);
   const { setAllDBdata } = useContext(AllDBdataContext);
   const { sumData, setSumData } = useContext(SumDataContext);
+  const { setLoading } = useContext(LoadingContext); //로딩
 
   //
   const navigate = useNavigate();
 
   const onSubmit = (e) => {
-    // if (e.target[0].value !== "") {
-    //   navigate("/", { state: value });
-    // }
     e.preventDefault();
+    setLoading(true);//로딩
     const city = e.target[0].value;
     const area = e.target[1].value;
     const value = e.target[2].value;
@@ -80,6 +81,7 @@ export default function Title() {
       } else {
         alert(`${res.message}`);
       }
+      setLoading(false);//로딩
     });
     // setAllDBdata(dummydata);
   };

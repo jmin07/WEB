@@ -31,8 +31,8 @@ import { SearchDataContext } from "../contexts/SearchDataContext";
 import { DBdataContext } from "../contexts/DBdataContext";
 import { SumDataContext } from "../contexts/SumDataContext";
 import { AllDBdataContext } from "../contexts/AllDBdataContext";
-import { LoadingContext } from "../contexts/LoadingContext";
 import { getLogOut, postSearchData } from "../api";
+import { LoadingContext } from "../contexts/LoadingContext"; //로딩 컨텍스트
 
 import { get_stData } from "../script/searchTable";
 import { dummydata } from "../script/dummydata";
@@ -43,7 +43,7 @@ export default function Header() {
   const { DBdata, setDBdata } = useContext(DBdataContext);
   const { sumData, setSumData } = useContext(SumDataContext);
   const { setAllDBdata } = useContext(AllDBdataContext);
-  const { setLoading } = useContext(LoadingContext);
+  const { setLoading } = useContext(LoadingContext); //로딩
   const navigate = useNavigate();
 
   const { setTitleOn } = useContext(TitleContext);
@@ -57,6 +57,7 @@ export default function Header() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);//로딩
     const city = e.target[0].value;
     const area = e.target[1].value;
     const value = e.target[2].value;
@@ -73,9 +74,7 @@ export default function Header() {
     setSearchData((searchData) => ({
       ...props,
     }));
-    setLoading(true);
     const response = postSearchData(props);
-    setLoading(false);
     response.then((res) => {
       let resData;
       if (res.isSuccess) {
@@ -92,6 +91,7 @@ export default function Header() {
       } else {
         alert(`${res.message}`);
       }
+      setLoading(false);
     });
     //더미데이터 쓸때
     // const dummy = get_stData(dummydata);
