@@ -101,3 +101,17 @@ export async function postFindPWD(Data) {
   const body = await response.json();
   return body;
 }
+
+//로그인 유지
+export async function getLoginStatus(Data) {
+  const response = await fetch(`${BASE_URL}${Data.path}`, {
+    method: "GET",
+    mode: "cors",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+  });
+  const body = await response.json();
+  return body;
+}

@@ -37,14 +37,20 @@ export default function Login() {
     console.log(id, password);
     const response = postLoginData(props);
     response.then((res) => {
-      const isSuccess = res.isSuccess;
-      const props = { TrueFalse: isSuccess };
-      setLogin((login) => ({
-        ...props,
-      }));
+      // const isSuccess = res.isSuccess;
+      // const props = { TrueFalse: isSuccess };
+      // setLogin((login) => ({
+      //   ...props,
+      // }));
       if (res.isSuccess) {
+        setLogin((login) => ({
+          ...login,
+          TrueFalse: res.isSuccess,
+          profileImage:
+            "https://watchrabbit.s3.ap-northeast-2.amazonaws.com/carrot+(1).png",
+        }));
         alert(`${res.message}`);
-        navigate("/");
+        navigate("/main");
       } else {
         alert(`${res.message}`);
       }

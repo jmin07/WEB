@@ -31,11 +31,12 @@ import { SearchDataContext } from "../contexts/SearchDataContext";
 import { DBdataContext } from "../contexts/DBdataContext";
 import { SumDataContext } from "../contexts/SumDataContext";
 import { AllDBdataContext } from "../contexts/AllDBdataContext";
-import { getLogOut, postSearchData } from "../api";
+import { getLoginStatus, getLogOut, postSearchData } from "../api";
 import { LoadingContext } from "../contexts/LoadingContext"; //로딩 컨텍스트
 
 import { get_stData } from "../script/searchTable";
 import { dummydata } from "../script/dummydata";
+import { useEffect } from "react";
 
 export default function Header() {
   //
@@ -49,15 +50,28 @@ export default function Header() {
   const { setTitleOn } = useContext(TitleContext);
   const [login, setLogin] = useState({
     TrueFalse: false,
-    profileImage:
-      "https://watchrabbit.s3.ap-northeast-2.amazonaws.com/carrot+(1).png",
+    profileImage: "",
+  });
+  useEffect(() => {
+    const data = "/auth/loginstatus";
+    const props = { path: data };
+    const response = getLoginStatus(props);
+    response.then((res) => {
+      if (res.isSuccess) {
+        setLogin({
+          TrueFalse: true,
+          profileImage:
+            "https://watchrabbit.s3.ap-northeast-2.amazonaws.com/carrot+(1).png",
+        });
+      }
+    });
   });
   //
   const [modalOpen, setModalOpen] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);//로딩
+    setLoading(true); //로딩
     const city = e.target[0].value;
     const area = e.target[1].value;
     const value = e.target[2].value;

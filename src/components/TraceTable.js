@@ -27,56 +27,54 @@ export default function TraceTable() {
   //   console.log(table.length -1);
   //   console.log(idx);
 
-
   // };
+
   return (
-    <TableContainer
-      component={Paper}
-      variant="outlined"
-      sx={{ background: "" }}
-    >
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell
-              align="center"
-              sx={{ borderRight: "dotted 2px lightgray", width: "12rem" }}
-            >
-              지역
-            </TableCell>
-            <TableCell
-              align="center"
-              sx={{ borderRight: "dotted 2px lightgray", width: "12rem" }}
-            >
-              동네
-            </TableCell>
-            <TableCell
-              align="center"
-              sx={{ borderRight: "dotted 2px lightgray", width: "12rem" }}
-            >
-              제품명
-            </TableCell>
-            <TableCell
-              align="center"
-              sx={{ borderRight: "dotted 2px lightgray", width: "12rem" }}
-            >
-              최저가
-            </TableCell>
-            <TableCell
-              align="center"
-              sx={{ borderRight: "dotted 2px lightgray", width: "12rem" }}
-            >
-              최고가
-            </TableCell>
-            <TableCell align="center">추적</TableCell>
-          </TableRow>
-        </TableHead>
-        <AddTable />
-        <AddTable />
-        <AddTable />
-        <AddTable />
-        <AddTable />
-        {/* {table.map((item, idx) => (
+    <>
+      {/* <TableContainer
+        component={Paper}
+        variant="outlined"
+        sx={{ background: "white" }}
+      >
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell
+                align="center"
+                sx={{ borderRight: "dotted 2px lightgray", width: "12rem" }}
+              >
+                지역
+              </TableCell>
+              <TableCell
+                align="center"
+                sx={{ borderRight: "dotted 2px lightgray", width: "12rem" }}
+              >
+                동네
+              </TableCell>
+              <TableCell
+                align="center"
+                sx={{ borderRight: "dotted 2px lightgray", width: "12rem" }}
+              >
+                제품명
+              </TableCell>
+              <TableCell
+                align="center"
+                sx={{ borderRight: "dotted 2px lightgray", width: "12rem" }}
+              >
+                최저가
+              </TableCell>
+              <TableCell
+                align="center"
+                sx={{ borderRight: "dotted 2px lightgray", width: "12rem" }}
+              >
+                최고가
+              </TableCell>
+              <TableCell align="center">추적</TableCell>
+            </TableRow>
+          </TableHead> */}
+      {/* </Table> */}
+      {/* </TableContainer> */}
+      {/* {table.map((item, idx) => (
           <>
             <AddTable key={idx} />
             <Button
@@ -87,13 +85,72 @@ export default function TraceTable() {
             </Button>
           </>
         ))} */}
-      </Table>
+
       {/* <Button
         sx={{ position: "relative", left: "45%" }}
         onClick={AddTadbleBody}
       >
         <AddIcon />
       </Button> */}
-    </TableContainer>
+
+
+
+
+{/*       
+      <TableContainer
+        component={Paper}
+        variant="outlined"
+        sx={{ background: "white" }}
+      >
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell
+                align="center"
+                sx={{ borderRight: "dotted 1px lightgray", width: "11rem" }}
+              >
+                지역
+              </TableCell>
+              <TableCell
+                align="center"
+                sx={{ borderRight: "dotted 1px lightgray", width: "11rem" }}
+              >
+                동네
+              </TableCell>
+              <TableCell
+                align="center"
+                sx={{ borderRight: "dotted 1px lightgray", width: "11rem" }}
+              >
+                제품명
+              </TableCell>
+              <TableCell
+                align="center"
+                sx={{ borderRight: "dotted 1px lightgray", width: "11rem" }}
+              >
+                최저가
+              </TableCell>
+              <TableCell
+                align="center"
+                sx={{ borderRight: "dotted 1px lightgray", width: "11rem" }}
+              >
+                최고가
+              </TableCell>
+              <TableCell align="center" sx={{ width: "11rem" }}>
+                추적
+              </TableCell>
+            </TableRow>
+          </TableHead>
+        </Table>
+      </TableContainer> */}
+      <AddTable />
+      <p/>
+      <AddTable />
+      <p/>
+      <AddTable />
+      <p/>
+      <AddTable />
+      <p/>
+      <AddTable />
+    </>
   );
 }

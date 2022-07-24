@@ -4,9 +4,9 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 
-import { Paper, Button, InputBase } from "@mui/material";
+import { Paper, Button, InputBase, TableContainer, Table } from "@mui/material";
 
-export default function AddTable({children}) {
+export default function AddTable({ children }) {
   const [currentCountry, setCurrentCountry] = useState("서울");
   const [currentCity, setCurrentCity] = useState(data[currentCountry][0]);
   const countries = useMemo(() => Object.keys(data), []);
@@ -19,77 +19,107 @@ export default function AddTable({children}) {
   const onChange2 = (e) => {
     setCurrentCity(e.target.value);
   };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(e.target[0].value);
+    console.log(e.target[1].value);
+    console.log(e.target[2].value);
+    console.log(e.target[3].value);
+
+  };
   return (
-    <TableBody>
-      <TableRow>
-        <TableCell align="center" sx={{ borderRight: "dotted 2px lightgray" }}>
-          <select
-            name="selectId1"
-            id="selectId1"
-            onChange={onChange}
-            value={currentCountry}
-            style={{ padding: "0.4rem", border: "none", outline: "none" }}
-          >
-            {countries.map((country, index) => (
-              <option key={index} value={country}>
-                {country}
-              </option>
-            ))}
-          </select>
-        </TableCell>
-        <TableCell align="center" sx={{ borderRight: "dotted 2px lightgray" }}>
-          <select
-            name="selectId2"
-            id="selectId2"
-            value={currentCity}
-            onChange={onChange2}
-            style={{ padding: "0.4rem", border: "none", outline: "none" }}
-          >
-            {cities.map((city, index) => (
-              <option key={index} value={city}>
-                {city}
-              </option>
-            ))}
-          </select>
-        </TableCell>
-        <TableCell align="center" sx={{ borderRight: "dotted 2px lightgray" }}>
-          <input
-            placeholder="추적할 물품"
-            style={{
-              padding: "0.7rem",
-              width: "10rem",
-              border: "none",
-              outline: "none",
-            }}
-          />
-        </TableCell>
-        <TableCell align="center" sx={{ borderRight: "dotted 2px lightgray" }}>
-          <input
-            placeholder="최저가"
-            style={{
-              padding: "0.7rem",
-              width: "10rem",
-              border: "none",
-              outline: "none",
-            }}
-          />
-        </TableCell>
-        <TableCell align="center" sx={{ borderRight: "dotted 2px lightgray" }}>
-          <input
-            placeholder="최고가"
-            style={{
-              padding: "0.7rem",
-              width: "10rem",
-              border: "none",
-              outline: "none",
-            }}
-          />
-        </TableCell>
-        <TableCell align="center">
-          <Button variant="outlined">추적 시작</Button>
-          {children}
-        </TableCell>
-      </TableRow>
-    </TableBody>
+    <TableContainer
+      component="form"
+      variant="outlined"
+      sx={{ background: "white" }}
+      onSubmit={onSubmit}
+    >
+      <Table aria-label="simple table">
+        <TableBody>
+          <TableRow>
+            <TableCell
+              align="center"
+              sx={{ borderRight: "dotted 1px lightgray", width: "11rem" }}
+            >
+              <select
+                name="selectId1"
+                id="selectId1"
+                onChange={onChange}
+                value={currentCountry}
+                style={{ padding: "0.4rem", border: "none", outline: "none" }}
+              >
+                {countries.map((country, index) => (
+                  <option key={index} value={country}>
+                    {country}
+                  </option>
+                ))}
+              </select>
+            </TableCell>
+            <TableCell
+              align="center"
+              sx={{ borderRight: "dotted 1px lightgray", width: "11rem" }}
+            >
+              <select
+                name="selectId2"
+                id="selectId2"
+                value={currentCity}
+                onChange={onChange2}
+                style={{ padding: "0.4rem", border: "none", outline: "none" }}
+              >
+                {cities.map((city, index) => (
+                  <option key={index} value={city}>
+                    {city}
+                  </option>
+                ))}
+              </select>
+            </TableCell>
+            <TableCell
+              align="center"
+              sx={{ borderRight: "dotted 1px lightgray", width: "11rem" }}
+            >
+              <input
+                placeholder="추적할 물품"
+                style={{
+                  padding: "0.7rem",
+                  border: "none",
+                  outline: "none",
+                }}
+              />
+            </TableCell>
+            <TableCell
+              align="center"
+              sx={{ borderRight: "dotted 1px lightgray", width: "11rem" }}
+            >
+              <input
+                placeholder="최저가"
+                style={{
+                  padding: "0.7rem",
+                  border: "none",
+                  outline: "none",
+                }}
+              />
+            </TableCell>
+            <TableCell
+              align="center"
+              sx={{ borderRight: "dotted 1px lightgray", width: "11rem" }}
+            >
+              <input
+                placeholder="최고가"
+                style={{
+                  padding: "0.7rem",
+                  border: "none",
+                  outline: "none",
+                }}
+              />
+            </TableCell>
+            <TableCell align="center">
+              <Button type="submit" variant="outlined" sx={{ width: "11rem" }}>
+                추적 시작
+              </Button>
+            </TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }
