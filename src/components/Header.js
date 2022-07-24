@@ -31,7 +31,6 @@ import { SearchDataContext } from "../contexts/SearchDataContext";
 import { DBdataContext } from "../contexts/DBdataContext";
 import { SumDataContext } from "../contexts/SumDataContext";
 import { AllDBdataContext } from "../contexts/AllDBdataContext";
-import { LoadingContext } from "../contexts/LoadingContext";
 import { getLogOut, postSearchData } from "../api";
 
 import { get_stData } from "../script/searchTable";
@@ -43,7 +42,6 @@ export default function Header() {
   const { DBdata, setDBdata } = useContext(DBdataContext);
   const { sumData, setSumData } = useContext(SumDataContext);
   const { setAllDBdata } = useContext(AllDBdataContext);
-  const { setLoading } = useContext(LoadingContext);
   const navigate = useNavigate();
 
   const { setTitleOn } = useContext(TitleContext);
@@ -73,9 +71,7 @@ export default function Header() {
     setSearchData((searchData) => ({
       ...props,
     }));
-    setLoading(true);
     const response = postSearchData(props);
-    setLoading(false);
     response.then((res) => {
       let resData;
       if (res.isSuccess) {

@@ -57,7 +57,6 @@ export async function postKakao(Data) {
   return body;
 }
 export async function postSearchData(Data) {
-
   const response = await fetch(`${BASE_URL}${Data.path}`, {
     method: "POST",
     mode: "cors",
