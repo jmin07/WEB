@@ -75,7 +75,7 @@ export default function Title() {
           setDBdata(res.result.local);
         }
         setAllDBdata(res.result.total);
-        setSumData(data);
+        setSumData(resData);
         navigate("/statistics");
       } else {
         alert(`${res.message}`);

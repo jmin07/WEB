@@ -16,6 +16,7 @@ import SearchTable from "./SearchTable";
 import { SearchDataContext } from "../contexts/SearchDataContext";
 import { useContext, useState } from "react";
 import { DBdataContext } from "../contexts/DBdataContext";
+import { shareFilter } from "../script/shareFilter";
 
 import { dummydata } from "../script/dummydata.js";
 
@@ -31,11 +32,13 @@ export default function Share() {
   const { searchData } = useContext(SearchDataContext);
   const { DBdata } = useContext(DBdataContext);
 
+
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
-  //   const dataCell = DBdata; //실제 데이터
-  const dataCell = dummydata; // 더미 데이터
+
+
+  const dataCell = shareFilter(DBdata); // 더미 or DBdata
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);

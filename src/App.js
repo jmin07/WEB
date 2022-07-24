@@ -63,17 +63,17 @@ function App() {
         <DBdataContext.Provider value={{ DBdata, setDBdata }}>
           <SumDataContext.Provider value={{ sumData, setSumData }}>
             <AllDBdataContext.Provider value={{ allDBdata, setAllDBdata }}>
-              <Routes>
-                <Route path="/" element={<Title />} />
-                <Route path="main" element={<Mainpage />} />
-                <Route path="trace" element={<Tracepage />} />
-                <Route path="data" element={<Datapage />} />
-                <Route path="search" element={<Searchpage />} />
-                <Route path="share" element={<Sharepage />} />
-                <Route path="statistics" element={<Statisticspage />} />
-                <Route path="signup" element={<SignUp />} />
-                <Route path="forgotpw" element={<ForgotPW />} />
-              </Routes>
+                <Routes>
+                  <Route path="/" element={<Title />} />
+                  <Route path="main" element={<Mainpage />} />
+                  <Route path="trace" element={<Tracepage />} />
+                  <Route path="data" element={<Datapage />} />
+                  <Route path="search" element={<Searchpage />} />
+                  <Route path="share" element={<Sharepage />} />
+                  <Route path="statistics" element={<Statisticspage />} />
+                  <Route path="signup" element={<SignUp />} />
+                  <Route path="forgotpw" element={<ForgotPW />} />
+                </Routes>
             </AllDBdataContext.Provider>
           </SumDataContext.Provider>
         </DBdataContext.Provider>

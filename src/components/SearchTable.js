@@ -213,7 +213,9 @@ export default function SearchTable() {
           to,
           count,
         }) {
-          return `전체 ${count !== -1 ? count : `more than ${to}`}개 중 ${from}–${to}까지`;
+          return `전체 ${
+            count !== -1 ? count : `more than ${to}`
+          }개 중 ${from}–${to}까지`;
         }}
       ></TablePagination>
     </>

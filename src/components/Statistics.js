@@ -5,6 +5,7 @@ import { PriceChart } from "./PriceChart";
 import { SearchDataContext } from "../contexts/SearchDataContext";
 import { SumDataContext } from "../contexts/SumDataContext";
 import { useContext } from "react";
+import { DBdataContext } from "../contexts/DBdataContext";
 
 const GridStyle = styled.div`
   background: white;

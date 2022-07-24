@@ -11,7 +11,14 @@ function get_stData(resData) {
     const indexMan = st_price.indexOf("만");
     const indexNanum = st_price.indexOf("나눔");
     const indexNoprice = st_price.indexOf("가격없음");
-    if (indexMan !== -1 || indexNanum !== -1 || indexNoprice !== -1) continue;
+    const indexNumOne = st_price.indexOf("1원");
+    if (
+      indexNumOne !== -1 ||
+      indexMan !== -1 ||
+      indexNanum !== -1 ||
+      indexNoprice !== -1
+    )
+      continue;
     st_priceWithoutWon.push(parseInt(st_price));
   }
 

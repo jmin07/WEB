@@ -83,7 +83,7 @@ export default function Header() {
           setDBdata(res.result.local);
         }
         setAllDBdata(res.result.total);
-        setSumData(data);
+        setSumData(resData);
         navigate("/statistics");
       } else {
         alert(`${res.message}`);
@@ -95,7 +95,6 @@ export default function Header() {
     // setDBdata(dummydata);
     // setAllDBdata(dummydata);
     //더미더미
-    navigate("/statistics");
   };
   const LogOut = () => {
     const data = "/auth/logout";

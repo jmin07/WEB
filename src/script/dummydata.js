@@ -251,7 +251,7 @@ const dummydata = [
     IDX: 84920,
     Local: "대치동",
     Nickname: "땅구땅",
-    Price: "나눔",
+    Price: "1원",
     Province: "서귀포시",
     Region: "제주",
     Temperature: "36.9",
