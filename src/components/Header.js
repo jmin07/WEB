@@ -52,21 +52,21 @@ export default function Header() {
     TrueFalse: false,
     profileImage: "",
   });
-  useEffect(() => {
-    const data = "/auth/loginstatus";
-    const props = { path: data };
-    const response = getLoginStatus(props);
-    response.then((res) => {
-      if (res.isSuccess) {
-        setLogin({
-          TrueFalse: true,
-          profileImage:
-            "https://watchrabbit.s3.ap-northeast-2.amazonaws.com/carrot+(1).png",
-        });
-      }
-    });
-  },[]);
-  //
+  // useEffect(() => {
+  //   const data = "/auth/loginstatus";
+  //   const props = { path: data };
+  //   const response = getLoginStatus(props);
+  //   response.then((res) => {
+  //     if (res.isSuccess) {
+  //       setLogin({
+  //         TrueFalse: true,
+  //         profileImage:
+  //           "https://watchrabbit.s3.ap-northeast-2.amazonaws.com/carrot+(1).png",
+  //       });
+  //     }
+  //   });
+  // },[]);
+  
   const [modalOpen, setModalOpen] = useState(false);
 
   const onSubmit = (e) => {

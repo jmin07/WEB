@@ -115,3 +115,23 @@ export async function getLoginStatus(Data) {
   const body = await response.json();
   return body;
 }
+
+export async function postTraceData(Data) {
+  const response = await fetch(`${BASE_URL}${Data.path}`, {
+    method: "POST",
+    mode: "cors",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+    body: JSON.stringify({
+      City: Data.traceCity,
+      Area: Data.traceArea,
+      Value: Data.traceValue,
+      MinPrice: Data.traceMinPrice,
+      MaxPrice: Data.traceMaxPrice,
+    }),
+  });
+  const body = await response.json();
+  return body;
+}

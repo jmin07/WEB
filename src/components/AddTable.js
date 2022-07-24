@@ -5,6 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 
 import { Paper, Button, InputBase, TableContainer, Table } from "@mui/material";
+import { postTraceData } from "../api";
 
 export default function AddTable({ children }) {
   const [currentCountry, setCurrentCountry] = useState("서울");
@@ -21,11 +22,21 @@ export default function AddTable({ children }) {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target[0].value);
-    console.log(e.target[1].value);
-    console.log(e.target[2].value);
-    console.log(e.target[3].value);
-
+    const city = e.target[0].value;
+    const area = e.target[1].value;
+    const value = e.target[2].value;
+    const minPrice = e.target[3].value;
+    const maxPrice = e.target[4].value;
+    const data = "/db/trace";
+    const props = {
+      path: data,
+      traceCity: city,
+      traceArea: area,
+      traceValue: value,
+      traceMinPrice: minPrice,
+      traceMaxPrice: maxPrice,
+    };
+    postTraceData(props);
   };
   return (
     <TableContainer

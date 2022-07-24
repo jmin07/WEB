@@ -6,6 +6,7 @@ import { postGoogle, postLoginData, postKakao } from "../api";
 import { Img } from "../style/styled";
 import { useContext, useState } from "react";
 import { LoginDataContext } from "../contexts/LoginDataContext";
+import { useEffect } from "react";
 
 const GoogleButton = styled(Button)({
   backgroundColor: "white",
@@ -56,6 +57,7 @@ export default function Login() {
       }
     });
   };
+
   const googleClick = () => {
     const data = "/auth/google";
     const props = { path: data };
