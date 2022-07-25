@@ -1,12 +1,18 @@
-import { CenterDiv } from "../style/styled";
-import { Typography, TextField, Button, Divider, Grid } from "@mui/material";
-import { postEmail, postFindPWD } from "../api";
-import { useNavigate } from "react-router-dom";
+//리액트
 import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+//스타일
+import { CenterDiv } from "../style/styled";
+
+//MUI스타일
+import { Typography, TextField, Button, Divider, Grid } from "@mui/material";
+
+//외부함수
+import { postEmail, postFindPWD } from "../api";
 
 export default function ForgotPW() {
   const [getAthNumber, setAthNumber] = useState("");
-
   const navigate = useNavigate();
 
   function CheckEmail(str) {

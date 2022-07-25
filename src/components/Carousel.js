@@ -3,8 +3,6 @@ import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Img } from "../style/styled";
-import { Typography } from "@mui/material";
-import { borderRadius } from "@mui/system";
 const settings = {
   dots: true,
   Infinity: true,

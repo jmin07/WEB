@@ -1,11 +1,9 @@
 import { Box, Container } from "@mui/material";
 import { Img } from "../style/styled";
-import Header from "./Header";
 
 export const Loading = () => {
   return (
     <>
-      <Header />
       <Container maxWidth="xl">
         <Box
           sx={{

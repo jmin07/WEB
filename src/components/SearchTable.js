@@ -5,18 +5,19 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import AddSearchTable from "./AddSearchTable";
 import { SearchDataContext } from "../contexts/SearchDataContext";
 import { useContext, useState } from "react";
-import { SumDataContext } from "../contexts/SumDataContext";
-import { Button, TableFooter, TablePagination } from "@mui/material";
+import { Button, TablePagination } from "@mui/material";
 import { DBdataContext } from "../contexts/DBdataContext";
-import { dummydata } from "../script/dummydata.js";
+import { sumDataFunc } from "../script/sumDataFunc";
+// import { dummydata } from "../script/dummydata.js";//더미 데이터
 
 export default function SearchTable() {
   const { DBdata } = useContext(DBdataContext);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+
+  const sumData = sumDataFunc(DBdata);
 
   const dataCell = DBdata; //실제 데이터
   // const dataCell = dummydata; // 더미 데이터
@@ -33,7 +34,6 @@ export default function SearchTable() {
   };
 
   const { searchData } = useContext(SearchDataContext);
-  const { sumData } = useContext(SumDataContext);
 
   return (
     <>
@@ -195,7 +195,6 @@ export default function SearchTable() {
                   </TableRow>
                 );
               })}
-            {/* <AddSearchTable /> */}
           </TableBody>
         </Table>
       </TableContainer>

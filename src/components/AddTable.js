@@ -4,7 +4,7 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 
-import { Paper, Button, InputBase, TableContainer, Table } from "@mui/material";
+import { Button, TableContainer, Table } from "@mui/material";
 import { postTraceData } from "../api";
 
 export default function AddTable({ children }) {

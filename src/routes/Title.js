@@ -1,4 +1,12 @@
+//리액트
 import { Link, useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
+
+//스타일
+import "../style/font.css";
+import { CenterDiv, Img } from "../style/styled";
+
+//MUI 스타일
 import {
   Paper,
   IconButton,
@@ -8,39 +16,30 @@ import {
   Zoom,
   Tooltip,
 } from "@mui/material";
+import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
-
-import { CenterDiv, Img } from "../style/styled";
-import Modal from "react-modal";
-import "../style/modal.css";
-import "../style/main.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
-import "../style/font.css";
-import HomeIcon from "@mui/icons-material/Home";
-//
-import { TitleContext } from "../contexts/TitleContext";
-import React, { useContext, useState } from "react";
-import SelectArea from "./SelectArea";
+
+//컨텍스트
 import { AllDBdataContext } from "../contexts/AllDBdataContext";
 import { DBdataContext } from "../contexts/DBdataContext";
-import { SumDataContext } from "../contexts/SumDataContext";
 import { SearchDataContext } from "../contexts/SearchDataContext";
 import { LoadingContext } from "../contexts/LoadingContext"; //로딩 컨텍스트
 
-import { get_stData } from "../script/searchTable";
-import { dummydata } from "../script/dummydata";
+//컴포넌트
+import SelectArea from "../components/SelectArea";
+
+//외부함수
 import { postSearchData } from "../api";
+// import { dummydata } from "../script/dummydata";//더미데이터
 //
-Modal.setAppElement("Title");
 
 export default function Title() {
   //
-  const { setTitleOn } = useContext(TitleContext);
   const { setSearchData } = useContext(SearchDataContext);
-  const { DBdata, setDBdata } = useContext(DBdataContext);
+  const { setDBdata } = useContext(DBdataContext);
   const { setAllDBdata } = useContext(AllDBdataContext);
-  const { sumData, setSumData } = useContext(SumDataContext);
   const { setLoading } = useContext(LoadingContext); //로딩
 
   //
@@ -66,17 +65,13 @@ export default function Title() {
     }));
     const response = postSearchData(props);
     response.then((res) => {
-      let resData;
       if (res.isSuccess) {
         if (e.target[0].value === "전국") {
-          resData = get_stData(res.result.total);
           setDBdata(res.result.total);
         } else {
-          resData = get_stData(res.result.local);
           setDBdata(res.result.local);
         }
         setAllDBdata(res.result.total);
-        setSumData(resData);
         navigate("/statistics");
       } else {
         alert(`${res.message}`);
@@ -100,8 +95,7 @@ export default function Title() {
         height="100vh"
         boxShadow="0px 0px 5px 1px #ccc"
         borderRadius="7px"
-        // backgroundColor="#F9F2EA"
-        backgroundColor="#f5f5f5" //"#fff6e5"
+        backgroundColor="#f5f5f5"
       >
         <Grid
           container
@@ -151,7 +145,7 @@ export default function Title() {
           <Grid item xs={12} sx={{ m: 15 }}>
             <Link to="/main">
               <Tooltip title="Main Page" arrow TransitionComponent={Zoom}>
-                <IconButton onClick={() => setTitleOn(false)}>
+                <IconButton>
                   <HomeIcon fontSize="large" />
                 </IconButton>
               </Tooltip>

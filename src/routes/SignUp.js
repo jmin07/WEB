@@ -1,4 +1,11 @@
+//리액트
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+//스타일
 import { CenterDiv } from "../style/styled";
+
+//MUI 스타일
 import {
   Grid,
   Typography,
@@ -8,9 +15,9 @@ import {
   Checkbox,
   Divider,
 } from "@mui/material";
+
+//외부함수
 import { postEmail, postLoginData } from "../api";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function CheckEmail(str) {
   const emailtype =
@@ -31,7 +38,7 @@ export default function SignUp() {
     if (signupComplete) {
       navigate(-1);
     }
-  }, [ signupComplete]);
+  }, [signupComplete]);
 
   const SendEmail = () => {
     let clientEmail = document.getElementById("email").value;

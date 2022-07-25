@@ -1,4 +1,4 @@
-function get_stData(resData) {
+function sumDataFunc(resData) {
   var st_serchDay; //데이터 검색일
   var st_priceAverageAllRegion; //전국 평균가격
   var st_priceMinAllRegion; //전국 최저가격
@@ -52,4 +52,4 @@ function get_stData(resData) {
   ];
 }
 
-export { get_stData };
+export { sumDataFunc };

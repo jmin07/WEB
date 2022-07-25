@@ -1,8 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { Img } from "../style/styled";
-import { Outlet } from "react-router-dom";
 import SelectArea from "../components/SelectArea";
 
+//MUI 스타일
 import {
   Button,
   Paper,
@@ -25,29 +26,23 @@ import Login from "./Login";
 import CloseIcon from "@mui/icons-material/Close";
 
 import "../style/font.css";
-import { TitleContext } from "../contexts/TitleContext";
 import { LoginDataContext } from "../contexts/LoginDataContext";
 import { SearchDataContext } from "../contexts/SearchDataContext";
 import { DBdataContext } from "../contexts/DBdataContext";
-import { SumDataContext } from "../contexts/SumDataContext";
 import { AllDBdataContext } from "../contexts/AllDBdataContext";
 import { getLoginStatus, getLogOut, postSearchData } from "../api";
 import { LoadingContext } from "../contexts/LoadingContext"; //로딩 컨텍스트
 
-import { get_stData } from "../script/searchTable";
-import { dummydata } from "../script/dummydata";
-import { useEffect } from "react";
+// import { dummydata } from "../script/dummydata"; //더미데이터
 
 export default function Header() {
   //
-  const { searchData, setSearchData } = useContext(SearchDataContext);
-  const { DBdata, setDBdata } = useContext(DBdataContext);
-  const { sumData, setSumData } = useContext(SumDataContext);
+  const { setSearchData } = useContext(SearchDataContext);
+  const { setDBdata } = useContext(DBdataContext);
   const { setAllDBdata } = useContext(AllDBdataContext);
   const { setLoading } = useContext(LoadingContext); //로딩
   const navigate = useNavigate();
 
-  const { setTitleOn } = useContext(TitleContext);
   const [login, setLogin] = useState({
     TrueFalse: false,
     profileImage: "",
@@ -77,10 +72,7 @@ export default function Header() {
     const city = e.target[0].value;
     const area = e.target[1].value;
     const value = e.target[2].value;
-    // console.log(city, area, value);
     const data = "/db/test";
-    // if (e.target[0].value === "전국") {
-    // }
     const props = {
       path: data,
       userCity: city,
@@ -92,17 +84,13 @@ export default function Header() {
     }));
     const response = postSearchData(props);
     response.then((res) => {
-      let resData;
       if (res.isSuccess) {
         if (e.target[0].value === "전국") {
-          resData = get_stData(res.result.total);
           setDBdata(res.result.total);
         } else {
-          resData = get_stData(res.result.local);
           setDBdata(res.result.local);
         }
         setAllDBdata(res.result.total);
-        setSumData(resData);
         navigate("/statistics");
       } else {
         alert(`${res.message}`);
@@ -121,6 +109,14 @@ export default function Header() {
     const props = { path: data };
     getLogOut(props);
   };
+
+  if (window.location.pathname === "/") {
+    return null;
+  } else if (window.location.pathname === "/signup") {
+    return null;
+  } else if (window.location.pathname === "/forgotpw") {
+    return null;
+  }
 
   return (
     <>
@@ -154,7 +150,6 @@ export default function Header() {
                       fontFamily: "ulsanjunggu",
                       borderRadius: "1rem",
                     }}
-                    onClick={() => setTitleOn(true)}
                   >
                     Watch <span style={{ color: "#357a38" }}>Rabbit</span>
                     <Img src="/img/carrot.png" width="35px" />
@@ -386,86 +381,8 @@ export default function Header() {
               </Grid>
             </Grid>
           </Modal>
-
-          {/* <Box>
-            <Link to="/" style={{ textDecorationLine: "none" }}>
-              <Button
-                sx={{
-                  ml: 6,
-                  fontWeight: "bold",
-                  color: "white",
-                  background: "coral",
-                }}
-                variant="contained"
-                color="warning"
-              >
-                사이트 안내
-              </Button>
-            </Link>
-
-            <Link to="/data" style={{ textDecorationLine: "none" }}>
-              <Button
-                sx={{
-                  ml: 2,
-                  fontWeight: "bold",
-                  color: "white",
-                  background: "coral",
-                }}
-                variant="contained"
-                color="warning"
-              >
-                간편 데이터
-              </Button>
-            </Link>
-
-            <Link to="/search" style={{ textDecorationLine: "none" }}>
-              <Button
-                sx={{
-                  ml: 2,
-                  fontWeight: "bold",
-                  color: "white",
-                  background: "coral",
-                }}
-                variant="contained"
-                color="warning"
-              >
-                물품 검색
-              </Button>
-            </Link>
-
-            <Link to="/statistics" style={{ textDecorationLine: "none" }}>
-              <Button
-                sx={{
-                  ml: 2,
-                  fontWeight: "bold",
-                  color: "white",
-                  background: "coral",
-                }}
-                variant="contained"
-                color="warning"
-              >
-                통계 정보
-              </Button>
-            </Link>
-
-            <Link to="/trace" style={{ textDecorationLine: "none" }}>
-              <Button
-                sx={{
-                  ml: 2,
-                  fontWeight: "bold",
-                  color: "white",
-                  background: "coral",
-                }}
-                variant="contained"
-                color="warning"
-              >
-                추적 알림
-              </Button>
-            </Link>
-          </Box> */}
         </Grid>
       </Container>
-      <Outlet />
     </>
   );
 }

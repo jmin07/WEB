@@ -1,11 +1,17 @@
+//스타일
 import { Box, Container, Grid } from "@mui/material";
 import styled from "styled-components";
-import { PostChart } from "./PostChart";
-import { PriceChart } from "./PriceChart";
-import { SearchDataContext } from "../contexts/SearchDataContext";
-import { SumDataContext } from "../contexts/SumDataContext";
+
+//컴포넌트
+import { PriceChart } from "../components/PriceChart";
+
+//컨텍스트
 import { useContext } from "react";
+import { SearchDataContext } from "../contexts/SearchDataContext";
 import { DBdataContext } from "../contexts/DBdataContext";
+
+//외부함수
+import { sumDataFunc } from "../script/sumDataFunc";
 
 const GridStyle = styled.div`
   background: white;
@@ -43,7 +49,8 @@ const TitleTextStyle = styled.div`
 
 export default function Statistics() {
   const { searchData } = useContext(SearchDataContext);
-  const { sumData } = useContext(SumDataContext);
+  const { DBdata } = useContext(DBdataContext);
+  const sumData = sumDataFunc(DBdata);
 
   return (
     <>

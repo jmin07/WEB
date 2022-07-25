@@ -1,8 +1,17 @@
-import { Box, Container } from "@mui/material";
-import styled from "styled-components";
-import SearchTable from "./SearchTable";
-import { SearchDataContext } from "../contexts/SearchDataContext";
+//리액트
 import { useContext } from "react";
+
+//스타일
+import styled from "styled-components";
+
+//MUI스타일
+import { Box, Container } from "@mui/material";
+
+//컨텍스트
+import { SearchDataContext } from "../contexts/SearchDataContext";
+
+//컴포넌트
+import SearchTable from "../components/SearchTable";
 
 const TitleTextStyle = styled.div`
   font-size: 1.7rem;
@@ -12,7 +21,7 @@ const TitleTextStyle = styled.div`
   margin-bottom: 1rem;
 `;
 
-export default function Searchpage() {
+export default function Search() {
   const { searchData } = useContext(SearchDataContext);
   return (
     <>
@@ -27,11 +36,11 @@ export default function Searchpage() {
             boxShadow: "0px 0px 5px 1px #ccc",
             height: "100%",
             fontFamily: "MICEGothic Bold",
-
           }}
         >
           <TitleTextStyle>
-            {searchData.userCity} {searchData.userArea} {searchData.userValue} 판매 현황
+            {searchData.userCity} {searchData.userArea} {searchData.userValue}{" "}
+            판매 현황
           </TitleTextStyle>
           <br />
           <SearchTable />

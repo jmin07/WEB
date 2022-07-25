@@ -4,9 +4,8 @@ import { styled } from "@mui/material/styles";
 
 import { postGoogle, postLoginData, postKakao } from "../api";
 import { Img } from "../style/styled";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { LoginDataContext } from "../contexts/LoginDataContext";
-import { useEffect } from "react";
 
 const GoogleButton = styled(Button)({
   backgroundColor: "white",

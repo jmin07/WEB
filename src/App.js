@@ -1,31 +1,27 @@
 import { Routes, Route } from "react-router-dom";
-import "./style/main.css";
-// import Trace from "./routes/Trace";
-// import Home from "./routes/Home";
-// import Header from "./components/Header";
-// import EasyData from "./routes/EasyData";
+
+//라우터
+import Header from "./components/Header";
+import Title from "./routes/Title";
+import Statistics from "./routes/Statistics";
+import Search from "./routes/Search";
+import Share from "./routes/Share";
+import Trace from "./routes/Trace";
+import Home from "./routes/Home";
 import SignUp from "./routes/SignUp";
 import ForgotPW from "./routes/ForgotPW";
-import Mainpage from "./routes/Mainpage";
-import Datapage from "./routes/Datapage";
-import Tracepage from "./routes/Tracepage";
-import Searchpage from "./routes/Searchpage";
-import Statisticspage from "./routes/Statisticspage";
-import Sharepage from "./routes/Sharepage";
 
-import Title from "./components/Title";
-
-import { useState } from "react";
-import { TitleContext } from "./contexts/TitleContext";
+//컨텍스트
 import { SearchDataContext } from "./contexts/SearchDataContext";
 import { DBdataContext } from "./contexts/DBdataContext";
-import { SumDataContext } from "./contexts/SumDataContext";
 import { AllDBdataContext } from "./contexts/AllDBdataContext";
 import { LoadingContext } from "./contexts/LoadingContext";
+
+//스테이트
+import { useState } from "react";
 import { Loading } from "./components/Loading";
 
 function App() {
-  const [titleOn, setTitleOn] = useState(true);
   const [searchData, setSearchData] = useState({
     userCity: "",
     userArea: "",
@@ -35,7 +31,7 @@ function App() {
     {
       URL: "",
       Title: "",
-      Price: "",
+      Price: "0",
       Classification: "",
       Region: "",
       Province: "",
@@ -57,38 +53,33 @@ function App() {
       UpdateTime: "",
     },
   ]);
-  const [sumData, setSumData] = useState([]);
 
   const [loading, setLoading] = useState(false);
 
   return (
-    <TitleContext.Provider value={{ titleOn, setTitleOn }}>
-      <SearchDataContext.Provider value={{ searchData, setSearchData }}>
-        <DBdataContext.Provider value={{ DBdata, setDBdata }}>
-          <SumDataContext.Provider value={{ sumData, setSumData }}>
-            <AllDBdataContext.Provider value={{ allDBdata, setAllDBdata }}>
-              <LoadingContext.Provider value={{ loading, setLoading }}>
-                {loading ? (
-                  <Loading />
-                ) : (
-                  <Routes>
-                    <Route path="/" element={<Title />} />
-                    <Route path="main" element={<Mainpage />} />
-                    <Route path="trace" element={<Tracepage />} />
-                    <Route path="data" element={<Datapage />} />
-                    <Route path="search" element={<Searchpage />} />
-                    <Route path="share" element={<Sharepage />} />
-                    <Route path="statistics" element={<Statisticspage />} />
-                    <Route path="signup" element={<SignUp />} />
-                    <Route path="forgotpw" element={<ForgotPW />} />
-                  </Routes>
-                )}
-              </LoadingContext.Provider>
-            </AllDBdataContext.Provider>
-          </SumDataContext.Provider>
-        </DBdataContext.Provider>
-      </SearchDataContext.Provider>
-    </TitleContext.Provider>
+    <SearchDataContext.Provider value={{ searchData, setSearchData }}>
+      <DBdataContext.Provider value={{ DBdata, setDBdata }}>
+        <AllDBdataContext.Provider value={{ allDBdata, setAllDBdata }}>
+          <LoadingContext.Provider value={{ loading, setLoading }}>
+            <Header />
+            {loading ? (
+              <Loading />
+            ) : (
+              <Routes>
+                <Route path="/" element={<Title />} />
+                <Route path="statistics" element={<Statistics />} />
+                <Route path="search" element={<Search />} />
+                <Route path="share" element={<Share />} />
+                <Route path="trace" element={<Trace />} />
+                <Route path="main" element={<Home />} />
+                <Route path="signup" element={<SignUp />} />
+                <Route path="forgotpw" element={<ForgotPW />} />
+              </Routes>
+            )}
+          </LoadingContext.Provider>
+        </AllDBdataContext.Provider>
+      </DBdataContext.Provider>
+    </SearchDataContext.Provider>
   );
 }
 

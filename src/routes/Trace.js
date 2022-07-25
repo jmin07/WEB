@@ -1,7 +1,12 @@
-import { Box, Container } from "@mui/material";
-import TraceTable from "./TraceTable";
+//스타일
 import { Img, BubbleBox } from "../style/styled";
 import styled from "styled-components";
+
+//MUI 스타일
+import { Box, Container } from "@mui/material";
+
+//컴포넌트
+import TraceTable from "../components/TraceTable";
 
 const TitleTextStyle = styled.div`
   font-size: 1.7rem;
@@ -44,8 +49,6 @@ export default function Trace() {
             </BubbleBox>
             <Img
               src="/img/WRN.png"
-              // position="absolute"
-              // left="1200px"
               width="200px"
               height="200px"
             />

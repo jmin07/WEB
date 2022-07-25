@@ -1,3 +1,7 @@
+//리액트
+import { useContext, useState } from "react";
+
+//MUI 스타일
 import {
   Box,
   Button,
@@ -12,13 +16,14 @@ import {
   TableRow,
 } from "@mui/material";
 import styled from "styled-components";
-import SearchTable from "./SearchTable";
-import { SearchDataContext } from "../contexts/SearchDataContext";
-import { useContext, useState } from "react";
-import { DBdataContext } from "../contexts/DBdataContext";
-import { shareFilter } from "../script/shareFilter";
 
-import { dummydata } from "../script/dummydata.js";
+//컨텍스트
+import { SearchDataContext } from "../contexts/SearchDataContext";
+import { DBdataContext } from "../contexts/DBdataContext";
+
+//외부함수
+import { shareFilter } from "../script/shareFilter";
+// import { dummydata } from "../script/dummydata.js"; //더미데이터
 
 const TitleTextStyle = styled.div`
   font-size: 1.7rem;
@@ -29,17 +34,16 @@ const TitleTextStyle = styled.div`
 `;
 
 export default function Share() {
+  //선언부
   const { searchData } = useContext(SearchDataContext);
   const { DBdata } = useContext(DBdataContext);
-
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
-
-
   const dataCell = shareFilter(DBdata); // 더미 or DBdata
 
+  //함수
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
     console.log("rowsPerPage", rowsPerPage);
