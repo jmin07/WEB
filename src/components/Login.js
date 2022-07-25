@@ -1,5 +1,4 @@
 import { TextField, Button, Typography, Box, Container } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 
 import { postGoogle, postLoginData, postKakao } from "../api";
@@ -25,8 +24,6 @@ const KakaoButton = styled(Button)({
 export default function Login() {
   const { setLogin } = useContext(LoginDataContext);
 
-  const navigate = useNavigate();
-
   const onSubmit = (e) => {
     console.log("login complete");
     e.preventDefault();
@@ -37,11 +34,6 @@ export default function Login() {
     console.log(id, password);
     const response = postLoginData(props);
     response.then((res) => {
-      // const isSuccess = res.isSuccess;
-      // const props = { TrueFalse: isSuccess };
-      // setLogin((login) => ({
-      //   ...props,
-      // }));
       if (res.isSuccess) {
         setLogin((login) => ({
           ...login,
@@ -50,7 +42,7 @@ export default function Login() {
             "https://watchrabbit.s3.ap-northeast-2.amazonaws.com/carrot+(1).png",
         }));
         alert(`${res.message}`);
-        navigate("/main");
+        window.location.replace("/main");
       } else {
         alert(`${res.message}`);
       }
@@ -77,14 +69,17 @@ export default function Login() {
     const props = { path: data };
     const response = postKakao(props);
     response.then((res) => {
-      console.log(res);
-      console.log("카카오로 이동");
-      const isSuccess = res.isSuccess;
-      const profile_image = res.result.profile_image;
-      const props = { TrueFalse: isSuccess, profileImage: profile_image };
-      setLogin((login) => ({
-        ...props,
-      }));
+      if (res.isSuccess) {
+        const profile_image = res.result.profile_image;
+        setLogin((login) => ({
+          ...login,
+          TrueFalse: true,
+          profileImage: profile_image,
+        }));
+        window.location.replace("/main");
+      } else {
+        alert(`${res.message}`);
+      }
     });
   };
   return (

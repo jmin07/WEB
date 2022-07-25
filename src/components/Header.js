@@ -114,7 +114,19 @@ export default function Header() {
   const LogOut = () => {
     const data = "/auth/logout";
     const props = { path: data };
-    getLogOut(props);
+    const response = getLogOut(props);
+    response.then((res) => {
+      if (res.isSuccess) {
+        setLogin((login) => ({
+          ...login,
+          TrueFalse: false,
+          profileImage: "",
+        }));
+        // window.location.replace("/main");
+      } else {
+        alert(`${res.message}`);
+      }
+    });
   };
 
   if (window.location.pathname === "/") {
