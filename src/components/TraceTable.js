@@ -28,6 +28,7 @@ export default function TraceTable() {
   //   console.log(idx);
 
   // };
+  const arr = [1, 2, 3, 4, 5];
 
   return (
     <>
@@ -93,10 +94,7 @@ export default function TraceTable() {
         <AddIcon />
       </Button> */}
 
-
-
-
-{/*       
+      {/*       
       <TableContainer
         component={Paper}
         variant="outlined"
@@ -142,15 +140,19 @@ export default function TraceTable() {
           </TableHead>
         </Table>
       </TableContainer> */}
-      <AddTable />
+      {/* <AddTable />
       <p/>
       <AddTable />
       <p/>
       <AddTable />
       <p/>
       <AddTable />
-      <p/>
-      <AddTable />
+      <p/> */}
+      {arr.map((item,idx) => (
+        <>
+          <AddTable key={idx}>{item}</AddTable>
+        </>
+      ))}
     </>
   );
 }
