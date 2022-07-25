@@ -1,4 +1,4 @@
-import AddTable from "./AddTable";
+import AddTraceTable from "./AddTraceTable";
 
 export default function TraceTable() {
   const arr = [1, 2, 3, 4, 5];
@@ -7,7 +7,7 @@ export default function TraceTable() {
     <>
       {arr.map((item, idx) => (
         <>
-          <AddTable key={idx}>{item}</AddTable>
+          <AddTraceTable key={idx}>{item}</AddTraceTable>
         </>
       ))}
     </>

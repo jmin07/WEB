@@ -1,7 +1,8 @@
+//리액트
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 //라우터
-import Header from "./components/Header";
 import Title from "./routes/Title";
 import Statistics from "./routes/Statistics";
 import Search from "./routes/Search";
@@ -17,8 +18,8 @@ import { DBdataContext } from "./contexts/DBdataContext";
 import { AllDBdataContext } from "./contexts/AllDBdataContext";
 import { LoadingContext } from "./contexts/LoadingContext";
 
-//스테이트
-import { useState } from "react";
+//컴포넌트
+import Header from "./components/Header";
 import { Loading } from "./components/Loading";
 
 function App() {

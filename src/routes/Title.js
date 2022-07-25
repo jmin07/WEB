@@ -32,7 +32,7 @@ import SelectArea from "../components/SelectArea";
 
 //외부함수
 import { postSearchData } from "../api";
-// import { dummydata } from "../script/dummydata";//더미데이터
+// import { dummydata } from "../script/dummydata"; //더미데이터
 //
 
 export default function Title() {
@@ -47,7 +47,7 @@ export default function Title() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);//로딩
+    setLoading(true); //로딩
     const city = e.target[0].value;
     const area = e.target[1].value;
     const value = e.target[2].value;
@@ -76,9 +76,13 @@ export default function Title() {
       } else {
         alert(`${res.message}`);
       }
-      setLoading(false);//로딩
+      setLoading(false);
     });
+    //더미데이터 쓸때
+    // setDBdata(dummydata);
     // setAllDBdata(dummydata);
+    // navigate("/statistics");
+    //더미더미
   };
 
   const [sideBar, setSideBar] = useState(false);
@@ -92,7 +96,6 @@ export default function Title() {
       {/* 타이틀 화면 구현 */}
       <CenterDiv
         width="40%"
-        height="100vh"
         boxShadow="0px 0px 5px 1px #ccc"
         borderRadius="7px"
         backgroundColor="#f5f5f5"
@@ -156,13 +159,14 @@ export default function Title() {
 
       <Box
         sx={{
-          height: "99.5%",
+          height: "100vh",
           width: "100%",
           background: "rgba(0, 0, 0, 0.8)",
           position: "absolute",
           opacity: sideBar ? "100%" : "0%",
           top: sideBar ? "0%" : "-100%",
           transitionDuration: "1s",
+          boxShadow: "0px 0px 50px 10px dimgray",
         }}
         onClick={() => setSideBar(false)}
       >

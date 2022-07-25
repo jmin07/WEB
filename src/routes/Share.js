@@ -78,7 +78,7 @@ export default function Share() {
           <TableContainer
             component={Paper}
             variant="outlined"
-            sx={{ background: "" }}
+            sx={{ background: "", boxShadow: "0px 0px 3px 0px #ccc" }}
           >
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
@@ -93,7 +93,7 @@ export default function Share() {
                     align="center"
                     sx={{ borderRight: "dotted 1px lightgray", width: "9rem" }}
                   >
-                    판매자/매너온도{/*할 것 매너온도 색변경 */}
+                    판매자/매너온도
                   </TableCell>
                   <TableCell
                     align="center"
@@ -157,14 +157,19 @@ export default function Share() {
                           {dataCell.Price}
                         </TableCell>
                         <TableCell align="center">
-                          <a href={dataCell.URL}>
-                            <Button variant="outlined">이동</Button>
+                          <a
+                            href={dataCell.URL}
+                            target="blank"
+                            style={{ textDecoration: "none" }}
+                          >
+                            <Button variant="outlined" color="warning">
+                              이동
+                            </Button>
                           </a>
                         </TableCell>
                       </TableRow>
                     );
                   })}
-                {/* <AddSearchTable /> */}
               </TableBody>
             </Table>
           </TableContainer>

@@ -70,7 +70,6 @@ export default function ForgotPW() {
     <>
       <CenterDiv
         width="25%"
-        height="100vh"
         boxShadow="0px 0px 5px 1px #ccc"
         borderRadius="2px"
         backgroundColor="white"

@@ -8,7 +8,6 @@ import {
   BarChart,
   Bar,
 } from "recharts";
-// import { regiondummydata } from "../script/regiondummydata"; //전국 더미
 import { regionChartFunc } from "../script/regionChartFunc";
 import { AllDBdataContext } from "../contexts/AllDBdataContext";
 

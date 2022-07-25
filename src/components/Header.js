@@ -1,7 +1,10 @@
+//리액트
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
+
+//스타일
 import { Img } from "../style/styled";
-import SelectArea from "../components/SelectArea";
+import "../style/font.css";
 
 //MUI 스타일
 import {
@@ -21,32 +24,39 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 
 // 로그인 모달 import
 import Modal from "react-modal";
-import React, { useContext, useState } from "react";
 import Login from "./Login";
 import CloseIcon from "@mui/icons-material/Close";
 
-import "../style/font.css";
+//컨텍스트
 import { LoginDataContext } from "../contexts/LoginDataContext";
 import { SearchDataContext } from "../contexts/SearchDataContext";
 import { DBdataContext } from "../contexts/DBdataContext";
 import { AllDBdataContext } from "../contexts/AllDBdataContext";
-import { getLoginStatus, getLogOut, postSearchData } from "../api";
 import { LoadingContext } from "../contexts/LoadingContext"; //로딩 컨텍스트
 
+//컴포넌트
+import SelectArea from "../components/SelectArea";
+
+//외부함수
+import { getLoginStatus, getLogOut, postSearchData } from "../api";
 // import { dummydata } from "../script/dummydata"; //더미데이터
 
 export default function Header() {
-  //
+  //컨택스트
   const { setSearchData } = useContext(SearchDataContext);
   const { setDBdata } = useContext(DBdataContext);
   const { setAllDBdata } = useContext(AllDBdataContext);
   const { setLoading } = useContext(LoadingContext); //로딩
-  const navigate = useNavigate();
 
+  //스테이트
+  const [modalOpen, setModalOpen] = useState(false);
   const [login, setLogin] = useState({
     TrueFalse: false,
     profileImage: "",
   });
+  const navigate = useNavigate();
+
+  //함수
   useEffect(() => {
     async function test() {
       const data = "/auth/loginstatus";
@@ -63,8 +73,6 @@ export default function Header() {
     }
     test();
   }, []);
-
-  const [modalOpen, setModalOpen] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -98,10 +106,9 @@ export default function Header() {
       setLoading(false);
     });
     //더미데이터 쓸때
-    // const dummy = get_stData(dummydata);
-    // setSumData(dummy);
     // setDBdata(dummydata);
     // setAllDBdata(dummydata);
+    // navigate("/statistics");
     //더미더미
   };
   const LogOut = () => {
@@ -124,20 +131,17 @@ export default function Header() {
         <Grid>
           <Box
             sx={{
-              // m: 5,
-              // mt: 2,
               mb: 2,
               ml: 5,
               mr: 5,
-              // background: "#F9F2EA",
-              background: "#f5f5f5", //"#fff6e5"
+              background: "#f5f5f5",
               borderRadius: "0px 0px 5px 5px",
               boxShadow: "0px 0px 5px 1px #ccc",
               p: 2,
             }}
           >
             <Grid container>
-              <Grid item xs={3}>
+              <Grid item xs={3} sx={{ textAlign: "center" }}>
                 <Link to="/" style={{ textDecoration: "none" }}>
                   <Button
                     size="small"
@@ -159,7 +163,7 @@ export default function Header() {
               <Grid item xs={5}>
                 <Paper
                   component="form"
-                  action="/data"
+                  action="/statistics"
                   sx={{
                     mt: 1,
                     p: "2px 4px",
@@ -187,10 +191,6 @@ export default function Header() {
                   <div style={{ color: "dimgray", marginTop: "1.1rem" }}>
                     5개의 물품을 추적중입니다...
                   </div>
-
-                  {/* 검색 된 단어: <p />
-                  {searchData.userCity} {searchData.userArea}{" "}
-                  {searchData.userValue} */}
                 </Box>
               </Grid>
               <Grid item xs={1}>
@@ -214,19 +214,6 @@ export default function Header() {
                     </Button>
                   </Tooltip>
                 )}
-                {/* <Button
-                  color="warning"
-                  sx={{ m: 1 }}
-                  onClick={() => setModalOpen(true)}
-                >
-                  <Avatar>
-                    {login.TrueFalse ? (
-                      <Tooltip title="로그아웃">
-                        <Img src={login.profileImage} width="50px" />
-                      </Tooltip>
-                    ) : null}
-                  </Avatar>
-                </Button> */}
               </Grid>
               <Grid item xs={12}>
                 <Box>
@@ -241,95 +228,155 @@ export default function Header() {
                   </Divider>
 
                   <Box>
-                    {/* 
-                    <Link to="/data" style={{ textDecorationLine: "none" }}>
-                      <Button
-                        sx={{
-                          ml: 2,
-                          fontWeight: "bold",
-                          color: "white",
-                          background: "coral",
-                        }}
-                        variant="contained"
-                        color="warning"
-                      >
-                        간편 데이터
-                      </Button>
-                    </Link> */}
                     <Link
                       to="/statistics"
                       style={{ textDecorationLine: "none" }}
                     >
-                      <Button
-                        sx={{
-                          ml: 2,
-                          fontWeight: "bold",
-                          color: "white",
-                          background: "coral",
-                        }}
-                        variant="contained"
-                        color="warning"
-                      >
-                        시세 통계
-                      </Button>
+                      {window.location.pathname === "/statistics" ? (
+                        <Button
+                          sx={{
+                            ml: 2,
+                            fontWeight: "bold",
+                            color: "white",
+                            background: "#1c751c",
+                          }}
+                          variant="contained"
+                          color="success"
+                        >
+                          시세 통계
+                        </Button>
+                      ) : (
+                        <Button
+                          sx={{
+                            ml: 2,
+                            fontWeight: "bold",
+                            color: "white",
+                            background: "coral",
+                          }}
+                          variant="contained"
+                          color="warning"
+                        >
+                          시세 통계
+                        </Button>
+                      )}
                     </Link>
                     <Link to="/search" style={{ textDecorationLine: "none" }}>
-                      <Button
-                        sx={{
-                          ml: 2,
-                          fontWeight: "bold",
-                          color: "white",
-                          background: "coral",
-                        }}
-                        variant="contained"
-                        color="warning"
-                      >
-                        판매 현황
-                      </Button>
+                      {window.location.pathname === "/search" ? (
+                        <Button
+                          sx={{
+                            ml: 2,
+                            fontWeight: "bold",
+                            color: "white",
+                            background: "#1c751c",
+                          }}
+                          variant="contained"
+                          color="success"
+                        >
+                          판매 현황
+                        </Button>
+                      ) : (
+                        <Button
+                          sx={{
+                            ml: 2,
+                            fontWeight: "bold",
+                            color: "white",
+                            background: "coral",
+                          }}
+                          variant="contained"
+                          color="warning"
+                        >
+                          판매 현황
+                        </Button>
+                      )}
                     </Link>
 
                     <Link to="/share" style={{ textDecorationLine: "none" }}>
-                      <Button
-                        sx={{
-                          ml: 2,
-                          fontWeight: "bold",
-                          color: "white",
-                          background: "coral",
-                        }}
-                        variant="contained"
-                        color="warning"
-                      >
-                        나눔 현황
-                      </Button>
+                      {window.location.pathname === "/share" ? (
+                        <Button
+                          sx={{
+                            ml: 2,
+                            fontWeight: "bold",
+                            color: "white",
+                            background: "#1c751c",
+                          }}
+                          variant="contained"
+                          color="success"
+                        >
+                          나눔 현황
+                        </Button>
+                      ) : (
+                        <Button
+                          sx={{
+                            ml: 2,
+                            fontWeight: "bold",
+                            color: "white",
+                            background: "coral",
+                          }}
+                          variant="contained"
+                          color="warning"
+                        >
+                          나눔 현황
+                        </Button>
+                      )}
                     </Link>
 
                     <Link to="/trace" style={{ textDecorationLine: "none" }}>
-                      <Button
-                        sx={{
-                          ml: 2,
-                          fontWeight: "bold",
-                          color: "white",
-                          background: "coral",
-                        }}
-                        variant="contained"
-                        color="warning"
-                      >
-                        추적 알림
-                      </Button>
+                      {window.location.pathname === "/trace" ? (
+                        <Button
+                          sx={{
+                            ml: 2,
+                            fontWeight: "bold",
+                            color: "white",
+                            background: "#1c751c",
+                          }}
+                          variant="contained"
+                          color="success"
+                        >
+                          추적 알림
+                        </Button>
+                      ) : (
+                        <Button
+                          sx={{
+                            ml: 2,
+                            fontWeight: "bold",
+                            color: "white",
+                            background: "coral",
+                          }}
+                          variant="contained"
+                          color="warning"
+                        >
+                          추적 알림
+                        </Button>
+                      )}
                     </Link>
                     <Link to="/main" style={{ textDecorationLine: "none" }}>
-                      <Button
-                        sx={{
-                          ml: 2,
-                          fontWeight: "bold",
-                          color: "white",
-                          background: "coral",
-                        }}
-                        variant="contained"
-                        color="warning"
-                      >
-                        사이트 안내
-                      </Button>
+                      {window.location.pathname === "/main" ? (
+                        <Button
+                          sx={{
+                            ml: 2,
+                            fontWeight: "bold",
+                            color: "white",
+                            background: "#1c751c",
+                          }}
+                          variant="contained"
+                          color="success"
+                        >
+                          사이트 안내
+                        </Button>
+                      ) : (
+                        <Button
+                          sx={{
+                            ml: 2,
+                            fontWeight: "bold",
+                            color: "white",
+                            background: "coral",
+                          }}
+                          variant="contained"
+                          color="warning"
+                        >
+                          사이트 안내
+                        </Button>
+                      )}
                     </Link>
                   </Box>
                 </Box>

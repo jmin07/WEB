@@ -7,7 +7,7 @@ import TableRow from "@mui/material/TableRow";
 import { Button, TableContainer, Table } from "@mui/material";
 import { postTraceData } from "../api";
 
-export default function AddTable({ children }) {
+export default function AddTraceTable({ children }) {
   const [traceStatus, setTraceStatus] = useState(false);
 
   const [currentCountry, setCurrentCountry] = useState("서울");
@@ -31,7 +31,7 @@ export default function AddTable({ children }) {
     const value = e.target[2].value;
     const minPrice = e.target[3].value;
     const maxPrice = e.target[4].value;
-    const data = `/db/trace/:${Id}`;
+    const data = `/trace/db/:${Id}`;
     const props = {
       path: data,
       traceCity: city,
@@ -51,7 +51,7 @@ export default function AddTable({ children }) {
         sx={{
           background: "white",
           borderRadius: "0.5rem",
-          boxShadow: "0px 0px 5px 0px gray",
+          boxShadow: "0px 0px 5px 1px #ccc",
         }}
         onSubmit={onSubmit}
       >
@@ -139,23 +139,23 @@ export default function AddTable({ children }) {
                   }}
                 />
               </TableCell>
-              <TableCell align="center">
+              <TableCell align="center" sx={{ width: "11rem" }}>
                 {traceStatus ? (
                   <Button
-                    color="warning"
+                    color="success"
                     type="submit"
                     variant="contained"
-                    sx={{ width: "11rem" }}
+                    sx={{ width: "7rem" }}
                     onClick={() => setTraceStatus(false)}
                   >
                     추적 중...
                   </Button>
                 ) : (
                   <Button
-                    color="warning"
+                    color="success"
                     type="submit"
                     variant="outlined"
-                    sx={{ width: "11rem" }}
+                    sx={{ width: "7rem" }}
                     onClick={() => setTraceStatus(true)}
                   >
                     추적 시작

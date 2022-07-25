@@ -107,19 +107,16 @@ export default function Statistics() {
               </GridStyle>
             </Grid>
           </Grid>
-          {/* <h2>서울 가산동 노트북</h2> */}
-          {/* <h4 style={{ color: "gray" }}>날짜를 선택해주세요</h4> */}
-          {/* <h3>2022/7/10 ~ 2022/7/17 까지의 시세, 게시글 수입니다</h3> */}
-          {/*캘린더 라이브러리*/}
           <br />
           <br />
-          <TitleTextStyle>전국 {searchData.userValue} 시세</TitleTextStyle>
+          <TitleTextStyle>
+            전국 {searchData.userValue} 시세 그래프
+          </TitleTextStyle>
           <br />
 
           <ChartStyle>
-            <PriceChart /> {/*동적으로 데이터 변경*/}
+            <PriceChart />
           </ChartStyle>
-          {/* <PostChart/> */}
         </Box>
       </Container>
     </>
