@@ -8,8 +8,11 @@
 ## ✨ WatchRabbit Agent Members
 
 1. [홍 Agent](https://github.com/ghdtkdbs12)
-2. [백 Agent](https://github.com/jmin07)
-3. [박 Agent](https://github.com/PGjun)
+    - PM 및 크롤링 담당
+3. [백 Agent](https://github.com/jmin07)
+    - 백엔드 담당
+5. [박 Agent](https://github.com/PGjun)
+    - 프론트 담당
 
 ## ✨ WatchRabbit의 의미
 - WatchRabbit은 정치학에서 사용되는 권력의 감시자인 "Watch Dogs"에서 따온 말입니다. 권력을 감시하는 감시자들을 일컫는 말
@@ -17,9 +20,9 @@
 - WatchRabbit의 캐릭터는 Agent.Rabbit인데 토끼의 얼굴에 요원처럼 보일 수 있도록 선글라스와 나비넥타이를 추가하여 전형적인 영국 첩보원, 경호업체의 느낌을 살렸습니다.
 
 ## ✨ WatchRabbit 의 목표
-중고거래는 다양한 형태, 다양한 상태의 물건이 제각기 판매되고 있어서 가격이 변동됩니다.<br>
-판매자는 너무 저렴한 가격에 팔고 싶지 않고, 구매자는 너무 비싼 가격에 사고 싶지 않다면 거래 참여자들은 적절하고, 합리적인 가격을 알고 싶어 할 수 있습니다.<br>
-홈페이지 사용자가 요청할시 DB의 내용을 토대로 원하는 정보 안내하여주고 기존 정보를 가공하여 거래의 과거 추세와 미래 추세를 볼 수 있게 하려고합니다.</br>
+- 중고거래는 다양한 형태, 다양한 상태의 물건이 제각기 판매되고 있어서 가격이 변동됩니다.
+- 판매자는 너무 저렴한 가격에 팔고 싶지 않고, 구매자는 너무 비싼 가격에 사고 싶지 않다면 거래 참여자들은 적절하고, 합리적인 가격을 알고 싶어 할 수 있습니다.
+- 홈페이지 사용자가 요청할시 DB의 내용을 토대로 원하는 정보 안내하여주고 기존 정보를 가공하여 거래의 과거 추세와 미래 추세를 볼 수 있게 하려고합니다.
 
 ## ✨ WatchRabbit의 기능
 1. 정해진 시간마다 중고거래플랫폼 '당근마켓'의 게시글들을 웹크롤링하여 DB에 저장합니다.
@@ -27,15 +30,5 @@
 3. 누적된 정보를 바탕으로 서버가 분석하여 그래프로 과거의 정보와 미래 예측되는 정보 데이터를 그래프로 한 눈에 보여줍니다.
 4. 원하는 제품의 지역, 최저가격, 최대가격 등 조건을 지정하여 감시 기능을 켜놓으면 메일을 통하여 해당 제품이 신규 등록이 되거나 변동이 있는지 알림을 줍니다.
 
-## ✨ WatchRbbit 의 technical architecture
-  - process
-    - 도메인 -> NGINX -> 백엔드 서버(프론트)
-    
-  - Improvements
-    - 프론트와 백엔드 분리
-    
-  - 참고내용
-    - browser->front-server->backend-server (proxy)
-    - reverse 적용 여부
- 
-<img src=https://user-images.githubusercontent.com/103296979/178884780-e37616e0-4d4c-4eee-b018-a05e74dad083.svg width="500" height="400" />
+## ✨ Technical Architecture
+<img src=https://user-images.githubusercontent.com/103296979/182494735-009aacc8-0e6b-4093-8b1a-3f25de79f777.svg width="800" height="500" />
