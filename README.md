@@ -7,12 +7,16 @@
 
 ## ✨ WatchRabbit Agent Members
 
-1. [홍 Agent](https://github.com/ghdtkdbs12)
-    - PM 및 크롤링 담당
-3. [백 Agent](https://github.com/jmin07)
-    - 백엔드 담당
-5. [박 Agent](https://github.com/PGjun)
-    - 프론트 담당
+1. 홍 Agent
+    - 역할: PM 및 크롤링 담당
+    - GitHub: https://github.com/ghdtkdbs12
+    
+3. 백 Agent
+    - 역할: 백엔드 담당
+    - GitHub: https://github.com/jmin07
+5. 박 Agent
+    - 역할: 프론트 담당
+    - https://github.com/PGjun
 
 ## ✨ WatchRabbit의 의미
 - WatchRabbit은 정치학에서 사용되는 권력의 감시자인 "Watch Dogs"에서 따온 말입니다. 권력을 감시하는 감시자들을 일컫는 말
