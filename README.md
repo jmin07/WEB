@@ -11,12 +11,13 @@
     - 역할: PM 및 크롤링 담당
     - GitHub: https://github.com/ghdtkdbs12
     
-3. 백 Agent
+2. 백 Agent
     - 역할: 백엔드 담당
     - GitHub: https://github.com/jmin07
-5. 박 Agent
+    
+3. 박 Agent
     - 역할: 프론트 담당
-    - https://github.com/PGjun
+    - GitHub: https://github.com/PGjun
 
 ## ✨ WatchRabbit의 의미
 - WatchRabbit은 정치학에서 사용되는 권력의 감시자인 "Watch Dogs"에서 따온 말입니다. 권력을 감시하는 감시자들을 일컫는 말
@@ -33,6 +34,70 @@
 2. 저장된 정보를 검색할 수 있으며 원하는 정보(관련 제품의 게시글의 수, 최저가격, 평균가격, 최고가격, 판매지역 등)를 볼 수 있습니다.
 3. 누적된 정보를 바탕으로 서버가 분석하여 그래프로 과거의 정보와 미래 예측되는 정보 데이터를 그래프로 한 눈에 보여줍니다.
 4. 원하는 제품의 지역, 최저가격, 최대가격 등 조건을 지정하여 감시 기능을 켜놓으면 메일을 통하여 해당 제품이 신규 등록이 되거나 변동이 있는지 알림을 줍니다.
+
+## ✨ Structure
+
+```
+├── config                         
+│   ├── email_HTML                 # 이메일 양식
+│   │   ├── loginCode.js
+│   ├── logs                       # 로그 기록
+│   │   ├── error
+│   │   ├── info
+│   ├── response                   # 응답 메세지 
+│   │   ├── response.js
+│   │   ├── responseStatus.js
+├── middleware                      #           			
+│   ├── Database                    #
+│   │   ├── database.js               
+│   ├── logg
+│   │   ├── logger.js
+│   ├── LoginCheck 
+│   │   ├── loggin.js
+│   ├── mail
+│   │   ├── nodemailer.js
+│   ├── passport
+│   │   ├── index.js
+│   │   ├── localStrategy.js
+│   │   ├── googleStrategy.js
+│   │   ├── kakaoStrategy.js
+│   ├── Validator                    #
+│   │   ├── validator.js
+│   ├── express.js                    #
+├── src
+│   ├── Routes
+│   │   ├── commonDao 
+│   │ 	│   ├── commonDao.js
+│   │   ├── Auth
+│   │ 	│   ├── authRoute.js
+│   │ 	│   ├── authController.js
+│   │ 	│   ├── authService.js
+│   │ 	│   ├── authProvider.js
+│   │ 	│   ├── authDao.js
+│   │   ├── Crawling
+│   │ 	│   ├── cwRoute.js
+│   │ 	│   ├── cwController.js
+│   │ 	│   ├── cwService.js
+│   │ 	│   ├── cwProvider.js
+│   │ 	│   ├── cwDao.js
+│   │   ├── Mail
+│   │ 	│   ├── mailRoute.js
+│   │ 	│   ├── mailController.js
+│   │ 	│   ├── mailService.js
+│   │ 	│   ├── mailProvider.js
+│   │ 	│   ├── mailDao.js
+│   │   ├── Trace
+│   │ 	│   ├── traceRoute.js          
+│   │ 	│   ├── traceController.js          
+│   │ 	│   ├── traceService.js         
+│   │ 	│   ├── traceprovider.js     
+│   │ 	│   ├── traceDao.js   
+├── ── .gitignore              # git 에 포함되지 않아야 하는 폴더
+├── ── package-lock.json              # git 에 포함되지 않아야 하는 폴더
+├── ── package.json 
+└── ── app.js
+```
+
 
 ## ✨ Technical Architecture
 <img src=https://user-images.githubusercontent.com/103296979/182494735-009aacc8-0e6b-4093-8b1a-3f25de79f777.svg width="800" height="500" />
