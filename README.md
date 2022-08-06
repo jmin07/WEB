@@ -51,13 +51,12 @@
 │   ├── logg
 │   ├── LoginCheck 
 │   ├── mail
+│   ├── Validator                    #
 │   ├── passport
 │   │   ├── index.js
 │   │   ├── localStrategy.js
 │   │   ├── googleStrategy.js
 │   │   ├── kakaoStrategy.js
-│   ├── Validator                    #
-│   │   ├── validator.js
 │   ├── express.js                    #
 ├── src
 │   ├── Routes
