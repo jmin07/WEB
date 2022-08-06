@@ -40,7 +40,6 @@
 ```
 ├── config                         
 │   ├── email_HTML                 # 이메일 양식
-│   │   ├── loginCode.js
 │   ├── logs                       # 로그 기록
 │   │   ├── error
 │   │   ├── info
@@ -49,13 +48,9 @@
 │   │   ├── responseStatus.js
 ├── middleware                      #           			
 │   ├── Database                    #
-│   │   ├── database.js               
 │   ├── logg
-│   │   ├── logger.js
 │   ├── LoginCheck 
-│   │   ├── loggin.js
 │   ├── mail
-│   │   ├── nodemailer.js
 │   ├── passport
 │   │   ├── index.js
 │   │   ├── localStrategy.js
@@ -75,27 +70,12 @@
 │   │ 	│   ├── authProvider.js
 │   │ 	│   ├── authDao.js
 │   │   ├── Crawling
-│   │ 	│   ├── cwRoute.js
-│   │ 	│   ├── cwController.js
-│   │ 	│   ├── cwService.js
-│   │ 	│   ├── cwProvider.js
-│   │ 	│   ├── cwDao.js
 │   │   ├── Mail
-│   │ 	│   ├── mailRoute.js
-│   │ 	│   ├── mailController.js
-│   │ 	│   ├── mailService.js
-│   │ 	│   ├── mailProvider.js
-│   │ 	│   ├── mailDao.js
 │   │   ├── Trace
-│   │ 	│   ├── traceRoute.js          
-│   │ 	│   ├── traceController.js          
-│   │ 	│   ├── traceService.js         
-│   │ 	│   ├── traceprovider.js     
-│   │ 	│   ├── traceDao.js   
-├── ── .gitignore              # git 에 포함되지 않아야 하는 폴더
-├── ── package-lock.json              # git 에 포함되지 않아야 하는 폴더
-├── ── package.json 
-└── ── app.js
+│   ├── .gitignore              # git 에 포함되지 않아야 하는 폴더
+│   ├── package-lock.json        
+│   ├── package.json 
+└─  ├── app.js
 ```
 
 
