@@ -1,0 +1,53 @@
+2022-07-18 02:35:53 [WatchRabbit] ERROR : guentc1@naver.com 이 존재하지 않습니다.
+2022-07-18 02:40:54 [WatchRabbit] ERROR : asdf@naver.com 이 존재하지 않습니다.
+2022-07-18 07:20:30 [WatchRabbit] ERROR : undefined
+2022-07-18 07:28:41 [WatchRabbit] ERROR : 1234 이 존재하지 않습니다.
+2022-07-18 07:28:41 [WatchRabbit] ERROR : undefined
+2022-07-18 07:28:41 [WatchRabbit] ERROR : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM password = 2232
+        WHERE email = NULL' at line 2
+2022-07-18 07:30:27 [WatchRabbit] ERROR : 1234 이 존재하지 않습니다.
+2022-07-18 07:30:27 [WatchRabbit] ERROR : undefined
+2022-07-18 07:30:27 [WatchRabbit] ERROR : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM password = '1234'
+        WHERE email = 9637' at line 2
+2022-07-18 08:07:27 [WatchRabbit] ERROR : undefined 이 존재하지 않습니다.
+2022-07-18 08:07:27 [WatchRabbit] ERROR : undefined
+2022-07-18 08:07:27 [WatchRabbit] ERROR : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM password = NULL
+        WHERE email = 1749' at line 2
+2022-07-18 16:22:12 [WatchRabbit] ERROR : undefined
+2022-07-18 16:27:07 [WatchRabbit] ERROR : undefined 이 존재하지 않습니다.
+2022-07-18 16:27:07 [WatchRabbit] ERROR : [서버에러]  bcrypt is not defined
+2022-07-18 16:27:07 [WatchRabbit] ERROR : undefined
+2022-07-18 16:29:57 [WatchRabbit] ERROR : undefined 이 존재하지 않습니다.
+2022-07-18 16:29:57 [WatchRabbit] ERROR : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM password = NULL
+        WHERE email = '$2b$12$9MRKjc9R.GofwfOqB1UanO4VYpPDO' at line 2
+2022-07-18 16:29:57 [WatchRabbit] ERROR : undefined
+2022-07-18 16:30:56 [WatchRabbit] ERROR : undefined 이 존재하지 않습니다.
+2022-07-18 16:30:57 [WatchRabbit] ERROR : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM password = NULL
+        WHERE email = '$2b$12$BsAePDpFY1/H2U8NW6zZaOMs32Smp' at line 2
+2022-07-18 16:30:57 [WatchRabbit] ERROR : undefined
+2022-07-18 16:31:47 [WatchRabbit] ERROR : undefined 이 존재하지 않습니다.
+2022-07-18 16:31:48 [WatchRabbit] ERROR : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM password = NULL
+        WHERE email = '$2b$12$lrNwF9IABexMaF9nU2RDnuODKMO9K' at line 2
+2022-07-18 16:31:48 [WatchRabbit] ERROR : undefined
+2022-07-18 16:32:40 [WatchRabbit] ERROR : undefined 이 존재하지 않습니다.
+2022-07-18 16:32:40 [WatchRabbit] ERROR : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM password = NULL
+        WHERE email = '$2b$12$iw1G3bQbGJb4IGsVl9ZrieWu4dAle' at line 2
+2022-07-18 16:32:40 [WatchRabbit] ERROR : undefined
+2022-07-18 16:36:17 [WatchRabbit] ERROR : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM password = 'guentc1@naver.com'
+        WHERE email = '$2b$12$y8.Xq0VqzSJUEh' at line 2
+2022-07-18 16:36:17 [WatchRabbit] ERROR : undefined
+2022-07-18 16:40:28 [WatchRabbit] ERROR : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM password = 'guentc1@naver.com'
+        WHERE email = '$2b$12$C/vcG2yYdq5Uki' at line 2
+2022-07-18 16:40:28 [WatchRabbit] ERROR : undefined
+2022-07-18 16:41:21 [WatchRabbit] ERROR : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM password = '$2b$12$BfuZ1OuRO5tET8/MKrSwn.Rqx6fl3kh6DfUms7TDAStfEDcbcybci'
+ ' at line 2
+2022-07-18 16:41:21 [WatchRabbit] ERROR : undefined
+2022-07-18 16:42:11 [WatchRabbit] ERROR : undefined
+2022-07-18 16:44:53 [WatchRabbit] ERROR : undefined
+2022-07-18 16:46:25 [WatchRabbit] ERROR : undefined
+2022-07-18 16:46:48 [WatchRabbit] ERROR : [무슨error] : response is not a function
+2022-07-18 21:50:55 [WatchRabbit] ERROR : [무슨error] : response is not a function
+2022-07-18 21:51:30 [WatchRabbit] ERROR : [무슨error] : response is not a function
+2022-07-18 21:53:01 [WatchRabbit] ERROR : [무슨error] : response is not a function
+2022-07-18 21:57:08 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-07-18 22:05:06 [WatchRabbit] ERROR : [서버에러]  Cannot destructure property 'isSuccess' of 'undefined' as it is undefined.

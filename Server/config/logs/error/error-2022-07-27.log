@@ -1,0 +1,14 @@
+2022-07-27 08:21:51 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-07-27 08:22:15 [WatchRabbit] ERROR : [traceService checkUserId]  Id is not defined
+2022-07-27 08:23:30 [WatchRabbit] ERROR : [TraceTable traceDao] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, ?, ?, ?)' at line 2
+2022-07-27 08:24:42 [WatchRabbit] ERROR : [TraceTable traceDao] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, ?, ?, ?)' at line 2
+2022-07-27 08:26:36 [WatchRabbit] ERROR : [TraceTable traceDao] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, ?, ?, ?)' at line 2
+2022-07-27 08:27:00 [WatchRabbit] ERROR : [TraceTable traceDao] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?, ?, ?, ?, ?)' at line 2
+2022-07-27 08:27:20 [WatchRabbit] ERROR : [TraceTable traceDao] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 2
+2022-07-27 08:52:54 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-07-27 08:53:01 [WatchRabbit] ERROR : PASSPORT 유저 아이디 불일치
+2022-07-27 08:53:56 [WatchRabbit] ERROR : [authProvider userDao postTrace] Table 'Schema_Carrot.Trace' doesn't exist
+2022-07-27 08:59:53 [WatchRabbit] ERROR : [TraceTable traceDao] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 2
+2022-07-27 09:00:59 [WatchRabbit] ERROR : [authProvider userDao postTrace] Duplicate entry '2' for key 'TraceItem.PRIMARY'
+2022-07-27 09:07:41 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-07-27 09:08:06 [WatchRabbit] ERROR : [authProvider userDao postTrace] Cannot add or update a child row: a foreign key constraint fails (`Schema_Carrot`.`TraceItem`, CONSTRAINT `FK_TraceItem_userIdx_User_id` FOREIGN KEY (`userIdx`) REFERENCES `User` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT)
