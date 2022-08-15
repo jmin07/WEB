@@ -1,0 +1,11 @@
+2022-07-28 02:02:04 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-07-28 02:02:15 [WatchRabbit] ERROR : undefined
+2022-07-28 02:02:36 [WatchRabbit] ERROR : authorization code not found for code=2bl8wOkPfp-xCHemnue4NP1PWK8Wd7Oowwc8x-ImTmLQSReEXMl4fmXeXogOb65bDa80dQopcNEAAAGCQopHDQ
+2022-07-28 02:02:38 [WatchRabbit] ERROR : authorization code not found for code=2bl8wOkPfp-xCHemnue4NP1PWK8Wd7Oowwc8x-ImTmLQSReEXMl4fmXeXogOb65bDa80dQopcNEAAAGCQopHDQ
+2022-07-28 02:05:34 [WatchRabbit] ERROR : undefined
+2022-07-28 02:06:38 [WatchRabbit] ERROR : authorization code not found for code=7MP8EON2qgxw6TOrbr84o3xjyDW2bungudD_HAJc7v_49Gzh-3TunDy7V8V1P7IuGtQo_go9dNkAAAGCQo1S5A
+2022-07-28 02:06:54 [WatchRabbit] ERROR : undefined
+2022-07-28 02:07:22 [WatchRabbit] ERROR : authorization code not found for code=KIbEeUMV0EkIBiFIrC6pU4mFJh2CawrI7z0NerNHmaSE7W6J1YEk8M1ESzewqroDN_VkbQo9dVwAAAGCQo6KLQ
+2022-07-28 02:07:29 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-07-28 02:17:17 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-07-28 02:32:24 [WatchRabbit] ERROR : [TraceTable traceDao] You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 2
