@@ -3,7 +3,7 @@
 ```
 ├── config
 ├── src
-│   ├──middleware
+│   ├── middleware
 │   │   ├── package                    # 미들웨어 패키지 폴더
 │   │   ├── verification               # 유효성, 인가, 인증 폴더
 │   │   ├── express.js
