@@ -5,10 +5,10 @@ dotenv.config({ path: path.join(__dirname + "/../../.env") });
 const https = require("https");
 const http = require("http");
 
-const logger = require("./middleware/logg/logger");
+const logger = require("./src/middleware/package/logg/logger");
 
 const fs = require("fs");
-const app = require("./middleware/express");
+const app = require("./src/middleware/express");
 
 const HTTPS_PORT = process.env.HTTPS_PORT;
 
