@@ -1,0 +1,13 @@
+{
+    "name": "boilerplate_code",
+    "version": "1.0.0",
+    "description": "기본 테플릿 구조에 대해 작성했습니다.",
+    "main": "app.js",
+    "scripts": {
+        "test": "jest",
+        "start": "cross-env NODE_ENV=production nodemon app.js",
+        "dev": "cross-env NODE_ENV=development nodemon app.js"
+    },
+    "author": "",
+    "license": "ISC"
+}

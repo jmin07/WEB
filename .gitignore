@@ -1,0 +1,14 @@
+# env 파일 내용은 작성 따로 해주세요!
+
+# dependencies
+/node_modules
+
+# misc
+#.env
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
