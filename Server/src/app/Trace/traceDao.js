@@ -1,5 +1,5 @@
 // Email 조회
-module.exports.checkUserEmail = async (connection, userInfo) => {
+exports.checkUserEmail = async (connection, userInfo) => {
     const selectUserEmailQuery = `
         SELECT id, email
         FROM User
@@ -12,7 +12,7 @@ module.exports.checkUserEmail = async (connection, userInfo) => {
 };
 
 // 등록된 테이블의 userIdx 조회
-module.exports.Status = async (connection, userInfo) => {
+exports.Status = async (connection, userInfo) => {
     const selectUserIdxQuery = `
         SELECT status
         FROM TraceItem
@@ -26,7 +26,7 @@ module.exports.Status = async (connection, userInfo) => {
 
 // Insert userIdx, traceIdx to Trace
 // UPDATE 로 사용해도 되지 않을까?
-module.exports.updateTrace = async (connection, Info) => {
+exports.updateTrace = async (connection, Info) => {
     const updateTraceQuery = `
         INSERT INTO Trace (userIdx, traceIdx)
         VALUES (?, ?)
@@ -35,7 +35,7 @@ module.exports.updateTrace = async (connection, Info) => {
 };
 
 // INACTIVE -> ACTIVE
-module.exports.updateActiveTraceItem = async (connection, Info) => {
+exports.updateActiveTraceItem = async (connection, Info) => {
     const selectTraceIdQuery = `
         UPDATE TraceItem 
         SET status = 'ACTIVE', region = ?, province = ?, product = ?, minPrice = ?, maxPrice = ?
@@ -48,7 +48,7 @@ module.exports.updateActiveTraceItem = async (connection, Info) => {
 };
 
 // ACTIVE => INACTIVE
-module.exports.updateInActiveTraceItem = async (connection, Info) => {
+exports.updateInActiveTraceItem = async (connection, Info) => {
     const selectTraceIdQuery = `
         UPDATE TraceItem 
         SET status = 'INACTIVE', region = null, province = null, product = null, minPrice = null, maxPrice = null
@@ -60,7 +60,7 @@ module.exports.updateInActiveTraceItem = async (connection, Info) => {
     return userId;
 };
 
-module.exports.selectTraceItemTable = async (connection, Info) => {
+exports.selectTraceItemTable = async (connection, Info) => {
     const checkTraceStatusQuery = `
         SELECT region, province, product, minPrice, maxPrice
         FROM TraceItem

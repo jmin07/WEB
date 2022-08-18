@@ -1,20 +1,40 @@
 const pool = require("../../middleware/package/Database/database");
 const cwDao = require("../Crawling/cwDao");
+const { errResponse } = require("../../../config/response/response");
+const status = require("../../../config/response/responseStatus");
 
-module.exports.Test = async (Info) => {
-    const connection = await pool.getConnection(async (conn) => conn);
-
-    const Result = await cwDao.ItemList(connection, Info);
-    connection.release();
-
-    return Result;
+exports.Test = async (Info) => {
+    try {
+        const connection = await pool.getConnection(async (conn) => conn);
+        try {
+            const Result = await cwDao.ItemList(connection, Info);
+            return Result;
+        } catch (error) {
+            logger.error("[cwProvider cwDao ItemList]", error);
+            return errResponse(status.DAO_ERROR_MESSAGE);
+        } finally {
+            connection.release();
+        }
+    } catch (error) {
+        logger.error("[cwProvider Test]", error);
+        return errResponse(status.PROVIDER_ERROR_MESSAGE);
+    }
 };
 
-module.exports.TotalRegion = async (Info) => {
-    const connection = await pool.getConnection(async (conn) => conn);
-
-    const Result = await cwDao.TotalItem(connection, Info);
-    connection.release();
-
-    return Result;
+exports.TotalRegion = async (Info) => {
+    try {
+        const connection = await pool.getConnection(async (conn) => conn);
+        try {
+            const Result = await cwDao.TotalItem(connection, Info);
+            return Result;
+        } catch (error) {
+            logger.error("[cwProvider cwDao TotalRegion]", error);
+            return errResponse(status.DAO_ERROR_MESSAGE);
+        } finally {
+            connection.release();
+        }
+    } catch (error) {
+        logger.error("[cwProvider TotalRegion]", error);
+        return errResponse(status.PROVIDER_ERROR_MESSAGE);
+    }
 };

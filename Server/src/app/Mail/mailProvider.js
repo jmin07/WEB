@@ -3,7 +3,7 @@ const commonDao = require("../commonDao/commonDao");
 const mailDao = require("./mailDao");
 const logger = require("../../middleware/package/logg/logger");
 
-module.exports.checkEmail = async (userInfo) => {
+exports.checkEmail = async (userInfo) => {
     try {
         const connection = await pool.getConnection(async (conn) => conn);
         try {
@@ -19,7 +19,7 @@ module.exports.checkEmail = async (userInfo) => {
     }
 };
 
-module.exports.changePassword = async (userInfo) => {
+exports.changePassword = async (userInfo) => {
     try {
         const connection = await pool.getConnection(async (conn) => conn);
         try {

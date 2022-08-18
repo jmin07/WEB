@@ -23,12 +23,6 @@ const authMail = (option, email, randomNumber) => {
             subject: "WatchRabbit Agent Sing up",
             text: "테스트 이메일 진행 중입니다.",
             html: htmlTemplate({ email, randomNumber }),
-
-            // `
-            // <h1>WatchRabbit Agent</h1>
-            // 인증번호는 ${number} 입니다.
-            // 회원가입 해주셔서 감사합니다.
-            // `,
         };
 
         return authenticationMail;
@@ -63,12 +57,11 @@ const mail = async (option, email, number) => {
             },
         });
     } else {
-        // process.env.NODE_ENV === 'development'
         transporter = await nodemailer.createTransport({
             service: "gmail",
             host: "smtp.gmail.email",
             port: 465,
-            secure: true, // true for 465, false for other ports
+            secure: true,
             auth: {
                 user: OUR_MAIL,
                 pass: process.env.TEST_EMAIL_PASSWORD,
@@ -83,8 +76,6 @@ const mail = async (option, email, number) => {
 
 // --------------------------  AWS Email ----------------
 const awsMail = (option, email, randomNumber = null, ...args) => {
-    console.log("randomNumber : ", randomNumber);
-    // 인자 순서: email, randomNumber, password
     const SES_CONFIG = {
         accessKeyId: process.env.AWS_ACCESS_KEY,
         secretAccessKey: process.env.AWS_ACCESS_SECRET_KEY,
@@ -99,7 +90,6 @@ const awsMail = (option, email, randomNumber = null, ...args) => {
         HTML = htmlTemplate({ email, randomNumber });
         TITLE = "WatchRabbit 인증 번호 메일입니다.";
     } else if (option === "findPassword") {
-        // 복호화 안됨 // 삭제 필요
         htmlTemplate = require("../../../../config/email_HTML/findPassward.js");
         HTML = htmlTemplate({ email, password });
         TITLE = "WatchRabbit 비밀번호 메일입니다.";

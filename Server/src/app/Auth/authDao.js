@@ -1,7 +1,4 @@
-const logger = require("../../middleware/package/logg/logger");
-
-// 유저 조회(이메일 및 비밀번호 확인)
-module.exports.selectUserList = async (connection, userInfo) => {
+exports.selectUserList = async (connection, userInfo) => {
     const selectUserListQuery = `
         SELECT email, password
         FROM User
@@ -13,8 +10,7 @@ module.exports.selectUserList = async (connection, userInfo) => {
     return userList;
 };
 
-// 유저 조회(이메일만 확인)
-module.exports.LocalStrategyUser = async (connection, userInfo) => {
+exports.LocalStrategyUser = async (connection, userInfo) => {
     const selectUserIdQuery = `
         SELECT email, password
         FROM User
@@ -26,8 +22,7 @@ module.exports.LocalStrategyUser = async (connection, userInfo) => {
     return userId;
 };
 
-// 유저 아이디 조회
-module.exports.selectUserId = async (connection, userInfo) => {
+exports.selectUserId = async (connection, userInfo) => {
     const selectUserIdQuery = `
         SELECT email
         FROM User
@@ -39,8 +34,7 @@ module.exports.selectUserId = async (connection, userInfo) => {
     return userId;
 };
 
-// 카카오 아이디 조회
-module.exports.selectKakaoUser = async (connection, userInfo) => {
+exports.selectKakaoUser = async (connection, userInfo) => {
     const selectKakaoQuery = `
         SELECT email, provider
         FROM User
@@ -51,8 +45,7 @@ module.exports.selectKakaoUser = async (connection, userInfo) => {
     return kakaoUser;
 };
 
-// 구글 아이디 조회
-module.exports.selectgoogleUser = async (connection, userInfo) => {
+exports.selectgoogleUser = async (connection, userInfo) => {
     const selectGoogleQuery = `
         SELECT email, provider
         FROM User
@@ -63,8 +56,7 @@ module.exports.selectgoogleUser = async (connection, userInfo) => {
     return googleUser;
 };
 
-// 유저 비밀번호 조회
-module.exports.selectUserPassword = async (connection, userInfo) => {
+exports.selectUserPassword = async (connection, userInfo) => {
     const selectUserListQuery = `
         SELECT password
         FROM User
@@ -79,79 +71,45 @@ module.exports.selectUserPassword = async (connection, userInfo) => {
     return userPassword;
 };
 
-// 유저 생성
-module.exports.postUser = async (connection, userInfo) => {
+exports.postUser = async (connection, userInfo) => {
     const insertUserQuery = `
         INSERT INTO User(email, password)
         VALUES (?, ?);
     `;
 
-    const [Result] = await connection.query(
-        insertUserQuery,
-        userInfo,
-        (error, result) => {
-            if (error) {
-                logger.error("[authDao postUser]\n", error);
-                throw error;
-            }
-        }
-    );
+    const [Result] = await connection.query(insertUserQuery, userInfo);
 
     return Result;
 };
 
-// 추적 기능 테이블 생성
-module.exports.postTraceItem = async (connection, Info) => {
+exports.postTraceItem = async (connection, Info) => {
     const insertTraceItemQuery = `
         INSERT INTO TraceItem(userIdx, traceIdx)
         VALUES ?;
     `;
 
-    const Result = await connection.query(
-        insertTraceItemQuery,
-        Info,
-        (error, result) => {
-            if (error) {
-                logger.error("[authDao postTrace]\n", error);
-                throw error;
-            }
-        }
-    );
+    const Result = await connection.query(insertTraceItemQuery, Info);
     return Result;
 };
 
-// 카카오톡 유저 생성
-module.exports.postKakaoUser = async (connection, userInfo) => {
+exports.postKakaoUser = async (connection, userInfo) => {
     const insertUserQuery = `
         INSERT INTO User(email, provider)
         VALUES (?, ?);
     `;
 
-    const [insertUser] = await connection.query(
-        insertUserQuery,
-        userInfo,
-        (error, result) => {
-            if (error) throw error;
-        }
-    );
+    const [insertUser] = await connection.query(insertUserQuery, userInfo);
 
     return insertUser;
 };
 
-// 구글 유저 생성
-module.exports.postgoogleUser = async (connection, userInfo) => {
+exports.postgoogleUser = async (connection, userInfo) => {
     const insertUserQuery = `
         INSERT INTO User(email, provider)
         VALUES (?, ?);
     `;
 
-    const [insertUser] = await connection.query(
-        insertUserQuery,
-        userInfo,
-        (error, result) => {
-            if (error) throw error;
-        }
-    );
+    const [insertUser] = await connection.query(insertUserQuery, userInfo);
 
     return insertUser;
 };

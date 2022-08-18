@@ -4,7 +4,7 @@ const logger = require("../../middleware/package/logg/logger");
 const status = require("../../../config/response/responseStatus");
 const { response, errResponse } = require("../../../config/response/response");
 
-module.exports.postSearchItem = async (req, res) => {
+exports.postSearchItem = async (req, res) => {
     try {
         const user = req.user;
         const { value, city, area } = req.body;

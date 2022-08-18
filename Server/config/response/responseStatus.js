@@ -131,4 +131,20 @@ module.exports = {
         code: 4300,
         message: "검색한 제품의 결과가 없습니다.",
     },
+    // ----------------- 에러 발생 ---------------
+    SERVICE_ERROR_MESSAGE: {
+        isSuccess: false,
+        code: 4000,
+        message: "잘 못된 요청입니다.",
+    },
+    DAO_ERROR_MESSAGE: {
+        isSuccess: false,
+        code: 4000,
+        message: "쿼리 오류가 발생했습니다.",
+    },
+    PROVIDER_ERROR_MESSAGE: {
+        isSuccess: false,
+        code: 4000,
+        message: "mysql connection 오류 입니다.",
+    },
 };

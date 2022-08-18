@@ -1,97 +1,191 @@
 const pool = require("../../middleware/package/Database/database");
 const userDao = require("./authDao");
 const logger = require("../../middleware/package/logg/logger");
+const { errResponse } = require("../../../config/response/response");
+const status = require("../../../config/response/responseStatus");
 
-module.exports.userList = async (userInfo) => {
-    const connection = await pool.getConnection(async (conn) => conn);
-    const Result = await userDao.selectUserList(connection, userInfo);
-    connection.release();
-
-    return Result;
+exports.userList = async (userInfo) => {
+    try {
+        const connection = await pool.getConnection(async (conn) => conn);
+        try {
+            const Result = await userDao.selectUserList(connection, userInfo);
+            return Result;
+        } catch (error) {
+            logger.error("[authProvider userDao selectUserList]", error);
+            return errResponse(status.DAO_ERROR_MESSAGE);
+        } finally {
+            connection.release();
+        }
+    } catch (error) {
+        logger.error("[authProvider userList]", error);
+        return errResponse(status.PROVIDER_ERROR_MESSAGE);
+    }
 };
 
-// 로컬 유저 생성
-module.exports.createUser = async (userInfo) => {
-    const connection = await pool.getConnection(async (conn) => conn);
-    const Result = await userDao.postUser(connection, userInfo);
-    connection.release();
-
-    return Result;
+exports.createUser = async (userInfo) => {
+    try {
+        const connection = await pool.getConnection(async (conn) => conn);
+        try {
+            const Result = await userDao.postUser(connection, userInfo);
+            return Result;
+        } catch (error) {
+            logger.error("[authP{rovider userDao postUser]", error);
+            return errResponse(status.DAO_ERROR_MESSAGE);
+        } finally {
+            connection.release();
+        }
+    } catch (error) {
+        logger.error("[authProvider createUser]", error);
+        return errResponse(status.PROVIDER_ERROR_MESSAGE);
+    }
 };
 
-// 로컬 유저 추적 테이블 생성
-module.exports.createTraceItem = async (Info) => {
+exports.createTraceItem = async (Info) => {
     try {
         const connection = await pool.getConnection(async (conn) => conn);
         try {
             const Result = await userDao.postTraceItem(connection, Info);
             return Result;
         } catch (error) {
-            logger.error("[authProvider userDao postTrace]", error);
+            logger.error("[authProvider userDao postTraceItem]", error);
+            return errResponse(status.DAO_ERROR_MESSAGE);
         } finally {
             connection.release();
         }
     } catch (error) {
         logger.error("[authProvider createTraceItem]", error);
+        return errResponse(status.PROVIDER_ERROR_MESSAGE);
     }
 };
 
-// 카카오톡 유저 생성
-module.exports.createKakaoUser = async (userInfo) => {
-    const connection = await pool.getConnection(async (conn) => conn);
-    const Result = await userDao.postKakaoUser(connection, userInfo);
-    connection.release();
-
-    return Result;
+exports.createKakaoUser = async (userInfo) => {
+    try {
+        const connection = await pool.getConnection(async (conn) => conn);
+        try {
+            const Result = await userDao.postKakaoUser(connection, userInfo);
+            return Result;
+        } catch (error) {
+            logger.error("[authProvider userDao postKakaoUser]", error);
+            return errResponse(status.DAO_ERROR_MESSAGE);
+        } finally {
+            connection.release();
+        }
+    } catch (error) {
+        logger.error("[authProvider createKakaoUser]", error);
+        return errResponse(status.PROVIDER_ERROR_MESSAGE);
+    }
 };
 
-// 구글 유저 생성
-module.exports.creategoogleUser = async (userInfo) => {
-    const connection = await pool.getConnection(async (conn) => conn);
-    const Result = await userDao.postgoogleUser(connection, userInfo);
-    connection.release();
-
-    return Result;
+exports.creategoogleUser = async (userInfo) => {
+    try {
+        const connection = await pool.getConnection(async (conn) => conn);
+        try {
+            const Result = await userDao.postgoogleUser(connection, userInfo);
+            return Result;
+        } catch (error) {
+            logger.error("[authProvider userDao postgoogleUser]", error);
+            return errResponse(status.DAO_ERROR_MESSAGE);
+        } finally {
+            connection.release();
+        }
+    } catch (error) {
+        logger.error("[authProvider creategoogleUser]", error);
+        return errResponse(status.PROVIDER_ERROR_MESSAGE);
+    }
 };
 
-module.exports.checkUserId = async (userInfo) => {
-    const connection = await pool.getConnection(async (conn) => conn);
-    const Result = await userDao.selectUserId(connection, userInfo);
-    connection.release();
-
-    return Result;
+exports.checkUserId = async (userInfo) => {
+    try {
+        const connection = await pool.getConnection(async (conn) => conn);
+        try {
+            const Result = await userDao.selectUserId(connection, userInfo);
+            return Result;
+        } catch (error) {
+            logger.error("[authProvider userDao selectUserId]", error);
+            return errResponse(status.DAO_ERROR_MESSAGE);
+        } finally {
+            connection.release();
+        }
+    } catch (error) {
+        logger.error("[authProvider checkUserId]", error);
+        return errResponse(status.PROVIDER_ERROR_MESSAGE);
+    }
 };
 
-module.exports.checkUserPassword = async (userInfo) => {
-    const connection = await pool.getConnection(async (conn) => conn);
-    const Result = await userDao.selectUserPassword(connection, userInfo);
-    connection.release();
-
-    return Result;
+exports.checkUserPassword = async (userInfo) => {
+    try {
+        const connection = await pool.getConnection(async (conn) => conn);
+        try {
+            const Result = await userDao.selectUserPassword(
+                connection,
+                userInfo
+            );
+            return Result;
+        } catch (error) {
+            logger.error("[authProvider userDao selectUserPassword]", error);
+            return errResponse(status.DAO_ERROR_MESSAGE);
+        } finally {
+            connection.release();
+        }
+    } catch (error) {
+        logger.error("[authProvider checkUserPassword]", error);
+        return errResponse(status.PROVIDER_ERROR_MESSAGE);
+    }
 };
 
-module.exports.localUser = async (userInfo) => {
-    const connection = await pool.getConnection(async (conn) => conn);
-    const Result = await userDao.LocalStrategyUser(connection, userInfo);
-    connection.release();
-
-    return Result;
+exports.localUser = async (userInfo) => {
+    try {
+        const connection = await pool.getConnection(async (conn) => conn);
+        try {
+            const Result = await userDao.LocalStrategyUser(
+                connection,
+                userInfo
+            );
+            return Result;
+        } catch (error) {
+            logger.error("[authProvider userDao LocalStrategyUser]", error);
+            return errResponse(status.DAO_ERROR_MESSAGE);
+        } finally {
+            connection.release();
+        }
+    } catch (error) {
+        logger.error("[authProvider localUser]", error);
+        return errResponse(status.PROVIDER_ERROR_MESSAGE);
+    }
 };
 
-// 카카오 유저 조회
-module.exports.kakaoUser = async (userInfo) => {
-    const connection = await pool.getConnection(async (conn) => conn);
-    const Result = await userDao.selectKakaoUser(connection, userInfo);
-    connection.release();
-
-    return Result;
+exports.kakaoUser = async (userInfo) => {
+    try {
+        const connection = await pool.getConnection(async (conn) => conn);
+        try {
+            const Result = await userDao.selectKakaoUser(connection, userInfo);
+            return Result;
+        } catch (error) {
+            logger.error("[authProvider userDao selectKakaoUser]", error);
+            return errResponse(status.DAO_ERROR_MESSAGE);
+        } finally {
+            connection.release();
+        }
+    } catch (error) {
+        logger.error("[authProvider kakaoUser]", error);
+        return errResponse(status.PROVIDER_ERROR_MESSAGE);
+    }
 };
 
-// 구글 유저 조회
-module.exports.googleUser = async (userInfo) => {
-    const connection = await pool.getConnection(async (conn) => conn);
-    const Result = await userDao.selectgoogleUser(connection, userInfo);
-    connection.release();
-
-    return Result;
+exports.googleUser = async (userInfo) => {
+    try {
+        const connection = await pool.getConnection(async (conn) => conn);
+        try {
+            const Result = await userDao.selectgoogleUser(connection, userInfo);
+            return Result;
+        } catch (error) {
+            logger.error("[authProvider userDao selectgoogleUser]", error);
+            return errResponse(status.DAO_ERROR_MESSAGE);
+        } finally {
+            connection.release();
+        }
+    } catch (error) {
+        logger.error("[authProvider googleUser]", error);
+        return errResponse(status.PROVIDER_ERROR_MESSAGE);
+    }
 };

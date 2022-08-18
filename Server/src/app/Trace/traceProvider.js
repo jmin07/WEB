@@ -2,7 +2,7 @@ const pool = require("../../middleware/package/Database/database");
 const traceDao = require("./traceDao");
 const logger = require("../../middleware/package/logg/logger");
 
-module.exports.checkEmail = async (userInfo) => {
+exports.checkEmail = async (userInfo) => {
     try {
         const connection = await pool.getConnection(async (conn) => conn);
         try {
@@ -18,7 +18,7 @@ module.exports.checkEmail = async (userInfo) => {
     }
 };
 
-module.exports.checkStatus = async (userInfo) => {
+exports.checkStatus = async (userInfo) => {
     try {
         const connection = await pool.getConnection(async (conn) => conn);
         try {
@@ -34,7 +34,7 @@ module.exports.checkStatus = async (userInfo) => {
     }
 };
 
-module.exports.traceActiveItemTable = async (Info) => {
+exports.traceActiveItemTable = async (Info) => {
     try {
         const connection = await pool.getConnection(async (conn) => conn);
         try {
@@ -53,7 +53,7 @@ module.exports.traceActiveItemTable = async (Info) => {
     }
 };
 
-module.exports.traceInActiveItemTable = async (Info) => {
+exports.traceInActiveItemTable = async (Info) => {
     try {
         const connection = await pool.getConnection(async (conn) => conn);
         try {
@@ -72,7 +72,7 @@ module.exports.traceInActiveItemTable = async (Info) => {
     }
 };
 
-module.exports.TraceItemTable = async (Info) => {
+exports.TraceItemTable = async (Info) => {
     try {
         const connection = await pool.getConnection(async (conn) => conn);
         try {

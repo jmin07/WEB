@@ -1,4 +1,4 @@
-module.exports.changePassword = async (connection, userInfo) => {
+exports.changePassword = async (connection, userInfo) => {
     const selectUserIdQuery = `
         UPDATE User
         SET password = ?

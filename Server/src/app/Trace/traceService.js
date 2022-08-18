@@ -3,7 +3,7 @@ const logger = require("../../middleware/package/logg/logger");
 const { response, errResponse } = require("../../../config/response/response");
 const status = require("../../../config/response/responseStatus");
 
-module.exports.checkUserEmail = async (email) => {
+exports.checkUserEmail = async (email) => {
     try {
         const EmailProvider = await traceProvider.checkEmail([email]);
         if (EmailProvider.length >= 1) {
@@ -19,7 +19,7 @@ module.exports.checkUserEmail = async (email) => {
     }
 };
 
-module.exports.checkUserStatus = async (userEmail, userIdx, traceIdx) => {
+exports.checkUserStatus = async (userEmail, userIdx, traceIdx) => {
     try {
         const IdxProvider = await traceProvider.checkStatus([
             userIdx,
@@ -47,7 +47,7 @@ module.exports.checkUserStatus = async (userEmail, userIdx, traceIdx) => {
     }
 };
 
-module.exports.activeTraceItem = async (
+exports.activeTraceItem = async (
     City,
     Area,
     Value,
@@ -80,7 +80,7 @@ module.exports.activeTraceItem = async (
     }
 };
 
-module.exports.inactiveTraceItem = async (userIdx, traceIdx) => {
+exports.inactiveTraceItem = async (userIdx, traceIdx) => {
     try {
         const traceProviderResult = await traceProvider.traceInActiveItemTable([
             userIdx,
@@ -101,7 +101,7 @@ module.exports.inactiveTraceItem = async (userIdx, traceIdx) => {
     }
 };
 
-module.exports.checkTraceItem = async (userIdx, traceIdx) => {
+exports.checkTraceItem = async (userIdx, traceIdx) => {
     try {
         // traceTable 에서 조회 검색
         const selectTraceItem = await traceProvider.TraceItemTable([

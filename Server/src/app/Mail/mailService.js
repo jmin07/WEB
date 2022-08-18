@@ -4,7 +4,7 @@ const { response, errResponse } = require("../../../config/response/response");
 const status = require("../../../config/response/responseStatus");
 const bcrypt = require("bcrypt");
 
-module.exports.searchUserEmail = async (email) => {
+exports.searchUserEmail = async (email) => {
     try {
         const returnResult = await mailProvider.checkEmail([email]);
         if (returnResult.length >= 1) {
@@ -19,7 +19,7 @@ module.exports.searchUserEmail = async (email) => {
     }
 };
 
-module.exports.changeUserPassword = async (email, newPassword) => {
+exports.changeUserPassword = async (email, newPassword) => {
     try {
         const hashPassword = await bcrypt.hash(newPassword, 12);
 

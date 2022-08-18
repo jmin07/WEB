@@ -4,7 +4,7 @@ const logger = require("../../middleware/package/logg/logger");
 const status = require("../../../config/response/responseStatus");
 const { response, errResponse } = require("../../../config/response/response");
 
-module.exports.postTraceItemTable = async (req, res) => {
+exports.postTraceItemTable = async (req, res) => {
     try {
         const traceIdx = parseInt(req.params.id);
         const { City, Area, Value, MinPrice, MaxPrice } = req.body;
@@ -57,7 +57,7 @@ module.exports.postTraceItemTable = async (req, res) => {
     }
 };
 
-module.exports.postTraceItem = async (req, res) => {
+exports.postTraceItem = async (req, res) => {
     try {
         const { traceIdx } = req.body;
         const userEmail = req.user.email;

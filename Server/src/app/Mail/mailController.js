@@ -9,7 +9,7 @@ const mailService = require("./mailService");
  * API Name: 인증 번호 요청
  * [GET] /mail/authentication
  */
-module.exports.getAuthentication = async (req, res) => {
+exports.getAuthentication = async (req, res) => {
     const { email } = req.body;
 
     // Math.floor(Math.random() * (최대값 - 최소값) + 최소값);
@@ -53,7 +53,7 @@ module.exports.getAuthentication = async (req, res) => {
  * API Name: 비밀번호 조회 요청
  * [POST] /mail/pwd
  */
-module.exports.getChangePassword = async (req, res) => {
+exports.getChangePassword = async (req, res) => {
     const { email, password } = req.body;
 
     console.log("controller email:", email);

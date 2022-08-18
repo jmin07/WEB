@@ -1,4 +1,4 @@
-module.exports.ItemList = async (connection, Info) => {
+exports.ItemList = async (connection, Info) => {
     const selectUserListQuery =
         "SELECT * FROM BackendTestDB WHERE Title LIKE " +
         connection.escape("%" + Info[0] + "%") +
@@ -12,7 +12,7 @@ module.exports.ItemList = async (connection, Info) => {
     return userList;
 };
 
-module.exports.TotalItem = async (connection, Info) => {
+exports.TotalItem = async (connection, Info) => {
     const selectUserListQuery =
         "SELECT * FROM BackendTestDB WHERE Title LIKE " +
         connection.escape("%" + Info[0] + "%");

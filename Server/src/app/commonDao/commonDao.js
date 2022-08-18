@@ -1,5 +1,4 @@
-// Email 조회
-module.exports.checkUserEmail = async (connection, userInfo) => {
+exports.checkUserEmail = async (connection, userInfo) => {
     const selectUserEmailQuery = `
         SELECT email
         FROM User
@@ -11,8 +10,7 @@ module.exports.checkUserEmail = async (connection, userInfo) => {
     return userEmail;
 };
 
-// userIdx 조회
-module.exports.checkUserIdx = async (connection, email) => {
+exports.checkUserIdx = async (connection, email) => {
     const selectUserIdxQuery = `
         SELECT id
         FROM User

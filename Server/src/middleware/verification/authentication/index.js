@@ -5,8 +5,6 @@ const {
 } = require("../../../../config/response/response");
 const logger = require("../../package/logg/logger");
 
-// 프론트에서 보내는 세션의 id 를 비교한다?
-// req.isAuthenticated() 는 passport tu에서 제공하는 함수로, 현재 로그인 여부 ture, false 를 반환
 module.exports.isLoggedIn = (req, res, next) => {
     if (req.isAuthenticated()) {
         next();
