@@ -20,12 +20,6 @@ exports.getAuthentication = async (req, res) => {
         try {
             result = await awsMail("authenticationMail", email, randomNumber);
             logger.info(`인증번호를 ${email} 로 발송했습니다.`);
-            // req.session.randomNumber=randomNumber;
-            // req.session.save((err)=>{
-            //     if(err){
-            //         console.log(err);
-            //     }
-            // })
             res.status(200).send(
                 response(status.SEND_NUMBER_MAIL, randomNumber)
             );
@@ -56,30 +50,25 @@ exports.getAuthentication = async (req, res) => {
 exports.getChangePassword = async (req, res) => {
     const { email, password } = req.body;
 
-    console.log("controller email:", email);
-    console.log("password: ", password);
-    console.log("여기가 실행되어야하는거 아닌가?");
-
     // 이메일 검증
     // return email, password
     const returnEmail = await mailService.searchUserEmail(email);
 
-    console.log("userEmail:", returnEmail); // 객체로 넘어오는 것 같음
-    console.log("userEmail result:", returnEmail.result); // 객체로 넘어오는 것 같음
-
     // 메일이 없으면 거절
     if (returnEmail.result < 1) {
-        res.status(400).send(errResponse(status.SEND_EMAIL_ERROR));
+        return res.status(400).send(errResponse(status.SEND_EMAIL_ERROR));
     }
 
     // 비밀 번호 변경
     try {
         const result = mailService.changeUserPassword(email, password);
-        res.status(200).send(
-            response(status.CHANGE_USER_PASSWORD_SUCCESS, null)
-        );
+        return res
+            .status(200)
+            .send(response(status.CHANGE_USER_PASSWORD_SUCCESS, null));
     } catch (error) {
         logger.error("[controller] :", error);
-        res.status(400).send(errResponse(status.CHANGE_USER_PASSWORD_ERROR));
+        return res
+            .status(400)
+            .send(errResponse(status.CHANGE_USER_PASSWORD_ERROR));
     }
 };

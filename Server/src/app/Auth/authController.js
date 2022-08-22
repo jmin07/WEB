@@ -11,14 +11,17 @@ const { response, errResponse } = require("../../../config/response/response");
  * [POST] /auth/signup
  */
 exports.postAuthSignUp = async (req, res) => {
-    const { email, password } = req.body;
+    try {
+        const { email, password } = req.body;
 
-    const createResult = await authService.createUser(email, password);
+        const createResult = await authService.createUser(email, password);
 
-    if (createResult.isSuccess) {
-        return res.status(200).send(createResult);
-    } else {
-        return res.status(400).send(createResult);
+        const result = createResult.isSuccess
+            ? res.status(200).send(createResult)
+            : res.status(400).send(createResult);
+        return result;
+    } catch (error) {
+        return res.status(400).send(status.CONTROLLER_ERROR_MESSAGE);
     }
 };
 

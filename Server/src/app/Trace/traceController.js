@@ -16,7 +16,7 @@ exports.postTraceItemTable = async (req, res) => {
         // 유저 이메일이 없으면 Stop
         if (!resultEmail.isSuccess) {
             logger.error(`${resultEmail.message}`);
-            return resultEmail;
+            return res.status(400).send(resultEmail);
         }
 
         // 유저 Idx 확인(인가)
@@ -54,6 +54,7 @@ exports.postTraceItemTable = async (req, res) => {
         }
     } catch (error) {
         logger.error("[traceController postUpdateDb] ", error);
+        return res.status(400).send(status.CONTROLLER_ERROR_MESSAGE);
     }
 };
 
@@ -69,7 +70,7 @@ exports.postTraceItem = async (req, res) => {
         // 유저 이메일 없으면 return
         if (!resultEmail.isSuccess) {
             logger.error(`${resultEmail.message}`);
-            return res.status(403).send(resultEmail);
+            return res.status(400).send(resultEmail);
         }
 
         // 유저 이메일 있으면
@@ -82,5 +83,8 @@ exports.postTraceItem = async (req, res) => {
         return res.status(200).send(resultTraceItem);
     } catch (error) {
         logger.error("[getTraceItem] ", error);
+        return res
+            .status(400)
+            .send(errResponse(status.CONTROLLER_ERROR_MESSAGE));
     }
 };

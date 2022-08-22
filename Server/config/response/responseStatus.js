@@ -135,7 +135,7 @@ module.exports = {
     SERVICE_ERROR_MESSAGE: {
         isSuccess: false,
         code: 4000,
-        message: "잘 못된 요청입니다.",
+        message: "잘못된 요청입니다.",
     },
     DAO_ERROR_MESSAGE: {
         isSuccess: false,
@@ -146,5 +146,10 @@ module.exports = {
         isSuccess: false,
         code: 4000,
         message: "mysql connection 오류 입니다.",
+    },
+    CONTROLLER_ERROR_MESSAGE: {
+        isSuccess: false,
+        cdoe: 4000,
+        message: "Controller 에러 입니다.",
     },
 };

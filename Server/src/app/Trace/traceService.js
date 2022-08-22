@@ -16,6 +16,7 @@ exports.checkUserEmail = async (email) => {
         }
     } catch (error) {
         logger.error("[traceService checkUserId] ", error);
+        return errResponse(status.SERVICE_ERROR_MESSAGE);
     }
 };
 
@@ -44,6 +45,7 @@ exports.checkUserStatus = async (userEmail, userIdx, traceIdx) => {
         };
     } catch (error) {
         logger.error(`[traceService checkUserIdx] ${error}`);
+        return errResponse(status.SERVICE_ERROR_MESSAGE);
     }
 };
 
@@ -77,6 +79,7 @@ exports.activeTraceItem = async (
         );
     } catch (error) {
         logger.error("[traceService checkUserId] ", error);
+        return errResponse(status.SERVICE_ERROR_MESSAGE);
     }
 };
 
@@ -98,6 +101,7 @@ exports.inactiveTraceItem = async (userIdx, traceIdx) => {
         );
     } catch (error) {
         logger.error("[traceService checkUserId] ", error);
+        return errResponse(status.SERVICE_ERROR_MESSAGE);
     }
 };
 
@@ -120,5 +124,6 @@ exports.checkTraceItem = async (userIdx, traceIdx) => {
         );
     } catch (error) {
         logger.error("[checkTraceItem] ", error);
+        return errResponse(status.SERVICE_ERROR_MESSAGE);
     }
 };

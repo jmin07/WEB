@@ -7,15 +7,16 @@ const bcrypt = require("bcrypt");
 exports.searchUserEmail = async (email) => {
     try {
         const returnResult = await mailProvider.checkEmail([email]);
-        if (returnResult.length >= 1) {
-            logger.info(`${email} 이 존재합니다.`);
-            return response(status.SEND_NUMBER_MAIL, returnResult[0]);
-        } else {
-            logger.error(`${email} 이 존재하지 않습니다.`);
-            return errResponse(status.SEND_EMAIL_ERROR);
-        }
+        const Result =
+            returnResult.length >= 1
+                ? response(status.SEND_NUMBER_MAIL, returnResult[0]) &&
+                  logger.info(`${email} 이 존재합니다.`)
+                : errResponse(status.SEND_EMAIL_ERROR) &&
+                  logger.error(`${email} 이 존재하지 않습니다.`);
+        return Result;
     } catch (error) {
         logger.error("[searchUserEmail] ", error);
+        return errResponse(status.SERVICE_ERROR_MESSAGE);
     }
 };
 
@@ -29,5 +30,6 @@ exports.changeUserPassword = async (email, newPassword) => {
         return userPassword;
     } catch (error) {
         logger.error("[changeUserPassword] ", error);
+        return errResponse(status.SERVICE_ERROR_MESSAGE);
     }
 };
