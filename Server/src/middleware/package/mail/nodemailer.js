@@ -1,24 +1,19 @@
-const path = require("path");
-const dotenv = require("dotenv");
-dotenv.config({ path: path.join(__dirname, "/../../.env") });
-
-const nodemailer = require("nodemailer");
+// config
+const config = require("../../../../config/node_env/key");
 const logger = require("../logg/logger");
+const ourEmail = config.awsEmail.id;
+const accessKeyId = config.awsEmail.accessKey;
+const secretAccessKey = config.awsEmail.secretKey;
 
+// module
+const nodemailer = require("nodemailer");
 const AWS = require("aws-sdk");
-
-let OUR_MAIL;
-if (process.env.NODE_ENV === "development") {
-    OUR_MAIL = process.env.AWS_EMAIL_ID;
-} else {
-    OUR_MAIL = process.env.TEST_EMAIL_ID;
-}
 
 // ----------------------- gmail ---------------------
 const authMail = (option, email, randomNumber) => {
     if (option === "authenticationMail") {
         const authenticationMail = {
-            from: OUR_MAIL,
+            from: ourEmail,
             to: mail,
             subject: "WatchRabbit Agent Sing up",
             text: "테스트 이메일 진행 중입니다.",
@@ -28,7 +23,7 @@ const authMail = (option, email, randomNumber) => {
         return authenticationMail;
     } else if (option == "alarmMail") {
         const alarmMail = {
-            from: OUR_MAIL,
+            from: ourEmail,
             to: mail,
             subject: "WatchRabbit Agent alarm",
             text: "테스트 이메일 진행 중입니다.",
@@ -52,7 +47,7 @@ const mail = async (option, email, number) => {
             port: 465,
             secure: true, // true for 465, false for other ports
             auth: {
-                user: OUR_MAIL,
+                user: ourEmail,
                 pass: process.env.TEST_EMAIL_PASSWORD,
             },
         });
@@ -63,7 +58,7 @@ const mail = async (option, email, number) => {
             port: 465,
             secure: true,
             auth: {
-                user: OUR_MAIL,
+                user: ourEmail,
                 pass: process.env.TEST_EMAIL_PASSWORD,
             },
         });
@@ -77,8 +72,8 @@ const mail = async (option, email, number) => {
 // --------------------------  AWS Email ----------------
 const awsMail = (option, email, randomNumber = null, ...args) => {
     const SES_CONFIG = {
-        accessKeyId: process.env.AWS_ACCESS_KEY,
-        secretAccessKey: process.env.AWS_ACCESS_SECRET_KEY,
+        accessKeyId,
+        secretAccessKey,
         region: "ap-northeast-2",
     };
 
@@ -86,11 +81,11 @@ const awsMail = (option, email, randomNumber = null, ...args) => {
 
     let HTML, TITLE, htmlTemplate;
     if (option === "authenticationMail") {
-        htmlTemplate = require("../../../../config/email_HTML/loginCode.js");
+        htmlTemplate = require("../../../../config/package/email/loginCode.js");
         HTML = htmlTemplate({ email, randomNumber });
         TITLE = "WatchRabbit 인증 번호 메일입니다.";
     } else if (option === "findPassword") {
-        htmlTemplate = require("../../../../config/email_HTML/findPassward.js");
+        htmlTemplate = require("../../../../config/package/email/findPassward.js");
         HTML = htmlTemplate({ email, password });
         TITLE = "WatchRabbit 비밀번호 메일입니다.";
     }

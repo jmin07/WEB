@@ -1,3 +1,7 @@
+// CONFIG
+const config = require("../../config/node_env/key");
+const whitelist = config.cors.whitelist;
+
 // EXPRESS
 const express = require("express");
 const app = express();
@@ -20,14 +24,10 @@ const sessionStore = new MySQLStore({}, pool);
 const connectRedis = require("connect-redis");
 const RedisStore = connectRedis(session);
 const redis = require("redis");
+const redisConfig = require("../../config/package/redis/config");
+const client = redis.createClient(redisConfig);
 
-const client = redis.createClient({
-    url: `redis://default:${process.env.REDIS_PASSWORD}@${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`,
-    logErrors: true,
-    legacyMode: true,
-});
-
-client.connect().catch(console.error);
+client.connect().catch((error) => logger.error("redis client error", error));
 
 // PASSPORT
 const passport = require("passport");
@@ -38,32 +38,17 @@ const authRouter = require("../app/Auth/authRoute");
 const mailRouter = require("../app/Mail/mailRoute");
 const cwRouter = require("../app/Crawling/cwRoute");
 const traceRouter = require("../app/Trace/traceRoute");
-
-const whitelist = [
-    `${
-        process.env.NODE_ENV === "production" ? "https" : "http"
-    }://www.watchrabbit.co.kr`,
-
-    `${
-        process.env.NODE_ENV === "production" ? "https" : "http"
-    }://www.watchrabbit.co.kr:8443`,
-
-    `${
-        process.env.NODE_ENV === "production" ? "https" : "http"
-    }://www.watchrabbit.co.kr:3000`,
-];
+const logger = require("./package/logg/logger");
 
 const corsOptionDeletegate = (req, callback) => {
     let corsOptions;
     if (whitelist.indexOf(req.header("origin")) !== -1) {
-        console.log("탐");
         corsOptions = {
             origin: true,
             credentials: true,
         };
     } else {
         corsOptions = { origin: false };
-        console.log("탐2");
     }
     callback(null, corsOptions);
 };
