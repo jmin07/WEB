@@ -1,4 +1,7 @@
-const BASE_URL = "https://www.watchrabbit.co.kr:8443";
+// const BASE_URL = "https://www.watchrabbit.co.kr:8443";
+const BASE_URL = `${
+    process.env.REACT_APP_NODE_ENV === "production" ? "https" : "http"
+}://www.watchrabbit.co.kr:8443`;
 
 export async function postLoginData(Data) {
     const response = await fetch(`${BASE_URL}${Data.path}`, {
@@ -56,20 +59,18 @@ export async function postKakao(Data) {
     const body = await response.json();
     return body;
 }
-export async function postSearchData(Data) {
-    const response = await fetch(`${BASE_URL}${Data.path}`, {
-        method: "POST",
-        mode: "cors",
-        credentials: "include",
-        headers: {
-            "Content-Type": "application/json; charset=utf-8",
-        },
-        body: JSON.stringify({
-            city: Data.userCity,
-            area: Data.userArea,
-            value: Data.userValue,
-        }),
-    });
+export async function getSearchData(Data) {
+    const response = await fetch(
+        `${BASE_URL}${Data.path}?city=${Data.userCity}&area=${Data.userArea}&value=${Data.userValue}`,
+        {
+            method: "GET",
+            mode: "cors",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json; charset=utf-8",
+            },
+        }
+    );
     const body = await response.json();
     return body;
 }
@@ -145,8 +146,8 @@ export async function postTraceItem(Data) {
             "Content-Type": "application/json; charset=utf-8",
         },
         body: JSON.stringify({
-          traceIdx: Data.traceIdx
-      }),
+            traceIdx: Data.traceIdx,
+        }),
     });
     const body = await response.json();
     return body;

@@ -5,6 +5,6 @@ const router = express.Router();
 // CONTROLLER
 const cwController = require("./cwController");
 
-router.post("/test", cwController.postSearchItem);
+router.get("/search", cwController.postSearchItem);
 
 module.exports = router;

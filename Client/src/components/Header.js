@@ -38,10 +38,15 @@ import { LoadingContext } from "../contexts/LoadingContext"; //로딩 컨텍스�
 import SelectArea from "../components/SelectArea";
 
 //외부함수
-import { getLoginStatus, getLogOut, postSearchData } from "../api";
+import { getLoginStatus, getLogOut, getSearchData } from "../api";
 // import { dummydata } from "../script/dummydata"; //더미데이터
 
+// query로 처리를 해라
+// userParams
+
+// use
 export default function Header() {
+    console.log("process.env : ", process.env);
     //컨택스트
     const { setSearchData } = useContext(SearchDataContext);
     const { setDBdata } = useContext(DBdataContext);
@@ -80,7 +85,7 @@ export default function Header() {
         const city = e.target[0].value;
         const area = e.target[1].value;
         const value = e.target[2].value;
-        const data = "/db/test";
+        const data = "/db/search"; //post
         const props = {
             path: data,
             userCity: city,
@@ -90,7 +95,7 @@ export default function Header() {
         setSearchData((searchData) => ({
             ...props,
         }));
-        const response = postSearchData(props);
+        const response = getSearchData(props);
         response.then((res) => {
             if (res.isSuccess) {
                 if (e.target[0].value === "전국") {
