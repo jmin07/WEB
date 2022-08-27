@@ -27,7 +27,8 @@ const redis = require("redis");
 const redisConfig = require("../../config/package/redis/config");
 const client = redis.createClient(redisConfig);
 
-client.connect().catch((error) => logger.error("redis client error", error));
+// SEQUELIZE
+const { sequelize } = require("./package/sequelize/models/index");
 
 // PASSPORT
 const passport = require("passport");
@@ -40,8 +41,10 @@ const cwRouter = require("../app/Crawling/cwRoute");
 const traceRouter = require("../app/Trace/traceRoute");
 const logger = require("./package/logg/logger");
 
+client.connect().catch((error) => logger.error("redis client error", error));
+
+let corsOptions;
 const corsOptionDeletegate = (req, callback) => {
-    let corsOptions;
     if (whitelist.indexOf(req.header("origin")) !== -1) {
         corsOptions = {
             origin: true,
@@ -52,6 +55,15 @@ const corsOptionDeletegate = (req, callback) => {
     }
     callback(null, corsOptions);
 };
+
+sequelize
+    .sync({ force: false })
+    .then(() => {
+        logger.info("데이터베이스 연결 성공");
+    })
+    .catch((err) => {
+        logger.error("데이터 베이스 연결 실패", err);
+    });
 
 app.use(cors(corsOptionDeletegate));
 

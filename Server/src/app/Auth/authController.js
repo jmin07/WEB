@@ -2,8 +2,10 @@ const authService = require("./authService");
 const passport = require("passport");
 const logger = require("../../middleware/package/logg/logger");
 
+const config = require("../../../config/node_env/key");
 const status = require("../../../config/response/responseStatus");
 const { response, errResponse } = require("../../../config/response/response");
+const { create } = require("../../middleware/package/sequelize/models/user");
 
 /**
  * API No.1
@@ -15,12 +17,13 @@ exports.postAuthSignUp = async (req, res) => {
         const { email, password } = req.body;
 
         const createResult = await authService.createUser(email, password);
-
+        console.log("createResult", createResult);
         const result = createResult.isSuccess
             ? res.status(200).send(createResult)
             : res.status(400).send(createResult);
         return result;
     } catch (error) {
+        console.log("controller", error);
         return res.status(400).send(status.CONTROLLER_ERROR_MESSAGE);
     }
 };
@@ -107,7 +110,7 @@ exports.kakaoLogin = (req, res, next) => {
             }
             logger.info(`${user.email} 님이 카카오 로그인에 성공했습니다.`);
 
-            return res.redirect("https://www.watchrabbit.co.kr/main");
+            return res.redirect(config.redirect.main);
         });
     })(req, res, next);
 };
@@ -147,7 +150,7 @@ exports.googleLogin = (req, res, next) => {
                 logger.error(loginError);
             }
             logger.info(`${user.email} 님이 구글 로그인에 성공했습니다.`);
-            return res.redirect("https://www.watchrabbit.co.kr/main");
+            return res.redirect(config.redirect.main);
         });
     })(req, res, next);
 };

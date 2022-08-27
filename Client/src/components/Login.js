@@ -142,44 +142,89 @@ export default function Login() {
                         >
                             로그인
                         </Button>
-                        <a
-                            href="https://www.watchrabbit.co.kr:8443/auth/google"
-                            style={{ textDecoration: "none" }}
-                        >
-                            <GoogleButton
-                                fullWidth
-                                variant="contained"
-                                sx={{ mt: 3 }}
-                                onClick={googleClick}
+                        {process.env.REACT_APP_NODE_ENV === "production" ? (
+                            <a
+                                href="https://www.watchrabbit.co.kr:8443/auth/google"
+                                style={{ textDecoration: "none" }}
                             >
-                                <Img
-                                    src="/img/googlelogo.png"
-                                    width="20px"
-                                    position="absolute"
-                                    left="10px"
-                                />
-                                구글로 로그인
-                            </GoogleButton>
-                        </a>
-                        <a
-                            href="https://www.watchrabbit.co.kr:8443/auth/kakao"
-                            style={{ textDecoration: "none" }}
-                        >
-                            <KakaoButton
-                                fullWidth
-                                variant="contained"
-                                sx={{ mt: 1, mb: 4, background: "" }}
-                                onClick={kakaoClick}
+                                <GoogleButton
+                                    fullWidth
+                                    variant="contained"
+                                    sx={{ mt: 3 }}
+                                    onClick={googleClick}
+                                >
+                                    <Img
+                                        src="/img/googlelogo.png"
+                                        width="20px"
+                                        position="absolute"
+                                        left="10px"
+                                    />
+                                    구글로 로그인
+                                </GoogleButton>
+                            </a>
+                        ) : (
+                            <a
+                                href="http://www.watchrabbit.co.kr:8443/auth/google"
+                                style={{ textDecoration: "none" }}
                             >
-                                <Img
-                                    src="/img/kakaologo.png"
-                                    width="30px"
-                                    position="absolute"
-                                    left="7px"
-                                />
-                                카카오로 로그인
-                            </KakaoButton>
-                        </a>
+                                <GoogleButton
+                                    fullWidth
+                                    variant="contained"
+                                    sx={{ mt: 3 }}
+                                    onClick={googleClick}
+                                >
+                                    <Img
+                                        src="/img/googlelogo.png"
+                                        width="20px"
+                                        position="absolute"
+                                        left="10px"
+                                    />
+                                    구글로 로그인
+                                </GoogleButton>
+                            </a>
+                        )}
+                        {process.env.REACT_APP_NODE_ENV === "production" ? (
+                            <a
+                                href="https://www.watchrabbit.co.kr:8443/auth/kakao"
+                                style={{ textDecoration: "none" }}
+                            >
+                                <KakaoButton
+                                    fullWidth
+                                    variant="contained"
+                                    sx={{ mt: 1, mb: 4, background: "" }}
+                                    onClick={kakaoClick}
+                                >
+                                    <Img
+                                        src="/img/kakaologo.png"
+                                        width="30px"
+                                        position="absolute"
+                                        left="7px"
+                                    />
+                                    카카오로 로그인
+                                </KakaoButton>
+                            </a>
+                        ) : (
+                            <a
+                                href="http://www.watchrabbit.co.kr:8443/auth/kakao"
+                                style={{ textDecoration: "none" }}
+                            >
+                                {" "}
+                                <KakaoButton
+                                    fullWidth
+                                    variant="contained"
+                                    sx={{ mt: 1, mb: 4, background: "" }}
+                                    onClick={kakaoClick}
+                                >
+                                    <Img
+                                        src="/img/kakaologo.png"
+                                        width="30px"
+                                        position="absolute"
+                                        left="7px"
+                                    />
+                                    카카오로 로그인
+                                </KakaoButton>
+                            </a>
+                        )}
                     </form>
                 </Box>
             </Container>

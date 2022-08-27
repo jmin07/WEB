@@ -1,5 +1,3 @@
-const { CHANGE_USER_PASSWORD_ERROR } = require("../response/responseStatus");
-
 module.exports = {
     port: process.env.HTTPS_PORT,
     cors: {
@@ -8,6 +6,12 @@ module.exports = {
             "http://www.watchrabbit.co.kr:3000",
             "https://www.watchrabbit.co.kr:8443",
         ],
+    },
+    callback: {
+        kakao: "http://www.watchrabbit.co.kr:8443/auth/kakao/callback",
+    },
+    redirect: {
+        main: "http://www.watchrabbit.co.kr:3000/main",
     },
     awsEmail: {
         id: process.env.AWS_EMAIL_ID,

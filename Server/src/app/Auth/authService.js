@@ -1,4 +1,5 @@
-const authProvider = require("./authProvider");
+// const authProvider = require("./authProvider");
+const authDao = require("./authDao");
 const bcrypt = require("bcrypt");
 const logger = require("../../middleware/package/logg/logger");
 const { response, errResponse } = require("../../../config/response/response");
@@ -12,7 +13,7 @@ exports.createUser = async (email, password) => {
     try {
         const hashPassword = await bcrypt.hash(password, 12);
 
-        const checkUser = await authProvider.localUser([email]);
+        const checkUser = await authDao.emailCheck({ email });
 
         if (checkUser.length >= 1) {
             logger.info(`${email} 이메일 중복입니다.`);

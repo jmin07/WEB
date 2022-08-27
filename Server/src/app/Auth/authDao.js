@@ -1,26 +1,71 @@
-exports.selectUserList = async (connection, userInfo) => {
-    const selectUserListQuery = `
-        SELECT email, password
-        FROM User
-        WHERE email = ? AND password = ?;
-    `;
+const logger = require("../../middleware/package/logg/logger");
+const { User } = require("../../middleware/package/sequelize/models/index");
 
-    const [userList] = await connection.query(selectUserListQuery, userInfo);
-
-    return userList;
+exports.emailCheck = async (info) => {
+    try {
+        const result = await User.findAll({
+            attributes: ["email"],
+            where: {
+                email: info.email,
+            },
+        });
+        return result;
+    } catch (error) {
+        logger.error("[authDao emailCheck] \n", error);
+    }
 };
 
-exports.LocalStrategyUser = async (connection, userInfo) => {
-    const selectUserIdQuery = `
-        SELECT email, password
-        FROM User
-        WHERE email = ?;
-    `;
-
-    const [userId] = await connection.query(selectUserIdQuery, userInfo);
-
-    return userId;
+exports.snsCheckUser = async (info) => {
+    try {
+        const result = await User.findAll({
+            attributes: ["email", "provider"],
+            where: {
+                email: info.email,
+                provider: info.provider,
+            },
+        });
+        return result;
+    } catch (error) {
+        logger.error("[authDao snsUser] \n", error);
+    }
 };
+
+exports.snsCreateUser = async (info) => {
+    try {
+        const result = await User.create({
+            email: info.email,
+            userImage: info.userImage,
+            provider: info.provider,
+        });
+        return result;
+    } catch (error) {
+        logger.error("[authDao snsCreateUser] \n", error);
+    }
+};
+
+// exports.selectUserList = async (connection, userInfo) => {
+//     const selectUserListQuery = `
+//         SELECT email, password
+//         FROM User
+//         WHERE email = ? AND password = ?;
+//     `;
+
+//     const [userList] = await connection.query(selectUserListQuery, userInfo);
+
+//     return userList;
+// };
+
+// exports.LocalStrategyUser = async (connection, userInfo) => {
+//     const selectUserIdQuery = `
+//         SELECT email, password
+//         FROM User
+//         WHERE email = ?;
+//     `;
+
+//     const [userId] = await connection.query(selectUserIdQuery, userInfo);
+
+//     return userId;
+// };
 
 exports.selectUserId = async (connection, userInfo) => {
     const selectUserIdQuery = `

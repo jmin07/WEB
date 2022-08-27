@@ -4,23 +4,23 @@ const logger = require("../../middleware/package/logg/logger");
 const { errResponse } = require("../../../config/response/response");
 const status = require("../../../config/response/responseStatus");
 
-exports.userList = async (userInfo) => {
-    try {
-        const connection = await pool.getConnection(async (conn) => conn);
-        try {
-            const Result = await userDao.selectUserList(connection, userInfo);
-            return Result;
-        } catch (error) {
-            logger.error("[authProvider userDao selectUserList]", error);
-            return errResponse(status.DAO_ERROR_MESSAGE);
-        } finally {
-            connection.release();
-        }
-    } catch (error) {
-        logger.error("[authProvider userList]", error);
-        return errResponse(status.PROVIDER_ERROR_MESSAGE);
-    }
-};
+// exports.userList = async (userInfo) => {
+//     try {
+//         const connection = await pool.getConnection(async (conn) => conn);
+//         try {
+//             const Result = await userDao.selectUserList(connection, userInfo);
+//             return Result;
+//         } catch (error) {
+//             logger.error("[authProvider userDao selectUserList]", error);
+//             return errResponse(status.DAO_ERROR_MESSAGE);
+//         } finally {
+//             connection.release();
+//         }
+//     } catch (error) {
+//         logger.error("[authProvider userList]", error);
+//         return errResponse(status.PROVIDER_ERROR_MESSAGE);
+//     }
+// };
 
 exports.createUser = async (userInfo) => {
     try {
@@ -29,7 +29,7 @@ exports.createUser = async (userInfo) => {
             const Result = await userDao.postUser(connection, userInfo);
             return Result;
         } catch (error) {
-            logger.error("[authP{rovider userDao postUser]", error);
+            logger.error("[authProvider userDao postUser]", error);
             return errResponse(status.DAO_ERROR_MESSAGE);
         } finally {
             connection.release();

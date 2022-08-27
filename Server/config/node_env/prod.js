@@ -6,6 +6,12 @@ module.exports = {
             "https://www.watchrabbit.co.kr:8443",
         ],
     },
+    callback: {
+        kakao: "https://www.watchrabbit.co.kr:8443/auth/kakao/callback",
+    },
+    redirect: {
+        main: "https://www.watchrabbit.co.kr/main",
+    },
     awsEmail: {
         id: process.env.AWS_EMAIL_ID,
         accessKey: process.env.AWS_ACCESS_KEY,

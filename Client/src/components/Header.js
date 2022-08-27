@@ -412,6 +412,43 @@ export default function Header() {
                                                 </Button>
                                             )}
                                         </Link>
+
+                                        <Link
+                                            to="/community"
+                                            style={{
+                                                textDecorationLine: "none",
+                                            }}
+                                        >
+                                            {window.location.pathname ===
+                                            "/community" ? (
+                                                <Button
+                                                    sx={{
+                                                        ml: 2,
+                                                        fontWeight: "bold",
+                                                        color: "white",
+                                                        background: "#1c751c",
+                                                    }}
+                                                    variant="contained"
+                                                    color="success"
+                                                >
+                                                    커뮤니티
+                                                </Button>
+                                            ) : (
+                                                <Button
+                                                    sx={{
+                                                        ml: 2,
+                                                        fontWeight: "bold",
+                                                        color: "white",
+                                                        background: "coral",
+                                                    }}
+                                                    variant="contained"
+                                                    color="warning"
+                                                >
+                                                    커뮤니티
+                                                </Button>
+                                            )}
+                                        </Link>
+
                                         <Link
                                             to="/main"
                                             style={{
