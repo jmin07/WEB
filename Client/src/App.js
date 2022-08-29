@@ -11,7 +11,7 @@ import Trace from "./routes/Trace";
 import Home from "./routes/Home";
 import SignUp from "./routes/SignUp";
 import ForgotPW from "./routes/ForgotPW";
-import Community from "./routes/Community";
+import CommunityMain from "./routes/CommunityMain";
 
 //컨텍스트
 import { SearchDataContext } from "./contexts/SearchDataContext";
@@ -78,7 +78,7 @@ function App() {
                                 <Route path="trace" element={<Trace />} />
                                 <Route
                                     path="community"
-                                    element={<Community />}
+                                    element={<CommunityMain />}
                                 />
                                 <Route path="main" element={<Home />} />
                                 <Route path="signup" element={<SignUp />} />
