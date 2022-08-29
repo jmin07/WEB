@@ -1,5 +1,5 @@
 const cwProvider = require("./cwProvider");
-const logger = require("../../middleware/package/logg/logger");
+const logger = require("../../middleware/package/logg");
 const { response, errResponse } = require("../../../config/response/response");
 const status = require("../../../config/response/responseStatus");
 

@@ -4,8 +4,8 @@ module.exports = class User extends Sequelize.Model {
     static init(sequelize) {
         return super.init(
             {
-                id: {
-                    type: Sequelize.INTEGER,
+                idx: {
+                    type: Sequelize.BIGINT,
                     autoIncrement: true,
                     primaryKey: true,
                     allowNull: false,
@@ -19,7 +19,6 @@ module.exports = class User extends Sequelize.Model {
                 password: {
                     type: Sequelize.TEXT,
                     allowNull: false,
-                    unique: true,
                 },
                 userImage: {
                     type: Sequelize.INTEGER,
@@ -31,7 +30,7 @@ module.exports = class User extends Sequelize.Model {
                     defaultValue: "Active",
                 },
                 provider: {
-                    type: Sequelize.STRING,
+                    type: Sequelize.STRING(10),
                     allowNull: false,
                     defaultValue: "local",
                 },
@@ -42,10 +41,33 @@ module.exports = class User extends Sequelize.Model {
                 underscored: false, // false: 카멜방식, true: 스네이크 방식
                 modelName: "User",
                 tableName: "user",
-                paranoid: false, // true: deletedAt true or false // soft
+                paranoid: true, // true: deletedAt true or false // soft
                 charset: "utf8mb4",
                 collate: "utf8mb4_general_ci",
             }
         );
+    }
+
+    static associate(db) {
+        db.User.hasMany(db.Community, {
+            foreignKey: "userIdx",
+            sourceKey: "idx",
+        }),
+            db.User.hasMany(db.Comment, {
+                foreignKey: "userIdx",
+                sourceKey: "idx",
+            }),
+            db.User.hasMany(db.Like, {
+                foreignKey: "userIdx",
+                sourceKey: "idx",
+            }),
+            db.User.hasMany(db.Reply, {
+                foreignKey: "userIdx",
+                sourceKey: "idx",
+            });
+        db.User.hasMany(db.Trace, {
+            foreignKey: "userIdx",
+            sourceKey: "idx",
+        });
     }
 };

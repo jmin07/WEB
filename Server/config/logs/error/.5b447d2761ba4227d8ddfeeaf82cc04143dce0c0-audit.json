@@ -34,6 +34,11 @@
             "date": 1661526201430,
             "name": "config\\logs\\error\\error-2022-08-27.log",
             "hash": "750ef9a22eb281ee4b31d393b967c6bd4b9a9eb84f41493cc87442f79e6670c0"
+        },
+        {
+            "date": 1661669629187,
+            "name": "config\\logs\\error\\error-2022-08-28.log",
+            "hash": "c5f8f413ec39fa889aae1c282849ae53a52548cb0c7479b2c85835f1f3a786f6"
         }
     ],
     "hashType": "sha256"

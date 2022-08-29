@@ -1,8 +1,8 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
-const authProvider = require("../../../app/Auth/authProvider");
-const logger = require("../logg/logger");
+const commonDao = require("../../../app/commonDao/commonDao");
+const logger = require("../logg");
 
 const status = require("../../../../config/response/responseStatus");
 const {
@@ -24,7 +24,7 @@ module.exports = () => {
 
                 try {
                     // 유저 조회
-                    const exUser = await authProvider.localUser([email]);
+                    const exUser = await commonDao.emailCheck({ email });
 
                     if (exUser.length < 1) {
                         // 1. 유저 아이디 없다면
@@ -60,7 +60,7 @@ module.exports = () => {
                         }
                     }
                 } catch (error) {
-                    logger.error(error);
+                    logger.error("[passport LocalStrategy]", error);
                 }
             }
         )

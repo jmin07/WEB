@@ -5,10 +5,9 @@ dotenv.config({ path: path.join(__dirname, "/../../.env") }); // path.join(__dir
 const passport = require("passport");
 const KakaoStrategy = require("passport-kakao").Strategy;
 
-const authDao = require("../../../app/Auth/authDao");
+const commonDao = require("../../../app/commonDao/commonDao");
 const config = require("../../../../config/node_env/key");
-console.log(config.callback.kakao);
-const logger = require("../logg/logger");
+const logger = require("../logg");
 
 const status = require("../../../../config/response/responseStatus");
 const {
@@ -60,15 +59,13 @@ module.exports = () => {
                         if (User.insertId) {
                             const userIdx = User.insertId;
 
-                            // // 유저 생성 후, trace Table 생성
-                            let newTraceItem = new Array();
-                            for (let i = 1; i < 6; i++) {
-                                newTraceItem.push([userIdx, i]);
+                            // 유저 생성 후, trace Table 생성
+                            for (let traceIdx = 1; traceIdx < 6; traceIdx++) {
+                                await commonDao.createTraceItem({
+                                    userIdx,
+                                    traceIdx,
+                                });
                             }
-
-                            const traceItem = await authDao.createTraceItem([
-                                newTraceItem,
-                            ]);
 
                             // TraceItem 테이블 생성
                             done(
@@ -79,7 +76,7 @@ module.exports = () => {
                         }
                     }
                 } catch (err) {
-                    logger.error("[KakaoStrategy]", err);
+                    logger.error("[passport KakaoStrategy]", err);
                 }
             }
         )

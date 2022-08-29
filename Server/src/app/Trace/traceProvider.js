@@ -1,6 +1,6 @@
-const pool = require("../../middleware/package/Database/database");
+const pool = require("../../middleware/package/Database");
 const traceDao = require("./traceDao");
-const logger = require("../../middleware/package/logg/logger");
+const logger = require("../../middleware/package/logg");
 const { response, errResponse } = require("../../../config/response/response");
 const status = require("../../../config/response/responseStatus");
 

@@ -1,6 +1,6 @@
 // config
 const config = require("../../../../config/node_env/key");
-const logger = require("../logg/logger");
+const logger = require("../logg");
 const ourEmail = config.awsEmail.id;
 const accessKeyId = config.awsEmail.accessKey;
 const secretAccessKey = config.awsEmail.secretKey;

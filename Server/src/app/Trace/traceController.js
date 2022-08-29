@@ -1,6 +1,6 @@
 const traceService = require("./traceService");
 const passport = require("passport");
-const logger = require("../../middleware/package/logg/logger");
+const logger = require("../../middleware/package/logg");
 const status = require("../../../config/response/responseStatus");
 const { response, errResponse } = require("../../../config/response/response");
 

@@ -1,4 +1,4 @@
-const pool = require("../../middleware/package/Database/database");
+const pool = require("../../middleware/package/Database");
 const cwDao = require("../Crawling/cwDao");
 const { errResponse } = require("../../../config/response/response");
 const status = require("../../../config/response/responseStatus");

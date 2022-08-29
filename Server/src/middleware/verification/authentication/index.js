@@ -3,7 +3,7 @@ const {
     response,
     errResponse,
 } = require("../../../../config/response/response");
-const logger = require("../../package/logg/logger");
+const logger = require("../../package/logg");
 
 module.exports.isLoggedIn = (req, res, next) => {
     if (req.isAuthenticated()) {

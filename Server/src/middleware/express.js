@@ -16,7 +16,7 @@ dotenv.config({ path: path.join(__dirname + "/../../.env") });
 const session = require("express-session");
 
 // DATABASE
-const pool = require("./package/Database/database");
+const pool = require("./package/Database");
 const MySQLStore = require("express-mysql-session")(session);
 const sessionStore = new MySQLStore({}, pool);
 
@@ -39,7 +39,7 @@ const authRouter = require("../app/Auth/authRoute");
 const mailRouter = require("../app/Mail/mailRoute");
 const cwRouter = require("../app/Crawling/cwRoute");
 const traceRouter = require("../app/Trace/traceRoute");
-const logger = require("./package/logg/logger");
+const logger = require("./package/logg");
 
 client.connect().catch((error) => logger.error("redis client error", error));
 

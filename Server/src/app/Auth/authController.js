@@ -1,6 +1,6 @@
 const authService = require("./authService");
 const passport = require("passport");
-const logger = require("../../middleware/package/logg/logger");
+const logger = require("../../middleware/package/logg");
 
 const config = require("../../../config/node_env/key");
 const status = require("../../../config/response/responseStatus");
@@ -17,13 +17,13 @@ exports.postAuthSignUp = async (req, res) => {
         const { email, password } = req.body;
 
         const createResult = await authService.createUser(email, password);
-        console.log("createResult", createResult);
+
         const result = createResult.isSuccess
             ? res.status(200).send(createResult)
             : res.status(400).send(createResult);
         return result;
     } catch (error) {
-        console.log("controller", error);
+        logger.error("[authController postAuthSignUp]", error);
         return res.status(400).send(status.CONTROLLER_ERROR_MESSAGE);
     }
 };
@@ -33,16 +33,15 @@ exports.postAuthSignUp = async (req, res) => {
  * API Name: 유저 로그인
  * [POST] /auth/signin
  */
-
 exports.postAuthLogin = (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
         if (err) {
-            logger.error("[postAuthLogin] ", err);
+            logger.error("[authController local] ", err);
             return next(err);
         }
 
         if (!user) {
-            logger.info("유저 정보가 없어 로그인에 실패했습니다.");
+            logger.error("유저 정보가 없어 로그인에 실패했습니다.");
             return res
                 .status(400)
                 .send(errResponse(status.SIGNIN_PASSWORD_EMAIL_ERROR));
@@ -50,7 +49,7 @@ exports.postAuthLogin = (req, res, next) => {
 
         return req.login(user, (loginError) => {
             if (loginError) {
-                logger.error(loginError);
+                logger.error("[authController login]", loginError);
             }
             logger.info(`${user.email} 님이 로그인에 성공했습니다.`);
             return res.status(200).send(info);

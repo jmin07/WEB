@@ -5,7 +5,7 @@ dotenv.config({ path: path.join(__dirname + "/../../.env") });
 const https = require("https");
 const http = require("http");
 
-const logger = require("./src/middleware/package/logg/logger");
+const logger = require("./src/middleware/package/logg");
 
 const fs = require("fs");
 const app = require("./src/middleware/express");

@@ -1,19 +1,8 @@
-const logger = require("../../middleware/package/logg/logger");
-const { User } = require("../../middleware/package/sequelize/models/index");
-
-exports.emailCheck = async (info) => {
-    try {
-        const result = await User.findAll({
-            attributes: ["email"],
-            where: {
-                email: info.email,
-            },
-        });
-        return result;
-    } catch (error) {
-        logger.error("[authDao emailCheck] \n", error);
-    }
-};
+const logger = require("../../middleware/package/logg");
+const {
+    User,
+    Trace,
+} = require("../../middleware/package/sequelize/models/index");
 
 exports.snsCheckUser = async (info) => {
     try {
@@ -30,6 +19,19 @@ exports.snsCheckUser = async (info) => {
     }
 };
 
+exports.createUser = async (info) => {
+    try {
+        const result = await User.create({
+            email: info.email,
+            password: info.password,
+        });
+
+        return result;
+    } catch (error) {
+        logger.error("[authDao createUser \n", error);
+    }
+};
+
 exports.snsCreateUser = async (info) => {
     try {
         const result = await User.create({
@@ -43,6 +45,17 @@ exports.snsCreateUser = async (info) => {
     }
 };
 
+exports.createTraceItem = async (info) => {
+    try {
+        const result = await Trace.create({
+            userIdx: info.userIdx,
+            traceIdx: info.traceIdx,
+        });
+        return result;
+    } catch (error) {
+        logger.error("[authDao createTraceItem] \n", error);
+    }
+};
 // exports.selectUserList = async (connection, userInfo) => {
 //     const selectUserListQuery = `
 //         SELECT email, password
@@ -67,94 +80,94 @@ exports.snsCreateUser = async (info) => {
 //     return userId;
 // };
 
-exports.selectUserId = async (connection, userInfo) => {
-    const selectUserIdQuery = `
-        SELECT email
-        FROM User
-        WHERE email = ?;
-    `;
+// exports.selectUserId = async (connection, userInfo) => {
+//     const selectUserIdQuery = `
+//         SELECT email
+//         FROM User
+//         WHERE email = ?;
+//     `;
 
-    const [userId] = await connection.query(selectUserIdQuery, userInfo);
+//     const [userId] = await connection.query(selectUserIdQuery, userInfo);
 
-    return userId;
-};
+//     return userId;
+// };
 
-exports.selectKakaoUser = async (connection, userInfo) => {
-    const selectKakaoQuery = `
-        SELECT email, provider
-        FROM User
-        WHERE email = ? AND provider = ?;
-    `;
-    const [kakaoUser] = await connection.query(selectKakaoQuery, userInfo);
+// // exports.selectKakaoUser = async (connection, userInfo) => {
+// //     const selectKakaoQuery = `
+// //         SELECT email, provider
+// //         FROM User
+// //         WHERE email = ? AND provider = ?;
+// //     `;
+// //     const [kakaoUser] = await connection.query(selectKakaoQuery, userInfo);
 
-    return kakaoUser;
-};
+// //     return kakaoUser;
+// // };
 
-exports.selectgoogleUser = async (connection, userInfo) => {
-    const selectGoogleQuery = `
-        SELECT email, provider
-        FROM User
-        WHERE email = ? AND provider = ?;
-    `;
-    const [googleUser] = await connection.query(selectGoogleQuery, userInfo);
+// // exports.selectgoogleUser = async (connection, userInfo) => {
+// //     const selectGoogleQuery = `
+// //         SELECT email, provider
+// //         FROM User
+// //         WHERE email = ? AND provider = ?;
+// //     `;
+// //     const [googleUser] = await connection.query(selectGoogleQuery, userInfo);
 
-    return googleUser;
-};
+// //     return googleUser;
+// // };
 
-exports.selectUserPassword = async (connection, userInfo) => {
-    const selectUserListQuery = `
-        SELECT password
-        FROM User
-        WHERE email = ? AND password = ?;
-    `;
+// exports.selectUserPassword = async (connection, userInfo) => {
+//     const selectUserListQuery = `
+//         SELECT password
+//         FROM User
+//         WHERE email = ? AND password = ?;
+//     `;
 
-    const [userPassword] = await connection.query(
-        selectUserListQuery,
-        userInfo
-    );
+//     const [userPassword] = await connection.query(
+//         selectUserListQuery,
+//         userInfo
+//     );
 
-    return userPassword;
-};
+//     return userPassword;
+// };
 
-exports.postUser = async (connection, userInfo) => {
-    const insertUserQuery = `
-        INSERT INTO User(email, password)
-        VALUES (?, ?);
-    `;
+// exports.postUser = async (connection, userInfo) => {
+//     const insertUserQuery = `
+//         INSERT INTO User(email, password)
+//         VALUES (?, ?);
+//     `;
 
-    const [Result] = await connection.query(insertUserQuery, userInfo);
+//     const [Result] = await connection.query(insertUserQuery, userInfo);
 
-    return Result;
-};
+//     return Result;
+// };
 
-exports.postTraceItem = async (connection, Info) => {
-    const insertTraceItemQuery = `
-        INSERT INTO TraceItem(userIdx, traceIdx)
-        VALUES ?;
-    `;
+// exports.postTraceItem = async (connection, Info) => {
+//     const insertTraceItemQuery = `
+//         INSERT INTO TraceItem(userIdx, traceIdx)
+//         VALUES ?;
+//     `;
 
-    const Result = await connection.query(insertTraceItemQuery, Info);
-    return Result;
-};
+//     const Result = await connection.query(insertTraceItemQuery, Info);
+//     return Result;
+// };
 
-exports.postKakaoUser = async (connection, userInfo) => {
-    const insertUserQuery = `
-        INSERT INTO User(email, provider)
-        VALUES (?, ?);
-    `;
+// exports.postKakaoUser = async (connection, userInfo) => {
+//     const insertUserQuery = `
+//         INSERT INTO User(email, provider)
+//         VALUES (?, ?);
+//     `;
 
-    const [insertUser] = await connection.query(insertUserQuery, userInfo);
+//     const [insertUser] = await connection.query(insertUserQuery, userInfo);
 
-    return insertUser;
-};
+//     return insertUser;
+// };
 
-exports.postgoogleUser = async (connection, userInfo) => {
-    const insertUserQuery = `
-        INSERT INTO User(email, provider)
-        VALUES (?, ?);
-    `;
+// exports.postgoogleUser = async (connection, userInfo) => {
+//     const insertUserQuery = `
+//         INSERT INTO User(email, provider)
+//         VALUES (?, ?);
+//     `;
 
-    const [insertUser] = await connection.query(insertUserQuery, userInfo);
+//     const [insertUser] = await connection.query(insertUserQuery, userInfo);
 
-    return insertUser;
-};
+//     return insertUser;
+// };

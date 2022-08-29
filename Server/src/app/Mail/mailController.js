@@ -1,7 +1,7 @@
-const { mail, awsMail } = require("../../middleware/package/mail/nodemailer");
+const { mail, awsMail } = require("../../middleware/package/mail");
 const { response, errResponse } = require("../../../config/response/response");
 const status = require("../../../config/response/responseStatus");
-const logger = require("../../middleware/package/logg/logger");
+const logger = require("../../middleware/package/logg");
 const mailService = require("./mailService");
 
 /**

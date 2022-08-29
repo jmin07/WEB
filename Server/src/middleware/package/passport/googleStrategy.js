@@ -6,7 +6,8 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 const authProvider = require("../../../app/Auth/authProvider");
-const logger = require("../logg/logger");
+const config = require("../../../../config/node_env/key");
+const logger = require("../logg");
 
 const status = require("../../../../config/response/responseStatus");
 const {
@@ -20,8 +21,7 @@ module.exports = () => {
             {
                 clientID: process.env.GOOGLE_ID,
                 clientSecret: process.env.GOOGLE_SECRET,
-                callbackURL:
-                    "https://www.watchrabbit.co.kr:8443/auth/google/callback",
+                callbackURL: config.callback.google, // 구글은 도메인이 들어가면 https 만 가능
             },
             async (accessToken, refreshToken, profile, done) => {
                 // console.log("google: ", profile._json.email, profile.provider);

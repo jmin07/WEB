@@ -9,6 +9,7 @@ module.exports = {
     },
     callback: {
         kakao: "http://www.watchrabbit.co.kr:8443/auth/kakao/callback",
+        google: "https://www.watchrabbit.co.kr:8443/auth/google/callback",
     },
     redirect: {
         main: "http://www.watchrabbit.co.kr:3000/main",

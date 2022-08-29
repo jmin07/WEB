@@ -1,7 +1,8 @@
 // const authProvider = require("./authProvider");
 const authDao = require("./authDao");
+const commonDao = require("../commonDao/commonDao");
 const bcrypt = require("bcrypt");
-const logger = require("../../middleware/package/logg/logger");
+const logger = require("../../middleware/package/logg");
 const { response, errResponse } = require("../../../config/response/response");
 const status = require("../../../config/response/responseStatus");
 
@@ -13,29 +14,30 @@ exports.createUser = async (email, password) => {
     try {
         const hashPassword = await bcrypt.hash(password, 12);
 
-        const checkUser = await authDao.emailCheck({ email });
+        const checkUser = await commonDao.emailCheck({ email });
 
         if (checkUser.length >= 1) {
-            logger.info(`${email} 이메일 중복입니다.`);
+            logger.error(`${email} 이메일 중복입니다.`);
             return errResponse(status.SIGNUP_EMAIL_ERROR);
         }
 
-        const userInsertResult = await authProvider.createUser([
+        // 로컬 회원 가입
+        const userInsertResult = await authDao.createUser({
             email,
-            hashPassword,
-        ]);
+            password: hashPassword,
+        });
 
-        if (userInsertResult.insertId) {
-            const userIdx = userInsertResult.insertId;
+        // 추적 테이블 생성
+        if (userInsertResult.dataValues.idx) {
+            const userIdx = userInsertResult.dataValues.idx;
 
-            let newTraceItem = new Array();
-            for (let i = 1; i < 6; i++) {
-                newTraceItem.push([userIdx, i]);
+            // let newTraceItem = new Array();
+            for (let traceIdx = 1; traceIdx < 6; traceIdx++) {
+                await commonDao.createTraceItem({
+                    userIdx,
+                    traceIdx,
+                });
             }
-
-            const traceItem = await authProvider.createTraceItem([
-                newTraceItem,
-            ]);
 
             logger.info(`${email} 님이 회원가입에 성공했습니다.`);
             return response(status.REQUEST_SUCCESS, {
@@ -43,7 +45,7 @@ exports.createUser = async (email, password) => {
                 userIdx,
             });
         } else {
-            logger.info(`${email} 님이 회원가입에 실패했습니다.`);
+            logger.error(`${email} 님이 회원가입에 실패했습니다.`);
             return errResponse(status.SIGNUP_ERROR);
         }
     } catch (error) {

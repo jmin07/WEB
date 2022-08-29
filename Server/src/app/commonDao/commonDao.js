@@ -1,13 +1,33 @@
-exports.checkUserEmail = async (connection, userInfo) => {
-    const selectUserEmailQuery = `
-        SELECT email
-        FROM User
-        WHERE email = ?;
-    `;
+const logger = require("../../middleware/package/logg");
+const {
+    User,
+    Trace,
+} = require("../../middleware/package/sequelize/models/index");
 
-    const [userEmail] = await connection.query(selectUserEmailQuery, userInfo);
+exports.emailCheck = async (info) => {
+    try {
+        const result = await User.findAll({
+            attributes: ["email", "password"],
+            where: {
+                email: info.email,
+            },
+        });
+        return result;
+    } catch (error) {
+        logger.error("[commonDao emailCheck] \n", error);
+    }
+};
 
-    return userEmail;
+exports.createTraceItem = async (info) => {
+    try {
+        const result = await Trace.create({
+            userIdx: info.userIdx,
+            traceIdx: info.traceIdx,
+        });
+        return result;
+    } catch (error) {
+        logger.error("[commonDao createTraceItem] \n", error);
+    }
 };
 
 exports.checkUserIdx = async (connection, email) => {
