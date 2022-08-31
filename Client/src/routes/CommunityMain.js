@@ -1,30 +1,44 @@
-import Community from "../components/community";
+// import Community from "../components/community";
+import DiaryList from "../components/community/community.test";
+import CommunityForm from "../components/community/CommunityForm";
+import "../style/page.css";
 import {
-    Box,
-    Container,
-    Paper,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TablePagination,
-    TableRow,
-} from "@mui/material";
-import styled from "styled-components";
+    PostButton,
+    BtnLine,
+    BtnContainer,
+    MoreDiv,
+    TitleTextStyle,
+} from "../style/styled";
+
+import data from "../dummy/community";
+
+import { Box, Button, Container } from "@mui/material";
 import { useContext, useState } from "react";
+// import { useNavigate } from "react-router-dom";
 
 export default function TraceTable() {
-    const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(10);
-    const arr = [1, 2, 3, 4, 5];
-    const TitleTextStyle = styled.div`
-        font-size: 1.7rem;
-        color: #383b40;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 1rem;
-    `;
+    const [status, setStatus] = useState(false);
+    const [title, setTitle] = useState("커뮤니티 게시판");
+    const [now, setNow] = useState("글쓰기");
+    const [order, setOrder] = useState("createdAt");
+    const [offset, setOffset] = useState(0);
+    const [hasNext, setHasNext] = useState(false);
+    const [items, setItems] = useState([]);
+    const sortedItems = items.sort((a, b) => b[order] - a[order]);
+
+    // const navigate = useNavigate();
+    function PostClick() {
+        if (status) {
+            // status 가 참이면 글 작성 중이니까 커뮤니티로 이동
+            setStatus(false);
+            setTitle("커뮤니티 게시판");
+            setNow("글쓰기");
+        } else {
+            setStatus(true);
+            setTitle("커뮤니티 게시글 작성");
+            setNow("뒤로가기");
+        }
+    }
 
     return (
         <>
@@ -41,8 +55,40 @@ export default function TraceTable() {
                         fontFamily: "MICEGothic Bold",
                     }}
                 >
-                    <TitleTextStyle>커뮤니티 게시판</TitleTextStyle>
-                    <br />
+                    <TitleTextStyle>{title}</TitleTextStyle>
+                    <PostButton>
+                        <Button
+                            sx={{
+                                fontWeight: "bold",
+                                color: "black",
+                                background: "rgb(238, 238, 238)",
+                            }}
+                            variant="contained"
+                            color="warning"
+                            onClick={PostClick}
+                        >
+                            {now}
+                        </Button>
+                    </PostButton>
+                    {status ? <CommunityForm /> : <DiaryList items={data} />}
+
+                    <BtnContainer>
+                        <BtnLine></BtnLine>
+                        <MoreDiv>
+                            <Button
+                                sx={{
+                                    fontWeight: "bold",
+                                    color: "black",
+                                    background: "rgb(238, 238, 238)",
+                                }}
+                                variant="contained"
+                                color="warning"
+                            >
+                                더보기
+                            </Button>
+                        </MoreDiv>
+                    </BtnContainer>
+                    {/*<br />
 
                     <TableContainer
                         component={Paper}
@@ -99,15 +145,15 @@ export default function TraceTable() {
                                     </TableCell>
                                 </TableRow>
                             </TableHead>
-                            <TableBody>
-                                {arr.map((item, idx) => (
-                                    <Community key={idx}>{item}</Community>
-                                ))}
-                            </TableBody>
+                            <TableBody> */}
+                    {/* {arr.map((item) => ( */}
+
+                    {/* ))} */}
+                    {/* </TableBody>
                         </Table>
-                    </TableContainer>
+                    </TableContainer> */}
                     {/* <TablePagination
-                        component="div"
+                        component="DeleteButton"
                         count={dataCell.length}
                         page={page}
                         onPageChange={handleChangePage}

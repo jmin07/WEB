@@ -152,3 +152,18 @@ export async function postTraceItem(Data) {
     const body = await response.json();
     return body;
 }
+
+// 페이지 네이션 API
+// export async function getReviews() {
+
+//     const query = `order=${order}&offset=${offset}&limit=${limit}`;
+//     const response = await fetch(
+//         `${BASE_URL}/api/film-reviews?${query}`
+//     );
+//     const body = await response.json();
+//     return body;
+// }
+
+// export async function createCommunity(){
+
+// }

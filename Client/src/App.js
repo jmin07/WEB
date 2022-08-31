@@ -76,10 +76,7 @@ function App() {
                                 <Route path="search" element={<Search />} />
                                 <Route path="share" element={<Share />} />
                                 <Route path="trace" element={<Trace />} />
-                                <Route
-                                    path="community"
-                                    element={<CommunityMain />}
-                                />
+                                <Route path="community" />
                                 <Route path="main" element={<Home />} />
                                 <Route path="signup" element={<SignUp />} />
                                 <Route path="forgotpw" element={<ForgotPW />} />

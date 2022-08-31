@@ -15,7 +15,8 @@ import {
     Button,
 } from "@mui/material";
 
-export default function Community() {
+export default function Community({ id, title, category, price, like }) {
+    console.log("제목", title);
     return (
         <>
             <TableRow>
@@ -26,7 +27,7 @@ export default function Community() {
                         width: "9rem",
                     }}
                 >
-                    번호
+                    {id}
                 </TableCell>
                 <TableCell
                     align="center"
@@ -34,16 +35,7 @@ export default function Community() {
                         borderRight: "dotted 1px lightgray",
                     }}
                 >
-                    글 제목
-                </TableCell>
-                <TableCell
-                    align="center"
-                    sx={{
-                        borderRight: "dotted 1px lightgray",
-                        width: "9rem",
-                    }}
-                >
-                    카테고리
+                    {title}
                 </TableCell>
                 <TableCell
                     align="center"
@@ -52,7 +44,16 @@ export default function Community() {
                         width: "9rem",
                     }}
                 >
-                    물품 가격
+                    {category}
+                </TableCell>
+                <TableCell
+                    align="center"
+                    sx={{
+                        borderRight: "dotted 1px lightgray",
+                        width: "9rem",
+                    }}
+                >
+                    {price}
                 </TableCell>
 
                 <TableCell align="center" sx={{ width: "9rem" }}>
@@ -63,7 +64,7 @@ export default function Community() {
                             background: "#ed6c02",
                         }}
                     >
-                        좋아요
+                        {like}
                     </Button>
                 </TableCell>
             </TableRow>

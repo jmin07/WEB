@@ -1,0 +1,36 @@
+.DiaryListItem {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.DiaryListItem.Box {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    padding: 5px;
+    margin: 1rem;
+    box-shadow: rgb(0 0 0 / 10%) 0px 4px 16px 0px;
+    /* transition: 0.25s ease-in 0s, transform 0.25s ease-in 0s; */
+    border-radius: 4px;
+    background: var(--bg-element1);
+    overflow: hidden;
+}
+
+.DiaryListItem.Img {
+    display: flex;
+    width: 300px;
+    height: 300px;
+    padding: 0;
+}
+
+.DiaryListItem.Title {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.DiaryListItem.Date {
+    display: flex;
+    justify-content: flex-start;
+}
