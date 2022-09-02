@@ -65,9 +65,9 @@ module.exports = class User extends Sequelize.Model {
                 foreignKey: "userIdx",
                 sourceKey: "idx",
             });
-        db.User.hasMany(db.Trace, {
-            foreignKey: "userIdx",
-            sourceKey: "idx",
-        });
+        // db.User.hasMany(db.Trace, {
+        //     foreignKey: "userIdx",
+        //     sourceKey: "idx",
+        // });
     }
 };

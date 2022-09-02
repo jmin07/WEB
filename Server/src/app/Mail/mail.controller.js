@@ -2,7 +2,7 @@ const { mail, awsMail } = require("../../middleware/package/mail");
 const { response, errResponse } = require("../../../config/response/response");
 const status = require("../../../config/response/responseStatus");
 const logger = require("../../middleware/package/logg");
-const mailService = require("./mailService");
+const mailService = require("./mail.service");
 
 /**
  * API No.9

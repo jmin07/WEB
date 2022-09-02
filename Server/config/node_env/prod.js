@@ -1,4 +1,6 @@
+const fs = require("fs");
 module.exports = {
+    env: process.env.NODE_ENV,
     port: process.env.HTTP_PORT,
     cors: {
         whitelist: [
@@ -30,5 +32,15 @@ module.exports = {
         port: process.env.REDIS_PORT,
         id: process.env.REDIS_ID,
         password: process.env.REDIS_PASSWORD,
+    },
+    options: {
+        key: fs.readFileSync(
+            "/etc/letsencrypt/live/www.watchrabbit.co.kr/privkey.pem",
+            "utf-8"
+        ),
+        cert: fs.readFileSync(
+            "/etc/letsencrypt/live/www.watchrabbit.co.kr/cert.pem",
+            "utf-8"
+        ),
     },
 };

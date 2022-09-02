@@ -1,4 +1,5 @@
 module.exports = {
+    env: process.env.NODE_ENV,
     port: process.env.HTTPS_PORT,
     cors: {
         whitelist: [

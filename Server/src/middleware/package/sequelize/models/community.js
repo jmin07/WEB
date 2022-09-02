@@ -16,6 +16,11 @@ module.exports = class Community extends Sequelize.Model {
                     allowNull: false,
                     comment: "유저 인덱스",
                 },
+                img: {
+                    type: Sequelize.TEXT,
+                    allowNull: true,
+                    comment: "게시글 이미지",
+                },
                 title: {
                     type: Sequelize.STRING(100), // 100 자 정도,
                     allowNull: false,

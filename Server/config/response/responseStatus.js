@@ -5,7 +5,51 @@ module.exports = {
         code: 1000,
         message: "요청에 성공했습니다.",
     },
+    // Failure
+    REQUEST_FAILURE: {
+        isSuccess: false,
+        code: 1100,
+        message: "요청에 실패했습니다.",
+    },
 
+    // ----- Layer Response Message -------
+    CONTROLLER_ERROR_MESSAGE: {
+        isSuccess: false,
+        code: 2000,
+    },
+    CONTROLLER_SUCCESS_MESSAGE: {
+        isSuccess: true,
+        code: 2000,
+    },
+
+    SERVICE_ERROR_MESSAGE: {
+        isSuccess: false,
+        code: 3000,
+    },
+    SERVICE_SUCCESS_MESSAGE: {
+        isSuccess: true,
+        code: 3100,
+    },
+
+    PROVIDER_ERROR_MESSAGE: {
+        isSuccess: false,
+        code: 4000,
+    },
+    PROVIDER_SUCCESS_MESSAGE: {
+        isSuccess: true,
+        code: 4100,
+    },
+
+    DAO_ERROR_MESSAGE: {
+        isSuccess: false,
+        code: 5000,
+    },
+    DAO_SUCCESS_MESSAGE: {
+        isSuccess: true,
+        code: 5100,
+    },
+
+    // ------------------ 로그인 에러-------------------
     // SignUp Success
     SIGNUP_SUCCESS: {
         isSuccess: true,
@@ -130,26 +174,5 @@ module.exports = {
         isSuccess: false,
         code: 4300,
         message: "검색한 제품의 결과가 없습니다.",
-    },
-    // ----------------- 에러 발생 ---------------
-    SERVICE_ERROR_MESSAGE: {
-        isSuccess: false,
-        code: 4000,
-        message: "잘못된 요청입니다.",
-    },
-    DAO_ERROR_MESSAGE: {
-        isSuccess: false,
-        code: 4000,
-        message: "쿼리 오류가 발생했습니다.",
-    },
-    PROVIDER_ERROR_MESSAGE: {
-        isSuccess: false,
-        code: 4000,
-        message: "mysql connection 오류 입니다.",
-    },
-    CONTROLLER_ERROR_MESSAGE: {
-        isSuccess: false,
-        cdoe: 4000,
-        message: "Controller 에러 입니다.",
     },
 };

@@ -5,9 +5,10 @@ dotenv.config({ path: path.join(__dirname, "/../../.env") }); // path.join(__dir
 const passport = require("passport");
 const KakaoStrategy = require("passport-kakao").Strategy;
 
-const commonDao = require("../../../app/commonDao/commonDao");
+const commonDao = require("../../../app/commonDao/common.dao");
+const authDao = require("../../../app/Auth/auth.dao");
 const config = require("../../../../config/node_env/key");
-const logger = require("../logg");
+const log = require("../logg");
 
 const status = require("../../../../config/response/responseStatus");
 const {
@@ -31,7 +32,7 @@ module.exports = () => {
             async (accessToken, refreshToken, profile, done) => {
                 try {
                     // 유저 조회
-                    const exUser = await authDao.snsCheckUser({
+                    const exUser = await commonDao.snsCheckUser({
                         email: profile._json.kakao_account.email,
                         provider: profile.provider,
                     });
@@ -56,27 +57,28 @@ module.exports = () => {
                             provider: profile.provider,
                         });
 
-                        if (User.insertId) {
-                            const userIdx = User.insertId;
+                        return done(
+                            null,
+                            User,
+                            response(status.SIGNIN_SUCCESS, User)
+                        );
 
-                            // 유저 생성 후, trace Table 생성
-                            for (let traceIdx = 1; traceIdx < 6; traceIdx++) {
-                                await commonDao.createTraceItem({
-                                    userIdx,
-                                    traceIdx,
-                                });
-                            }
+                        // if (User.insertId) {
+                        //     const userIdx = User.insertId;
 
-                            // TraceItem 테이블 생성
-                            done(
-                                null,
-                                newUser,
-                                response(status.SIGNIN_SUCCESS, newUser)
-                            );
-                        }
+                        //     // 유저 생성 후, trace Table 생성
+                        //     for (let traceIdx = 1; traceIdx < 6; traceIdx++) {
+                        //         await commonDao.createTraceItem({
+                        //             userIdx,
+                        //             traceIdx,
+                        //         });
+                        //     }
+
+                        //     // TraceItem 테이블 생성
+                        // }
                     }
                 } catch (err) {
-                    logger.error("[passport KakaoStrategy]", err);
+                    log.error("[passport KakaoStrategy]", err);
                 }
             }
         )

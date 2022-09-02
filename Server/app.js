@@ -6,42 +6,25 @@ const https = require("https");
 const http = require("http");
 
 const logger = require("./src/middleware/package/logg");
-
-const fs = require("fs");
+const config = require("./config/node_env/key");
 const app = require("./src/middleware/express");
 
-const HTTPS_PORT = process.env.HTTPS_PORT;
-
-console.log(process.env.NODE_ENV);
-
-// const options = {
-//     key: fs.readFileSync(
-//         "/etc/letsencrypt/live/www.watchrabbit.co.kr/privkey.pem",
-//         "utf-8"
-//     ),
-//     cert: fs.readFileSync(
-//         "/etc/letsencrypt/live/www.watchrabbit.co.kr/cert.pem",
-//         "utf-8"
-//     ),
-// };
-
-// // Create an HTTPS server.
-// https.createServer(options, app).listen(HTTPS_PORT, () => {
-//     try {
-//         logger.info(
-//             `[${process.env.NODE_ENV}] API Server Start At Port ${HTTPS_PORT}`
-//         );
-//     } catch (error) {
-//         logger.error(error);
-//     }
-// });
-
-http.createServer(app).listen(HTTPS_PORT, () => {
-    try {
-        logger.info(
-            `[${process.env.NODE_ENV}] API Server Start At Port ${HTTPS_PORT}`
-        );
-    } catch (error) {
-        logger.error(error);
-    }
-});
+process.env.NODE_ENV === "production"
+    ? https.createServer(config.options, app).listen(HTTPS_PORT, () => {
+          try {
+              logger.info(
+                  `[${config.env}] API Server Start At Port ${config.port}`
+              );
+          } catch (error) {
+              logger.error(error);
+          }
+      })
+    : http.createServer(app).listen(config.port, () => {
+          try {
+              logger.info(
+                  `[${config.env}] API Server Start At Port ${config.port}`
+              );
+          } catch (error) {
+              logger.error(error);
+          }
+      });

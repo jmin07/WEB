@@ -1,4 +1,4 @@
-const cwService = require("./cwService");
+const cwService = require("./cw.Service");
 const logger = require("../../middleware/package/logg");
 
 const status = require("../../../config/response/responseStatus");
@@ -8,7 +8,6 @@ exports.postSearchItem = async (req, res) => {
     try {
         const user = req.user;
         const { value, city, area } = req.query;
-        console.log(value, city, area);
         const cwResult = await cwService.cwTest(value, city, area);
         if (req.user === undefined) {
             logger.info(`비회원이 ${value}를 검색했습니다.`);

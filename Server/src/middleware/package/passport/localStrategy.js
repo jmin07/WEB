@@ -1,7 +1,7 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
-const commonDao = require("../../../app/commonDao/commonDao");
+const commonDao = require("../../../app/commonDao/common.dao");
 const logger = require("../logg");
 
 const status = require("../../../../config/response/responseStatus");

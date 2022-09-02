@@ -1,6 +1,6 @@
-const authService = require("./authService");
+const authService = require("./auth.service");
 const passport = require("passport");
-const logger = require("../../middleware/package/logg");
+const log = require("../../middleware/package/logg");
 
 const config = require("../../../config/node_env/key");
 const status = require("../../../config/response/responseStatus");
@@ -23,7 +23,7 @@ exports.postAuthSignUp = async (req, res) => {
             : res.status(400).send(createResult);
         return result;
     } catch (error) {
-        logger.error("[authController postAuthSignUp]", error);
+        log.error("[authController postAuthSignUp]", error);
         return res.status(400).send(status.CONTROLLER_ERROR_MESSAGE);
     }
 };
@@ -36,12 +36,12 @@ exports.postAuthSignUp = async (req, res) => {
 exports.postAuthLogin = (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
         if (err) {
-            logger.error("[authController local] ", err);
+            log.error("[authController local] ", err);
             return next(err);
         }
 
         if (!user) {
-            logger.error("유저 정보가 없어 로그인에 실패했습니다.");
+            log.error("유저 정보가 없어 로그인에 실패했습니다.");
             return res
                 .status(400)
                 .send(errResponse(status.SIGNIN_PASSWORD_EMAIL_ERROR));
@@ -49,9 +49,9 @@ exports.postAuthLogin = (req, res, next) => {
 
         return req.login(user, (loginError) => {
             if (loginError) {
-                logger.error("[authController login]", loginError);
+                log.error("[authController login]", loginError);
             }
-            logger.info(`${user.email} 님이 로그인에 성공했습니다.`);
+            log.info(`${user.email} 님이 로그인에 성공했습니다.`);
             return res.status(200).send(info);
         });
     })(req, res, next);
@@ -67,12 +67,12 @@ exports.getAuthLogout = (req, res) => {
 
     req.logout((err) => {
         if (err) {
-            logger.error(err);
+            log.error(err);
             return res
                 .status(400)
                 .send(errResponse(status.IS_LOGGED_OUT, { user }));
         }
-        logger.info(`${user.email} 님이 로그아웃 되었습니다.`);
+        log.info(`${user.email} 님이 로그아웃 되었습니다.`);
         return res.status(200).send(response(status.IS_LOGGED_OUT, { user }));
     });
 };
@@ -94,20 +94,20 @@ exports.authKakaoLogin = (req, res, next) => {
 exports.kakaoLogin = (req, res, next) => {
     passport.authenticate("kakao", (err, user, info) => {
         if (err) {
-            logger.error(err);
+            log.error(err);
             return next(err);
         }
 
         if (!user) {
-            logger.info("카카오 로그인에 실패했습니다.");
+            log.info("카카오 로그인에 실패했습니다.");
             return res.status(400).send(errResponse(status.SIGNIN_ERROR));
         }
 
         return req.login(user, (loginError) => {
             if (loginError) {
-                logger.error(loginError);
+                log.error(loginError);
             }
-            logger.info(`${user.email} 님이 카카오 로그인에 성공했습니다.`);
+            log.info(`${user.email} 님이 카카오 로그인에 성공했습니다.`);
 
             return res.redirect(config.redirect.main);
         });
@@ -135,20 +135,20 @@ exports.authGoogleLogin = (req, res, next) => {
 exports.googleLogin = (req, res, next) => {
     passport.authenticate("google", (err, user, info) => {
         if (err) {
-            logger.error(err);
+            log.error(err);
             return next(err);
         }
 
         if (!user) {
-            logger.info("구글 로그인에 실패했습니다.");
+            log.info("구글 로그인에 실패했습니다.");
             return res.status(400).send(errResponse(status.SIGNIN_ERROR));
         }
 
         return req.login(user, (loginError) => {
             if (loginError) {
-                logger.error(loginError);
+                log.error(loginError);
             }
-            logger.info(`${user.email} 님이 구글 로그인에 성공했습니다.`);
+            log.info(`${user.email} 님이 구글 로그인에 성공했습니다.`);
             return res.redirect(config.redirect.main);
         });
     })(req, res, next);

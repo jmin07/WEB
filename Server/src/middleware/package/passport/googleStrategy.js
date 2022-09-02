@@ -5,9 +5,9 @@ dotenv.config({ path: path.join(__dirname, "/../../.env") });
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
-const authProvider = require("../../../app/Auth/authProvider");
+const commonDao = require("../../../app/commonDao/common.dao");
 const config = require("../../../../config/node_env/key");
-const logger = require("../logg");
+const log = require("../logg");
 
 const status = require("../../../../config/response/responseStatus");
 const {
@@ -24,19 +24,17 @@ module.exports = () => {
                 callbackURL: config.callback.google, // 구글은 도메인이 들어가면 https 만 가능
             },
             async (accessToken, refreshToken, profile, done) => {
-                // console.log("google: ", profile._json.email, profile.provider);
                 try {
-                    const exUser = await authProvider.googleUser([
-                        profile._json.email,
-                        profile.provider,
-                    ]);
-                    const newUser = {
+                    const user = await commonDao.snsCheckUser({
                         email: profile._json.email,
-                        profile_image: profile.photos[0].value,
-                    };
+                        provider: profile.provider,
+                    });
 
-                    // console.log("exUser.length", exUser.length);
-                    if (exUser.length >= 1) {
+                    if (user.length >= 1) {
+                        const newUser = {
+                            email: profile._json.email,
+                            profile_image: profile.photos[0].value,
+                        };
                         return done(
                             null,
                             newUser,
@@ -44,36 +42,34 @@ module.exports = () => {
                         );
                     } else {
                         // 유저 조회가 없으면 DB 저장 후, 정보 넘김.
-                        const User = await authProvider.creategoogleUser([
-                            profile._json.email,
-                            profile.provider,
-                        ]);
+                        const User = await authDao.snsCreateUser({
+                            email: profile._json.email,
+                            userImage: profile.photos[0].value,
+                            provider: profile.provider,
+                        });
 
-                        if (User.insertId) {
-                            const userIdx = User.insertId;
-                            const traceIdx = [1, 2, 3, 4, 5];
+                        return done(
+                            null,
+                            User,
+                            response(status.SIGNIN_SUCCESS, User)
+                        );
 
-                            // // 유저 생성 후, trace Table 생성
-                            let newTraceItem = new Array();
-                            for (let i = 1; i < 6; i++) {
-                                newTraceItem.push([userIdx, i]);
-                            }
+                        // if (User.insertId) {
+                        //     const userIdx = User.insertId;
 
-                            const traceItem =
-                                await authProvider.createTraceItem([
-                                    newTraceItem,
-                                ]);
+                        //     // 유저 생성 후, trace Table 생성
+                        //     for (let traceIdx = 1; traceIdx < 6; traceIdx++) {
+                        //         await commonDao.createTraceItem({
+                        //             userIdx,
+                        //             traceIdx,
+                        //         });
+                        //     }
 
-                            // TraceItem 테이블 생성
-                            return done(
-                                null,
-                                newUser,
-                                response(status.SIGNIN_SUCCESS, newUser)
-                            );
-                        }
+                        //     // TraceItem 테이블 생성
+                        // }
                     }
                 } catch (error) {
-                    logger.error("[googleStrategy]", error);
+                    log.error("[googleStrategy]", error);
                 }
             }
         )

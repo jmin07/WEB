@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 // CONTROLLER
-const mail = require("./mailController");
+const mail = require("./mail.controller");
 
 // 인증 번호 요청
 router.post("/auth", mail.getAuthentication);

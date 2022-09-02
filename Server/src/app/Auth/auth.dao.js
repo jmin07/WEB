@@ -44,18 +44,6 @@ exports.snsCreateUser = async (info) => {
         logger.error("[authDao snsCreateUser] \n", error);
     }
 };
-
-exports.createTraceItem = async (info) => {
-    try {
-        const result = await Trace.create({
-            userIdx: info.userIdx,
-            traceIdx: info.traceIdx,
-        });
-        return result;
-    } catch (error) {
-        logger.error("[authDao createTraceItem] \n", error);
-    }
-};
 // exports.selectUserList = async (connection, userInfo) => {
 //     const selectUserListQuery = `
 //         SELECT email, password

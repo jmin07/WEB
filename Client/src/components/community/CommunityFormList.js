@@ -16,7 +16,6 @@ import {
 } from "@mui/material";
 
 export default function Community({ id, title, category, price, like }) {
-    console.log("제목", title);
     return (
         <>
             <TableRow>

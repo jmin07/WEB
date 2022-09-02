@@ -1,6 +1,6 @@
 // const authProvider = require("./authProvider");
-const authDao = require("./authDao");
-const commonDao = require("../commonDao/commonDao");
+const authDao = require("./auth.dao");
+const commonDao = require("../commonDao/common.dao");
 const bcrypt = require("bcrypt");
 const logger = require("../../middleware/package/logg");
 const { response, errResponse } = require("../../../config/response/response");
@@ -27,27 +27,27 @@ exports.createUser = async (email, password) => {
             password: hashPassword,
         });
 
-        // 추적 테이블 생성
-        if (userInsertResult.dataValues.idx) {
-            const userIdx = userInsertResult.dataValues.idx;
+        logger.info(`${email} 님이 회원가입에 성공했습니다.`);
+        return response(status.REQUEST_SUCCESS, {
+            email,
+            userIdx,
+        });
 
-            // let newTraceItem = new Array();
-            for (let traceIdx = 1; traceIdx < 6; traceIdx++) {
-                await commonDao.createTraceItem({
-                    userIdx,
-                    traceIdx,
-                });
-            }
+        // // 추적 테이블 생성
+        // if (userInsertResult.dataValues.idx) {
+        //     const userIdx = userInsertResult.dataValues.idx;
 
-            logger.info(`${email} 님이 회원가입에 성공했습니다.`);
-            return response(status.REQUEST_SUCCESS, {
-                email,
-                userIdx,
-            });
-        } else {
-            logger.error(`${email} 님이 회원가입에 실패했습니다.`);
-            return errResponse(status.SIGNUP_ERROR);
-        }
+        //     // let newTraceItem = new Array();
+        //     for (let traceIdx = 1; traceIdx < 6; traceIdx++) {
+        //         await commonDao.createTraceItem({
+        //             userIdx,
+        //             traceIdx,
+        //         });
+        //     }
+        // } else {
+        //     logger.error(`${email} 님이 회원가입에 실패했습니다.`);
+        //     return errResponse(status.SIGNUP_ERROR);
+        // }
     } catch (error) {
         logger.error("[authService createUser]", error);
         return errResponse(status.SERVICE_ERROR_MESSAGE);

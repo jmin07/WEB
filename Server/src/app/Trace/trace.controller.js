@@ -1,4 +1,4 @@
-const traceService = require("./traceService");
+const traceService = require("./trace.service");
 const passport = require("passport");
 const logger = require("../../middleware/package/logg");
 const status = require("../../../config/response/responseStatus");

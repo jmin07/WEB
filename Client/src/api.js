@@ -154,15 +154,19 @@ export async function postTraceItem(Data) {
 }
 
 // 페이지 네이션 API
-// export async function getReviews() {
-
-//     const query = `order=${order}&offset=${offset}&limit=${limit}`;
-//     const response = await fetch(
-//         `${BASE_URL}/api/film-reviews?${query}`
-//     );
-//     const body = await response.json();
-//     return body;
-// }
+export async function getCommunity(Data) {
+    const query = `order=${Data.order}&offset=${Data.offset}&limit=${Data.limit}`;
+    const response = await fetch(`${BASE_URL}/community?${query}`, {
+        method: "GET",
+        mode: "cors",
+        credentials: "include",
+        header: {
+            "Content-Type": "application/json; charset=utf-8",
+        },
+    });
+    const body = await response.json();
+    return body;
+}
 
 // export async function createCommunity(){
 

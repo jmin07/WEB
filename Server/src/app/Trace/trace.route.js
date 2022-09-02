@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 // CONTROLLER
-const trace = require("./traceController");
+const trace = require("./trace.controller");
 
 // Login Check
 const {

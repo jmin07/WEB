@@ -1,4 +1,5 @@
 // CONFIG
+const logger = require("./package/logg");
 const config = require("../../config/node_env/key");
 const whitelist = config.cors.whitelist;
 
@@ -35,11 +36,11 @@ const passport = require("passport");
 const passportConfig = require("./package/passport/index");
 
 // ROUTER
-const authRouter = require("../app/Auth/authRoute");
-const mailRouter = require("../app/Mail/mailRoute");
-const cwRouter = require("../app/Crawling/cwRoute");
-const traceRouter = require("../app/Trace/traceRoute");
-const logger = require("./package/logg");
+const authRouter = require("../app/Auth/auth.route");
+const mailRouter = require("../app/Mail/mail.route");
+const communityRouter = require("../app/Community/community.router");
+// const cwRouter = require("../app/Crawling/cw.route");
+// const traceRouter = require("../app/Trace/trace.route");
 
 client.connect().catch((error) => logger.error("redis client error", error));
 
@@ -91,8 +92,9 @@ passportConfig();
 
 app.use("/auth", authRouter);
 app.use("/mail", mailRouter);
-app.use("/db", cwRouter);
-app.use("/trace", traceRouter);
+// app.use("/db", cwRouter);
+// app.use("/trace", traceRouter);
+app.use("/community", communityRouter);
 
 app.use((req, res, next) => {
     res.status(404).send("Sorry cant find that!");

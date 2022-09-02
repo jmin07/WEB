@@ -1,11 +1,11 @@
-const traceProvider = require("./traceProvider");
+const commonDao = require("../CommonDao/common.dao");
 const logger = require("../../middleware/package/logg");
 const { response, errResponse } = require("../../../config/response/response");
 const status = require("../../../config/response/responseStatus");
 
 exports.checkUserEmail = async (email) => {
     try {
-        const EmailProvider = await traceProvider.checkEmail([email]);
+        const EmailProvider = await commonDao.checkEmail([email]);
         if (EmailProvider.length >= 1) {
             return response(status.EXIST_EMAIL_SUCCESS, EmailProvider[0]);
         } else {
