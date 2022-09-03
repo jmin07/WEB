@@ -6,16 +6,11 @@
 **WatchRabbit** 은 중고거래 플랫폼 '당근마켓' 의 중고물품 게시글을 항상 감시하여 사용자들에게 더 나은 정보를 제공하는 서비스입니다.
 
 ## ✨ WatchRabbit Agent Members
-
-1. 홍 Agent
-    - 역할: PM 및 크롤링 담당
-    - GitHub: https://github.com/ghdtkdbs12
-    
-2. 백 Agent
+1. 백 Agent
     - 역할: 백엔드 담당
     - GitHub: https://github.com/jmin07
     
-3. 박 Agent
+2. 박 Agent
     - 역할: 프론트 담당
     - GitHub: https://github.com/PGjun
 
