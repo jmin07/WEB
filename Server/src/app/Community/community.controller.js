@@ -3,6 +3,7 @@ const log = require("../../middleware/package/logg");
 const Service = require("./community.service");
 const status = require("../../../config/response/responseStatus");
 const { response, errResponse } = require("../../../config/response/response");
+const { Community } = require("../../middleware/package/sequelize/models");
 
 /**
  * API No.1
@@ -12,15 +13,14 @@ const { response, errResponse } = require("../../../config/response/response");
 exports.getCommunity = async (req, res) => {
     try {
         const { order, offset, limit } = req.query;
-        const result = await Service.getCommunity({ order, offset, limit });
-        console.log(result);
-        if (!result.isSuccess) {
-            return res
-                .status(400)
-                .send(response(status.CONTROLLER_SUCCESS_MESSAGE, result));
-        }
+        let result = await Service.getCommunity({ order, offset, limit });
 
-        return res.status(200).send(result);
+        const returnResult = result.isSuccess
+            ? res.status(200).send(result)
+            : res
+                  .status(400)
+                  .send(response(status.CONTROLLER_SUCCESS_MESSAGE, result));
+        return returnResult;
     } catch (error) {
         log.error("[community Router getCommunity] \n", error);
         return res.status(500).send("something broke");
@@ -29,11 +29,14 @@ exports.getCommunity = async (req, res) => {
 
 /**
  * API No.2
- * API Name: 커뮤니티 특정 게시글 보기
- * [GET] /community/post/:id
+ * API Name: 커뮤니티 게시글 작성
+ * [POST] /community/post
  */
-exports.getCommunityItem = async (req, res) => {
+exports.postCommunityItem = async (req, res) => {
     try {
-        const { id } = req.param;
+        console.log("req.body", req.body);
+        // const { id } = req.body;
+
+        // const result = Service.Community;
     } catch (error) {}
 };

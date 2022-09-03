@@ -1,6 +1,5 @@
 import { getCommunity } from "../api";
 import DiaryList from "../components/community/CommunityFormList.test";
-import "../style/page.css";
 
 import {
     PostButton,
@@ -43,7 +42,6 @@ export default function CommunityMainPage() {
         async (options) => {
             const response = await getCommunity(options);
             console.log("response", response);
-            console.log("response result", response.result);
 
             if (response.isSuccess) {
                 options.offset === 0

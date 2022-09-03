@@ -29,13 +29,15 @@ function CommunityForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const image = e.target.imgFile;
+        console.log("image", image);
         console.log(values);
     };
 
     return (
         <>
             <BackButton>
-                <button onClick={backPage}>{"<"}</button>
+                <button onClick={backPage}>{"<<"}</button>
             </BackButton>
             <form className="CommunityForm" onSubmit={handleSubmit}>
                 <FileInput
@@ -43,12 +45,23 @@ function CommunityForm() {
                     value={values.imgFile}
                     onChange={handleChange}
                 />
+                <p>제목</p>
                 <input
+                    className="inputTitle"
                     name="title"
                     value={values.title}
                     onChange={handleInputChange}
                 />
+                <p>가격</p>
+                <input
+                    className="inputPrice"
+                    name="price"
+                    value={values.price}
+                    onChange={handleInputChange}
+                />
+                <p>내용</p>
                 <textarea
+                    className="textarea"
                     name="content"
                     value={values.content}
                     onChange={handleInputChange}

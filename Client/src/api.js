@@ -153,7 +153,7 @@ export async function postTraceItem(Data) {
     return body;
 }
 
-// 페이지 네이션 API
+// 게시글 페이지 네이션 API
 export async function getCommunity(Data) {
     const query = `order=${Data.order}&offset=${Data.offset}&limit=${Data.limit}`;
     const response = await fetch(`${BASE_URL}/community?${query}`, {
@@ -168,6 +168,22 @@ export async function getCommunity(Data) {
     return body;
 }
 
-// export async function createCommunity(){
-
-// }
+// 게시글 등록 API
+export async function createCommunity(Data) {
+    const response = await fetch(`${BASE_URL}/community/post`, {
+        method: "POST",
+        mode: "cors",
+        credentials: "include",
+        header: {
+            "Content-Type": "application/json; charset=utf-8",
+        },
+        body: {
+            img: Data.img,
+            title: Data.title,
+            content: Data.content,
+            price: Data.price,
+        },
+    });
+    const body = await response.json();
+    return body;
+}

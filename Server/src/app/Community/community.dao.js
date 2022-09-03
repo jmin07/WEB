@@ -8,18 +8,24 @@ const {
 
 /**
  * @param {Info} - order, limit, offset of pagination
- * @returns SELECT * FROM community ORDER BY Info.order ASC LIMIT Info.limit OFFSET Info.offset;
+ * @returns SELECT * FROM community ORDER BY {Info.order} ASC LIMIT {Info.limit} OFFSET {Info.offset};
+ * @returns SELECT * FROM community ORDER BY {Info.order} ASC LIMIT {Info.offset}, {Info.limit};
  */
 exports.getCommunity = async (Info) => {
     try {
         const result = await Community.findAll({
-            attributes: ["img", "price", "title", "content", "createdAt"],
+            attributes: [
+                "idx",
+                "img",
+                "price",
+                "title",
+                "content",
+                "createdAt",
+            ],
             limit: parseInt(Info.limit),
             offset: parseInt(Info.offset),
             order: [[`${Info.order}`, "ASC"]],
         });
-        // console.log("result price", result.price);
-        // console.log("result price", ...result);
         return result;
     } catch (error) {
         log.error("[community Dao getCommunity] \n", error);

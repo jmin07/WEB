@@ -33,7 +33,7 @@ function FileInput({ name, value, onChange }) {
 
     return (
         <div>
-            <img src={preview} alt="이미지 미리보기" />
+            <img className="inputFile" src={preview} alt="이미지 미리보기" />
             <input
                 type="file"
                 accept="image/png image/jpeg image/jpg"
