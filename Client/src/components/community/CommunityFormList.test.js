@@ -1,13 +1,29 @@
 import React from "react";
+import { useEffect, useNavigate } from "react-router-dom";
 import "../../style/page.css";
 import timeFunction from "../../utils/time";
 // import * as AiIcons from "react-icons/ai";
 
 function DefaultPage({ item }) {
     // const handleDeleteClick = () => onDelete(item.id);
+    const navigate = useNavigate();
+    const backPage = () => navigate("/community");
+
+    const handleClick = () => {
+        navigate(`/community/${item.idx}`, {
+            state: {
+                title: item.title,
+                image: item.img,
+                content: item.content,
+                price: item.price,
+                date: item.createdAt,
+            },
+        });
+    };
+
     const time = timeFunction(item.createdAt);
     return (
-        <div className="DiaryListItem Box">
+        <div className="DiaryListItem Box" onClick={handleClick}>
             <div className="DiaryListItem Img">
                 <img className="img" src={item.img} alt={item.titles} />
             </div>
@@ -18,12 +34,12 @@ function DefaultPage({ item }) {
     );
 }
 
-function DiaryList({ items, onDelete }) {
+function DiaryList({ items }) {
     return (
         <div className="DiaryListItem">
-            {items.map((item, index) => {
+            {items.map((item) => {
                 return (
-                    <DefaultPage key={index} item={item} /> // onDelete={onDelete}
+                    <DefaultPage key={item.idx} item={item} /> // onDelete={onDelete}
                 );
             })}
         </div>

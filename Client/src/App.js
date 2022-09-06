@@ -84,12 +84,12 @@ function App() {
                                         element={<CommunityMainPage />}
                                     />
                                     <Route
-                                        path="post"
-                                        element={<CommunityFormPage />}
+                                        path=":id"
+                                        element={<CommunityItemPage />}
                                     />
                                     <Route
-                                        path="post/:id"
-                                        element={<CommunityItemPage />}
+                                        path="post"
+                                        element={<CommunityFormPage />}
                                     />
                                 </Route>
                                 <Route path="main" element={<Home />} />

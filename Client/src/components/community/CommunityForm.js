@@ -50,6 +50,7 @@ function CommunityForm() {
                     className="inputTitle"
                     name="title"
                     value={values.title}
+                    placeholder="제목을 입력해 주세요"
                     onChange={handleInputChange}
                 />
                 <p>가격</p>
@@ -57,6 +58,7 @@ function CommunityForm() {
                     className="inputPrice"
                     name="price"
                     value={values.price}
+                    placeholder="생각하고 있는 가격을 입력해 주세요"
                     onChange={handleInputChange}
                 />
                 <p>내용</p>
@@ -64,6 +66,7 @@ function CommunityForm() {
                     className="textarea"
                     name="content"
                     value={values.content}
+                    placeholder="내용을 입력해 주세요"
                     onChange={handleInputChange}
                 />
                 <button type="submit">작성</button>

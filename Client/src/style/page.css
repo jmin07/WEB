@@ -33,6 +33,34 @@
     background-size: cover;
 }
 
+.form {
+    display: flex;
+    flex-direction: row;
+}
+.form_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 600px;
+}
+
+.form_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 80%;
+}
+.form_title {
+    box-sizing: border-box;
+    width: 100%;
+    border: solid 1px;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: both;
+}
+
 .DiaryListItem.Title {
     display: flex;
     justify-content: flex-start;
