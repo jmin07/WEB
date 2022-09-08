@@ -6,6 +6,7 @@ const {
 const logger = require("../../package/logg");
 
 module.exports.isLoggedIn = (req, res, next) => {
+    console.log("req.isAuthenticated()", req.isAuthenticated());
     if (req.isAuthenticated()) {
         next();
     } else {

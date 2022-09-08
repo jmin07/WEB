@@ -34,6 +34,7 @@ exports.getCommunity = async (req, res) => {
  */
 exports.postCommunityItem = async (req, res) => {
     try {
+        console.log("req.file", req.file);
         console.log("req.body", req.body);
         // const { id } = req.body;
 

@@ -170,20 +170,15 @@ export async function getCommunity(Data) {
 
 // 게시글 등록 API
 export async function createCommunity(Data) {
+    console.log("front DAta", Data);
     const response = await fetch(`${BASE_URL}/community/post`, {
         method: "POST",
         mode: "cors",
         credentials: "include",
-        header: {
-            "Content-Type": "application/json; charset=utf-8",
-        },
-        body: {
-            img: Data.img,
-            title: Data.title,
-            content: Data.content,
-            price: Data.price,
-        },
+        body: Data,
     });
+
     const body = await response.json();
+    console.log("body", body);
     return body;
 }

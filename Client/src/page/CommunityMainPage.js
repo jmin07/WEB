@@ -12,6 +12,7 @@ import {
 import { Box, Button, Container } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getLoginStatus } from "../api";
 
 export default function CommunityMainPage() {
     const LIMIT = 6;
@@ -25,7 +26,14 @@ export default function CommunityMainPage() {
 
     const navigate = useNavigate();
 
-    const postCommunity = () => navigate("/community/post");
+    const postCommunity = async () => {
+        const response = await getLoginStatus({ path: "/auth/loginstatus" });
+        if (response.isSuccess) {
+            navigate("/community/post");
+        } else {
+            alert(`${response.message}`);
+        }
+    };
 
     // post sort
     const handleNewestClick = () => setOrder("createdAt"); //createdAt

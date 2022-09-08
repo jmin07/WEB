@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { BackButton } from "./CommunityStyled";
 import "./CommunityForm.css";
 import FileInput from "./FileInput";
-
+import { createCommunity } from "../../api";
 function CommunityForm() {
     const navigate = useNavigate();
 
@@ -27,11 +27,20 @@ function CommunityForm() {
         handleChange(name, value);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
+        // 여기서 넘겨주고 있어욤
         e.preventDefault();
-        const image = e.target.imgFile;
-        console.log("image", image);
-        console.log(values);
+        const post = new FormData(); // formData
+        const data = e.target.image.value;
+        console.log("data", e.target.image.src);
+
+        post.append("imgFile", data); // formData.append 하구
+
+        const response = await createCommunity(post); // API 실행
+
+        if (response.isSuccess) {
+            console.log("완료되었습니다.");
+        }
     };
 
     return (

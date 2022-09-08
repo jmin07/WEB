@@ -22,11 +22,11 @@ const MySQLStore = require("express-mysql-session")(session);
 const sessionStore = new MySQLStore({}, pool);
 
 // Redis
-const connectRedis = require("connect-redis");
-const RedisStore = connectRedis(session);
-const redis = require("redis");
-const redisConfig = require("../../config/package/redis/config");
-const client = redis.createClient(redisConfig);
+// const connectRedis = require("connect-redis");
+// const RedisStore = connectRedis(session);
+// const redis = require("redis");
+// const redisConfig = require("../../config/package/redis/config");
+// const client = redis.createClient(redisConfig);
 
 // SEQUELIZE
 const { sequelize } = require("./package/sequelize/models/index");
@@ -42,7 +42,7 @@ const communityRouter = require("../app/Community/community.router");
 // const cwRouter = require("../app/Crawling/cw.route");
 // const traceRouter = require("../app/Trace/trace.route");
 
-client.connect().catch((error) => logger.error("redis client error", error));
+// client.connect().catch((error) => logger.error("redis client error", error));
 
 let corsOptions;
 const corsOptionDeletegate = (req, callback) => {
@@ -77,7 +77,7 @@ app.use(
         name: process.env.SESSION_NAME,
         resave: false,
         saveUninitialized: true,
-        store: new RedisStore({ client }),
+        store: sessionStore,
         cookie: {
             httpOnly: true,
             secure: false,
@@ -92,9 +92,9 @@ passportConfig();
 
 app.use("/auth", authRouter);
 app.use("/mail", mailRouter);
+app.use("/community", communityRouter);
 // app.use("/db", cwRouter);
 // app.use("/trace", traceRouter);
-app.use("/community", communityRouter);
 
 app.use((req, res, next) => {
     res.status(404).send("Sorry cant find that!");

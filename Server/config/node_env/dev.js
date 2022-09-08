@@ -33,4 +33,9 @@ module.exports = {
         id: process.env.REDIS_ID,
         password: process.env.REDIS_PASSWORD,
     },
+    s3: {
+        accessKey: process.env.AWS_S3_ACCESS_KEY,
+        secretKey: process.env.AWS_S3_SECRET_KEY,
+        region: process.env.AWS_S3_REGION,
+    },
 };

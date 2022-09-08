@@ -19,6 +19,7 @@
         "express-mysql-session": "^2.1.8",
         "express-session": "^1.17.3",
         "https": "^1.0.0",
+        "multer": "^1.4.5-lts.1",
         "mysql2": "^2.3.3",
         "nodemailer": "^6.7.5",
         "nodemon": "^2.0.19",
@@ -32,7 +33,7 @@
     "devDependencies": {
         "@aws-sdk/client-ses": "^3.118.1",
         "@aws-sdk/credential-provider-node": "^3.118.1",
-        "aws-sdk": "^2.1177.0",
+        "aws-sdk": "^2.1211.0",
         "axios": "^0.27.2",
         "connect-history-api-fallback": "^2.0.0",
         "cross-env": "^7.0.3",
