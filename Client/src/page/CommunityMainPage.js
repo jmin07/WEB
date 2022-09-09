@@ -29,7 +29,7 @@ export default function CommunityMainPage() {
     const postCommunity = async () => {
         const response = await getLoginStatus({ path: "/auth/loginstatus" });
         if (response.isSuccess) {
-            navigate("/community/post");
+            navigate("/community/new");
         } else {
             alert(`${response.message}`);
         }

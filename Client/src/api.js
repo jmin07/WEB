@@ -1,4 +1,5 @@
 // const BASE_URL = "https://www.watchrabbit.co.kr:8443";
+import axios from "axios";
 const BASE_URL = `${
     process.env.REACT_APP_NODE_ENV === "production" ? "https" : "http"
 }://www.watchrabbit.co.kr:8443`;
@@ -168,9 +169,20 @@ export async function getCommunity(Data) {
     return body;
 }
 
-// 게시글 등록 API
-export async function createCommunity(Data) {
-    console.log("front DAta", Data);
+// 게시글 내용 등록
+export async function createCommunityPost(Data) {
+    const response = await fetch(`${BASE_URL}/community/new`, {
+        method: "POST",
+        mode: "cors",
+        credentials: "include",
+        body: new URLSearchParams(Data),
+    });
+    const body = response.json();
+    return body;
+}
+
+// 게시글 이미지 등록
+export async function createCommunityImage(Data) {
     const response = await fetch(`${BASE_URL}/community/post`, {
         method: "POST",
         mode: "cors",
@@ -179,6 +191,25 @@ export async function createCommunity(Data) {
     });
 
     const body = await response.json();
-    console.log("body", body);
     return body;
 }
+
+// 댓글 읽어오기
+export async function getCommunityReply(Data) {
+    const response = await fetch(`${BASE_URL}/community/${Data.id}/reply`, {
+        method: "GET",
+        mode: "cors",
+        credentials: "include",
+    });
+    const body = await response.json();
+    return body;
+}
+
+// export async function getCommunityReply(Data) {
+//     await axios.post(
+
+//     )
+// }
+//
+
+// }

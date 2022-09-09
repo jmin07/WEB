@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../../style/page.css";
 import timeFunction from "../../utils/time";
 // import * as AiIcons from "react-icons/ai";
@@ -7,11 +7,12 @@ import timeFunction from "../../utils/time";
 function DefaultPage({ item }) {
     // const handleDeleteClick = () => onDelete(item.id);
     const navigate = useNavigate();
-    const backPage = () => navigate("/community");
+    // const backPage = () => navigate("/community");
 
     const handleClick = () => {
         navigate(`/community/${item.idx}`, {
             state: {
+                idx: item.idx,
                 title: item.title,
                 image: item.img,
                 content: item.content,

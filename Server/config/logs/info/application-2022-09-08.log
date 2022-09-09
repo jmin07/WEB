@@ -99,3 +99,67 @@
 2022-09-08 14:59:45 [WatchRabbit] INFO : 데이터베이스 연결 성공
 2022-09-08 15:01:20 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
 2022-09-08 15:01:30 [WatchRabbit] INFO : guentc1@naver.com 님이 로그인에 성공했습니다.
+2022-09-08 15:26:38 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 15:26:39 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 15:29:14 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 15:29:14 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 15:29:25 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 15:29:25 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 15:42:14 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 15:42:14 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 15:42:22 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 15:42:22 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 15:42:53 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 15:42:53 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 15:48:24 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 15:48:24 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 15:55:08 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 15:55:08 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 16:09:07 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-08 18:22:54 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 18:22:55 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 19:01:59 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 19:01:59 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 22:03:17 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-08 22:03:21 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-08 22:03:28 [WatchRabbit] INFO : guentc1@naver.com 님이 로그인에 성공했습니다.
+2022-09-08 23:02:40 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:02:40 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:03:13 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:03:13 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:06:05 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:06:06 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:21:36 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:21:36 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:22:58 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:22:58 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:23:35 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:23:35 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:24:01 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:24:02 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:24:53 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:24:53 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:33:01 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:33:02 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:37:33 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:37:33 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:41:28 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:41:28 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:42:22 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:42:23 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:42:56 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:42:56 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:42:59 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:42:59 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:43:30 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:43:30 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:44:34 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:44:34 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:45:21 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:45:21 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:45:38 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:45:38 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:57:01 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:57:01 [WatchRabbit] INFO : 데이터베이스 연결 성공
+2022-09-08 23:58:39 [WatchRabbit] INFO : [development] API Server Start At Port 8443
+2022-09-08 23:58:40 [WatchRabbit] INFO : 데이터베이스 연결 성공

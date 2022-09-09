@@ -1,0 +1,31 @@
+2022-09-09 13:41:59 [WatchRabbit] ERROR : [commonDao userIdxCheck] 
+ Cannot read properties of undefined (reading 'email')
+2022-09-09 13:42:48 [WatchRabbit] ERROR : [commonDao userIdxCheck] 
+ Cannot read properties of undefined (reading 'email')
+2022-09-09 13:43:12 [WatchRabbit] ERROR : [commonDao userIdxCheck] 
+ Cannot read properties of undefined (reading 'email')
+2022-09-09 13:43:50 [WatchRabbit] ERROR : [commonDao userIdxCheck] 
+ Cannot read properties of undefined (reading 'email')
+2022-09-09 13:45:12 [WatchRabbit] ERROR : [commonDao userIdxCheck] 
+ Cannot read properties of undefined (reading 'email')
+2022-09-09 13:45:13 [WatchRabbit] ERROR : [commonDao userIdxCheck] 
+ Cannot read properties of undefined (reading 'email')
+2022-09-09 13:46:32 [WatchRabbit] ERROR : [commonDao userIdxCheck] 
+ Cannot read properties of undefined (reading 'email')
+2022-09-09 13:48:19 [WatchRabbit] ERROR : [commonDao userIdxCheck] 
+ WHERE parameter "email" has invalid "undefined" value
+2022-09-09 14:53:46 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-09 15:36:15 [WatchRabbit] ERROR : [community Dao getComment] 
+
+2022-09-09 15:36:34 [WatchRabbit] ERROR : [community Dao getComment] 
+ WHERE parameter "communityIdx" has invalid "undefined" value
+2022-09-09 15:37:13 [WatchRabbit] ERROR : [community Dao getComment] 
+ WHERE parameter "communityIdx" has invalid "undefined" value
+2022-09-09 15:37:52 [WatchRabbit] ERROR : [community Dao getComment] 
+ Cannot read properties of undefined (reading 'communityId')
+2022-09-09 15:38:29 [WatchRabbit] ERROR : [community Dao getComment] 
+ Cannot read properties of undefined (reading 'communityId')
+2022-09-09 15:39:26 [WatchRabbit] ERROR : [community Dao getComment] 
+ WHERE parameter "communityIdx" has invalid "undefined" value
+2022-09-09 15:39:49 [WatchRabbit] ERROR : [community Dao getComment] 
+ Unknown column 'Community.communityIdx' in 'where clause'

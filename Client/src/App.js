@@ -88,7 +88,7 @@ function App() {
                                         element={<CommunityItemPage />}
                                     />
                                     <Route
-                                        path="post"
+                                        path="new"
                                         element={<CommunityFormPage />}
                                     />
                                 </Route>

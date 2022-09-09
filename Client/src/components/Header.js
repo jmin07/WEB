@@ -67,7 +67,6 @@ export default function Header() {
             const data = "/auth/loginstatus";
             const props = { path: data };
             const response = await getLoginStatus(props);
-            console.log("response", response);
             if (response.isSuccess) {
                 setLogin((login) => ({
                     ...login,

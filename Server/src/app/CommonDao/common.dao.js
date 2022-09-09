@@ -18,6 +18,20 @@ exports.emailCheck = async (info) => {
     }
 };
 
+exports.userIdxCheck = async (info) => {
+    try {
+        const result = await User.findOne({
+            attributes: ["idx"],
+            where: {
+                email: info.Email,
+            },
+        });
+        return result;
+    } catch (error) {
+        logger.error("[commonDao userIdxCheck] \n", error);
+    }
+};
+
 // exports.createTraceItem = async (info) => {
 //     try {
 //         const result = await Trace.create({
