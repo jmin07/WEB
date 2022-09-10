@@ -46,7 +46,6 @@ import { getLoginStatus, getLogOut, getSearchData } from "../api";
 
 // use
 export default function Header() {
-    console.log("process.env : ", process.env);
     //컨택스트
     const { setSearchData } = useContext(SearchDataContext);
     const { setDBdata } = useContext(DBdataContext);

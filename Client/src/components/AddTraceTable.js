@@ -28,7 +28,6 @@ export default function AddTraceTable({ children }) {
             const data = "/trace/db";
             const props = { path: data, traceIdx: children };
             const response = await postTraceItem(props);
-            console.log("traceItem response", response);
             if (response.isSuccess) {
                 console.log("여기 맞나요");
                 console.log("response.result", response.result);

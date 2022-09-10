@@ -1,4 +1,4 @@
-import { CommentItem } from "../CommunityStyled";
+import { CommentItem, CommentItemContainer } from "../CommunityStyled";
 
 function CommentForm({ item }) {
     return (
@@ -10,14 +10,12 @@ function CommentForm({ item }) {
 }
 
 function CommentFormList({ items }) {
-    console.log("items", items);
-    console.log(typeof items);
     return (
-        <div>
+        <CommentItemContainer>
             {items.map((item) => {
                 return <CommentForm key={item.idx} item={item} />;
             })}
-        </div>
+        </CommentItemContainer>
     );
 }
 

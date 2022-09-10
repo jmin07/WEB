@@ -113,25 +113,28 @@ export const CommentArea = styled.div`
     flex-direction: column;
 `;
 
+export const commentContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
 export const CommentItemContainer = styled.div`
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
-    margin-top: 10px;
+    border-radius: 20px;
     width: 100%;
-    p {
-        width: 90%;
-        font-size: 1rem;
-    }
+    border-style: none;
+    margin-top: 10px;
 `;
 
 export const CommentItem = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: white;
-    border-color: red;
+    margin: 10px;
     width: 100%;
     height: 80%;
+    /* border-style: solid;
+    border-color: gray; */
 `;
 
 export const CommentHandler = styled.div`

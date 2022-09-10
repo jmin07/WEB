@@ -32,7 +32,6 @@ function CommunityForm() {
     const handleSubmit = async (e) => {
         try {
             e.preventDefault();
-            console.log("e.target.files", e.target.files);
             const post = new FormData(); // formData
 
             post.append("title", values.title); // formData.append 하구

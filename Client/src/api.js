@@ -181,21 +181,21 @@ export async function createCommunityPost(Data) {
     return body;
 }
 
-// 게시글 이미지 등록
-export async function createCommunityImage(Data) {
-    const response = await fetch(`${BASE_URL}/community/post`, {
-        method: "POST",
-        mode: "cors",
-        credentials: "include",
-        body: Data,
-    });
+// // 게시글 이미지 등록
+// export async function createCommunityImage(Data) {
+//     const response = await fetch(`${BASE_URL}/community/post`, {
+//         method: "POST",
+//         mode: "cors",
+//         credentials: "include",
+//         body: Data,
+//     });
 
-    const body = await response.json();
-    return body;
-}
+//     const body = await response.json();
+//     return body;
+// }
 
 // 댓글 읽어오기
-export async function getCommunityReply(Data) {
+export async function getComment(Data) {
     const response = await fetch(`${BASE_URL}/community/${Data.id}/reply`, {
         method: "GET",
         mode: "cors",
@@ -205,11 +205,48 @@ export async function getCommunityReply(Data) {
     return body;
 }
 
-// export async function getCommunityReply(Data) {
-//     await axios.post(
+// 댓글 작성하기
+// export async function postComment(Data) {
+//     console.log("Data", Data);
+//     console.log("Data", Data.value);
+//     const response = await fetch(`${BASE_URL}/community/${Data.id}/reply/new`, {
+//         method: "POST",
+//         mode: "cors",
+//         credentials: "include",
+//         body: JSON.stringify({
+//             content: "테스트",
+//         }),
+//     });
 
-//     )
+//     const body = await response.json();
+//     return body;
 // }
-//
 
-// }
+export function postComment(Data) {
+    const result = axios
+        .post(
+            `${BASE_URL}/community/${Data.id}/reply/new`,
+            {
+                comment: Data.value,
+            },
+            {
+                withCredentials: true,
+            }
+        )
+        .then((response) => {
+            const result = response.data;
+            return result;
+        })
+        .catch((err) => {
+            console.log("postComment err", err);
+        });
+    return result;
+}
+
+
+// export function getcheckUser(Data) {
+//     const result = axios
+//         .get(
+
+//         )
+// } 

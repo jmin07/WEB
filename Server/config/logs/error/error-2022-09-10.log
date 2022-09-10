@@ -1,0 +1,31 @@
+2022-09-10 13:00:13 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-10 13:23:00 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-10 13:23:46 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-10 13:27:21 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-10 13:35:44 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-10 13:38:15 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-10 13:41:42 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-10 13:41:56 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-10 13:42:07 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-10 13:48:21 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-10 13:50:12 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-10 13:50:39 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-10 14:59:36 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-10 15:57:30 [WatchRabbit] ERROR : [community Service postCommentItem] 
+ info is not defined
+2022-09-10 15:57:55 [WatchRabbit] ERROR : [community Service postCommentItem] 
+ info is not defined
+2022-09-10 15:57:55 [WatchRabbit] ERROR : [community Service postCommentItem] 
+ info is not defined
+2022-09-10 15:58:02 [WatchRabbit] ERROR : [community Service postCommentItem] 
+ info is not defined
+2022-09-10 15:58:36 [WatchRabbit] ERROR : [community Service postCommentItem] 
+ Cannot read properties of undefined (reading 'idx')
+2022-09-10 16:02:27 [WatchRabbit] ERROR : [community Service postCommentItem] 
+ error is not defined
+2022-09-10 16:53:37 [WatchRabbit] ERROR : [object Object]
+2022-09-10 16:53:38 [WatchRabbit] ERROR : [authService createUser] userIdx is not defined
+2022-09-10 16:53:49 [WatchRabbit] ERROR : [object Object]
+2022-09-10 16:53:50 [WatchRabbit] ERROR : jmbaek07@gmail.com 이메일 중복입니다.
+2022-09-10 16:54:09 [WatchRabbit] ERROR : PASSPORT 유저 아이디 불일치
+2022-09-10 16:54:09 [WatchRabbit] ERROR : 유저 정보가 없어 로그인에 실패했습니다.

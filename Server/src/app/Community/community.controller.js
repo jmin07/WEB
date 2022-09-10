@@ -32,14 +32,19 @@ exports.getCommunity = async (req, res) => {
  * API Name: 커뮤니티 게시글 댓글 가져오기
  * [POST] /community/:id/reply
  */
-exports.getCommunityReply = async (req, res) => {
+exports.getCommentItem = async (req, res) => {
     try {
-        const param = req.params;
-        const result = await Service.getCommunityReply({ id: param.id });
+        let result;
+        req.user.email
+            ? (result = await Service.getCommentItem({
+                  id: req.params.id,
+                  userEmail: req.user.email,
+              }))
+            : (result = await Service.getCommentItem({ id: req.params.id }));
 
         return res.status(200).send(result);
     } catch (error) {
-        log.error("[community Router getCommunityReply] \n", error);
+        log.error("[community Router getCommentItem] \n", error);
         return res.status(500).send("something broke");
     }
 };
@@ -62,6 +67,31 @@ exports.postCommunityItem = async (req, res) => {
         return res.status(200).send(result);
     } catch (error) {
         log.error("[community Router postCommunityItem] \n", error);
+        return res.status(500).send("something broke");
+    }
+};
+
+/**
+ * API No.4
+ * API Name: 커뮤니티 게시글 댓글 업로드
+ * [POST] /community/:id/reply/new
+ */
+exports.postCommentItem = async (req, res) => {
+    try {
+        const userEmail = req.user.email;
+        const comment = req.body.comment;
+        const commentIdx = req.params.id;
+
+        const props = { userEmail, comment, commentIdx };
+        const result = await Service.postCommentItem(props);
+        console.log("result", result);
+        if (result.isSuccess) {
+            return res.status(200).send(result);
+        } else {
+            return res.status(400).send(result);
+        }
+    } catch (error) {
+        log.error("[community Router postCommentItem] \n", error);
         return res.status(500).send("something broke");
     }
 };

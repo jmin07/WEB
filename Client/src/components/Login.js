@@ -25,13 +25,11 @@ export default function Login() {
     const { setLogin } = useContext(LoginDataContext);
 
     const onSubmit = (e) => {
-        console.log("login complete");
         e.preventDefault();
         const id = e.target.email.value;
         const password = e.target.password.value;
         const data = "/auth/signin";
         const props = { path: data, userEmail: id, userPassword: password };
-        console.log(id, password);
         const response = postLoginData(props);
         response.then((res) => {
             if (res.isSuccess) {
@@ -54,7 +52,6 @@ export default function Login() {
         const props = { path: data };
         const response = postGoogle(props);
         response.then((res) => {
-            console.log("res", res);
             const isSuccess = res.isSuccess;
             const profile_image = res.result.profile_image;
             const props = { TrueFalse: isSuccess, profileImage: profile_image };
@@ -69,7 +66,6 @@ export default function Login() {
         const response = postKakao(props);
         response.then((res) => {
             if (res.isSuccess) {
-                console.log("Kakao login ", res);
                 const profile_image = res.result.profile_image;
                 setLogin((login) => ({
                     ...login,

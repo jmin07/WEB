@@ -27,7 +27,6 @@ export default function ForgotPW() {
 
   const sendNumber = () => {
     const userEmail = document.getElementById("email").value;
-    console.log(userEmail);
     if (!userEmail) {
       alert("이메일을 입력해주세요");
     } else if (!CheckEmail(userEmail)) {

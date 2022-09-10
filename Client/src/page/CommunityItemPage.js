@@ -6,8 +6,9 @@ import {
     CommentInput,
     CommentItem,
     CommentItemContainer,
+    commentContainer,
 } from "../components/community/CommunityStyled";
-import { getCommunityReply } from "../api";
+import { getComment, postComment, getcheckUser } from "../api";
 import CommentFormList from "../components/community/comment/commentFormList";
 
 import "../style/page.css";
@@ -15,26 +16,52 @@ export default function CommunityItemPage() {
     const location = useLocation();
     const navigate = useNavigate();
     const [comment, commentSet] = useState([]);
-
+    const [commentReply, commentReplySet] = useState("");
+    const [status, statusSet] = useState([]);
     const { idx, title, image, content, price, date } = location.state;
 
     const backPage = () => navigate("/community");
-    
-    const commentButton () => {
 
-    }
+    const handleInputChange = (e) => {
+        commentReplySet(e.target.value);
+    };
+    const handleOnclick = async () => {
+        try {
+            const props = { id: idx, value: commentReply };
+            const response = await postComment(props);
+            if (response.isSuccess) {
+                alert(`${response.message}`);
+                window.location.replace(`/community/${idx}`);
+            } else {
+                commentReplySet("");
+                alert(`${response.message}`);
+            }
+        } catch (err) {
+            console.log("err", err);
+        }
+    };
 
     useEffect(() => {
         // 해당 게시글에 작성되어 있는 댓글 가져오기
+        // 이거를 활용할 수는 없을까???
         async function getCommentFunction() {
             const response = await getComment({ id: idx });
-            console.log("response", response);
             if (response.isSuccess) {
                 commentSet(response.result);
             }
         }
         getCommentFunction();
     }, []);
+
+    // useEffect(()=>{
+    //     // 해당 게시글 및 댓글이 회원인지 아닌지 확인
+    //     async function getcheckUserFunction() {
+    //         const response = await getcheckUser({ id: idx});
+    //         if (response.isSuccess){
+    //             statusSet(response.result);
+    //         }
+    //     }
+    // })
 
     return (
         <>
@@ -87,17 +114,19 @@ export default function CommunityItemPage() {
                         fontFamily: "MICEGothic Bold",
                     }}
                 >
-                    <div>
+                    <commentContainer>
                         <h3>댓글 {comment.length}</h3>
                         <CommentInput>
-                            <input placeholder="댓글을 입력해주세요" />
-                            <Button onClick={}>작성</Button>
+                            <input
+                                name="comment"
+                                placeholder="댓글을 입력해주세요"
+                                value={commentReply}
+                                onChange={handleInputChange}
+                            />
+                            <Button onClick={handleOnclick}>작성</Button>
                         </CommentInput>
-                        <CommentItemContainer>
-                            <CommentFormList items={comment} />
-                        </CommentItemContainer>
-                    </div>
-
+                        <CommentFormList items={comment} />
+                    </commentContainer>
                     {/* <CommentArea>
                         {post.comments &&
                             post.comments
