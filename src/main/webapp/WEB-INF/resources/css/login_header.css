@@ -1,0 +1,56 @@
+/*
+body {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("/img/TEST.jpg");
+    background-size: cover;
+}
+
+!* position: sticky 는 스크롤이 움직임에 따라 고정. *!
+.navbar {
+    display: flex;
+    !* justify-content: space-between; *!
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 20px;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #444B59;
+}
+
+.navbar_menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    margin-right: 5rem;
+    color: white;
+}
+!*
+    - margin을 넣으면 클릭할 수 있는 범위가 적어진다.
+    - padding은 box 안에 넣기 때문에 클릭 영역이 넓고 크게 하이라이트가 가능하다?
+*!
+.navbar_menu li {
+    padding: 8px 12px;
+    margin: 20px;
+}
+
+.navbar_menu li:hover {
+    font-weight: bold;    
+    border-radius: 5px;
+}
+
+.navbar_icons {
+    list-style: none;
+    color: white;
+    display: flex;
+    margin-right: 5rem;
+}
+
+.navbar_icons li {
+    padding: 8px 12px;
+}*/
