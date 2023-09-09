@@ -387,7 +387,8 @@ h6 {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  padding: 0 15px;
+  /*padding: 0 15px; 23.09.09*/
+  padding : 0 0 0 15px ;
 }
 
 #hero h3 {
@@ -467,7 +468,8 @@ h6 {
 --------------------------------------------------------------*/
 section {
   padding: 60px 0;
-  overflow: hidden;
+  /*overflow: hidden;*/
+  overflow: auto;
 }
 
 .section-bg {
