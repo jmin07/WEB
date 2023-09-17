@@ -30,8 +30,10 @@ spring:
     open-in-view: false
 
 # 로그
-# logging:
-
+logging:
+  level:
+    org.hibernate.sql: debug
+    com.farmstory: debug
 
 # swagger
 springdoc:
