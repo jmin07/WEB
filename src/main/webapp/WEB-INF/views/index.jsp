@@ -31,14 +31,14 @@
 
         <!-- ======= Header ======= -->
         <header id="header" class="fixed-top ">
-            <jsp:include page="./main/header.jsp" flush="false"/>
+            <jsp:include page="./home/header.jsp" flush="false"/>
         </header>
         <!-- End Header -->
 
 
         <!-- ======= Hero Section ======= -->
         <section id="hero">
-            <jsp:include page="./main/hero.jsp" flush="false"/>
+            <jsp:include page="./home/hero.jsp" flush="false"/>
         </section>
         <!-- End Hero -->
 
@@ -79,7 +79,7 @@
 
         <!-- ======= Footer ======= -->
         <footer id="footer">
-            <jsp:include page="./main/footer.jsp" flush="false"/>
+            <jsp:include page="./home/footer.jsp" flush="false"/>
         </footer>
         <!-- End Footer -->
 

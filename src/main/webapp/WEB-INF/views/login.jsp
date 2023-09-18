@@ -31,7 +31,7 @@
 
         <!-- ======= Header ======= -->
         <header id="header" class="fixed-top ">
-            <jsp:include page="./main/header.jsp" flush="false"/>
+            <jsp:include page="./home/header.jsp" flush="false"/>
         </header>
         <!-- End Header -->
 

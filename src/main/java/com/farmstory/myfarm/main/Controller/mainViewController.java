@@ -9,6 +9,6 @@ public class mainViewController {
     @GetMapping("/main")
     public String mainView() {
 
-        return "home";
+        return "/main/main";
     }
 }
