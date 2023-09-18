@@ -416,6 +416,8 @@ h6 {
 }
 
 #hero .btn-get-started {
+  margin : 0 auto; /*23.09.18*/
+  width : 200px; /*23.09.18*/
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   font-weight: 400;
@@ -440,18 +442,19 @@ h6 {
   }
 }
 
-@media (max-width: 768px) {
+/*@media (max-width: 768px) 23.09.18*/
+@media (max-width: 938px){
   #hero h3 {
     font-size: 22px;
   }
 
   #hero h1 {
-    font-size: 28px;
+    font-size: 25px;
     line-height: 36px;
   }
 
   #hero h2 {
-    font-size: 18px;
+    font-size: 15px;
     line-height: 24px;
     margin-bottom: 30px;
   }
