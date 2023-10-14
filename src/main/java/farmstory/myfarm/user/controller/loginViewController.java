@@ -6,19 +6,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class loginViewController {
-
     @GetMapping("/")
-    public String homeView() {
-        return "index";
-    }
+    public String homeView() { return "home";}
 
     @GetMapping("/login")
     public String loginView() {
-        return "login";
+        return "homePage/login/login";
     }
 
-    @GetMapping("/creat_account")
+    @GetMapping("/join/account")
     public String createAccountView () {
-        return "/login/createAccount";
+        return "homePage/login/createAccount";
     }
 }

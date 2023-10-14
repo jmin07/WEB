@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- css && js files -->
-    <%@include file="include/main_script.jsp"%>
+    <%@include file="include/mainScript.jsp"%>
 
   </head>
 
@@ -210,7 +210,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="main/users-profile.jsp">
+              <a class="dropdown-item d-flex align-items-center" href="mainPage/users-profile.jsp">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -220,7 +220,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="main/users-profile.jsp">
+              <a class="dropdown-item d-flex align-items-center" href="mainPage/users-profile.jsp">
                 <i class="bi bi-gear"></i>
                 <span>Account Settings</span>
               </a>
@@ -230,7 +230,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="main/pages-faq.jsp">
+              <a class="dropdown-item d-flex align-items-center" href="mainPage/pages-faq.jsp">
                 <i class="bi bi-question-circle"></i>
                 <span>Need Help?</span>
               </a>
@@ -272,72 +272,72 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="main/components-alerts.jsp">
+            <a href="mainPage/components-alerts.jsp">
               <i class="bi bi-circle"></i><span>Alerts</span>
             </a>
           </li>
           <li>
-            <a href="main/components-accordion.jsp">
+            <a href="mainPage/components-accordion.jsp">
               <i class="bi bi-circle"></i><span>Accordion</span>
             </a>
           </li>
           <li>
-            <a href="main/components-badges.jsp">
+            <a href="mainPage/components-badges.jsp">
               <i class="bi bi-circle"></i><span>Badges</span>
             </a>
           </li>
           <li>
-            <a href="main/components-breadcrumbs.jsp">
+            <a href="mainPage/components-breadcrumbs.jsp">
               <i class="bi bi-circle"></i><span>Breadcrumbs</span>
             </a>
           </li>
           <li>
-            <a href="main/components-buttons.jsp">
+            <a href="mainPage/components-buttons.jsp">
               <i class="bi bi-circle"></i><span>Buttons</span>
             </a>
           </li>
           <li>
-            <a href="main/components-cards.jsp">
+            <a href="mainPage/components-cards.jsp">
               <i class="bi bi-circle"></i><span>Cards</span>
             </a>
           </li>
           <li>
-            <a href="main/components-carousel.jsp">
+            <a href="mainPage/components-carousel.jsp">
               <i class="bi bi-circle"></i><span>Carousel</span>
             </a>
           </li>
           <li>
-            <a href="main/components-list-group.jsp">
+            <a href="mainPage/components-list-group.jsp">
               <i class="bi bi-circle"></i><span>List group</span>
             </a>
           </li>
           <li>
-            <a href="main/components-modal.jsp">
+            <a href="mainPage/components-modal.jsp">
               <i class="bi bi-circle"></i><span>Modal</span>
             </a>
           </li>
           <li>
-            <a href="main/components-tabs.jsp">
+            <a href="mainPage/components-tabs.jsp">
               <i class="bi bi-circle"></i><span>Tabs</span>
             </a>
           </li>
           <li>
-            <a href="main/components-pagination.jsp">
+            <a href="mainPage/components-pagination.jsp">
               <i class="bi bi-circle"></i><span>Pagination</span>
             </a>
           </li>
           <li>
-            <a href="main/components-progress.jsp">
+            <a href="mainPage/components-progress.jsp">
               <i class="bi bi-circle"></i><span>Progress</span>
             </a>
           </li>
           <li>
-            <a href="main/components-spinners.jsp">
+            <a href="mainPage/components-spinners.jsp">
               <i class="bi bi-circle"></i><span>Spinners</span>
             </a>
           </li>
           <li>
-            <a href="main/components-tooltips.jsp">
+            <a href="mainPage/components-tooltips.jsp">
               <i class="bi bi-circle"></i><span>Tooltips</span>
             </a>
           </li>
@@ -350,22 +350,22 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="main/forms-elements.jsp">
+            <a href="mainPage/forms-elements.jsp">
               <i class="bi bi-circle"></i><span>Form Elements</span>
             </a>
           </li>
           <li>
-            <a href="main/forms-layouts.jsp">
+            <a href="mainPage/forms-layouts.jsp">
               <i class="bi bi-circle"></i><span>Form Layouts</span>
             </a>
           </li>
           <li>
-            <a href="main/forms-editors.jsp">
+            <a href="mainPage/forms-editors.jsp">
               <i class="bi bi-circle"></i><span>Form Editors</span>
             </a>
           </li>
           <li>
-            <a href="main/forms-validation.jsp">
+            <a href="mainPage/forms-validation.jsp">
               <i class="bi bi-circle"></i><span>Form Validation</span>
             </a>
           </li>
@@ -378,12 +378,12 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="main/tables-general.jsp">
+            <a href="mainPage/tables-general.jsp">
               <i class="bi bi-circle"></i><span>General Tables</span>
             </a>
           </li>
           <li>
-            <a href="main/tables-data.jsp">
+            <a href="mainPage/tables-data.jsp">
               <i class="bi bi-circle"></i><span>Data Tables</span>
             </a>
           </li>
@@ -396,17 +396,17 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="main/charts-chartjs.jsp">
+            <a href="mainPage/charts-chartjs.jsp">
               <i class="bi bi-circle"></i><span>Chart.js</span>
             </a>
           </li>
           <li>
-            <a href="main/charts-apexcharts.jsp">
+            <a href="mainPage/charts-apexcharts.jsp">
               <i class="bi bi-circle"></i><span>ApexCharts</span>
             </a>
           </li>
           <li>
-            <a href="main/charts-echarts.jsp">
+            <a href="mainPage/charts-echarts.jsp">
               <i class="bi bi-circle"></i><span>ECharts</span>
             </a>
           </li>
@@ -419,17 +419,17 @@
         </a>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="main/icons-bootstrap.jsp">
+            <a href="mainPage/icons-bootstrap.jsp">
               <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
             </a>
           </li>
           <li>
-            <a href="main/icons-remix.jsp">
+            <a href="mainPage/icons-remix.jsp">
               <i class="bi bi-circle"></i><span>Remix Icons</span>
             </a>
           </li>
           <li>
-            <a href="main/icons-boxicons.jsp">
+            <a href="mainPage/icons-boxicons.jsp">
               <i class="bi bi-circle"></i><span>Boxicons</span>
             </a>
           </li>
@@ -439,49 +439,49 @@
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="main/users-profile.jsp">
+        <a class="nav-link collapsed" href="mainPage/users-profile.jsp">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="main/pages-faq.jsp">
+        <a class="nav-link collapsed" href="mainPage/pages-faq.jsp">
           <i class="bi bi-question-circle"></i>
           <span>F.A.Q</span>
         </a>
       </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="main/pages-contact.jsp">
+        <a class="nav-link collapsed" href="mainPage/pages-contact.jsp">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>
       </li><!-- End Contact Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="main/pages-register.jsp">
+        <a class="nav-link collapsed" href="mainPage/pages-register.jsp">
           <i class="bi bi-card-list"></i>
           <span>Register</span>
         </a>
       </li><!-- End Register Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="main/pages-login.jsp">
+        <a class="nav-link collapsed" href="mainPage/pages-login.jsp">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Login</span>
         </a>
       </li><!-- End Login Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="main/pages-error-404.jsp">
+        <a class="nav-link collapsed" href="mainPage/pages-error-404.jsp">
           <i class="bi bi-dash-circle"></i>
           <span>Error 404</span>
         </a>
       </li><!-- End Error 404 Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="main/pages-blank.jsp">
+        <a class="nav-link collapsed" href="mainPage/pages-blank.jsp">
           <i class="bi bi-file-earmark"></i>
           <span>Blank</span>
         </a>

@@ -1,0 +1,30 @@
+.separator{
+  display:block;
+  margin:30px auto 10px;
+  text-align:center;
+  height:40px;
+  position:relative;
+  background:transparent;
+  color: rgba(#0f132a,.4);
+  font-size:13px;
+  width:90%;
+  max-width:680px;
+  &::before{
+    content:"";
+    position:absolute;
+    top:8px;
+    left:0;
+    background: rgba(#0f132a,.2);
+    height:1px;
+    width:45%;
+  }
+  &::after{
+    content:"";
+    position:absolute;
+    top:8px;
+    right:0;
+    background: rgba(#0f132a,.2);
+    height:1px;
+    width:45%;
+  }
+}
