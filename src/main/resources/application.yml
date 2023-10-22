@@ -5,6 +5,12 @@ server:
     context-path: /myfarm
     encoding:
       force-response: true # 한글 깨짐
+  error:
+    whitelabel:
+      enabled: true
+    include-stacktrace: never
+    path: /error
+
 
 # 스프링
 spring:
