@@ -1,6 +1,6 @@
-package farmstory.myfarm.config;
+/*package farmstory.myfarm.config;
 
-import farmstory.myfarm.config.filter.LoginFilter;
+//import farmstory.myfarm.config.filter.LoginFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,4 +27,4 @@ public class WebConfig implements WebMvcConfigurer {
         return filterFilterRegistrationBean;
     }
 
-}
+}*/

@@ -5,10 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -34,6 +31,7 @@ public class LoginController {
     /**
      * 로그인
      */
+/*
     @PostMapping("/login")
     public String loginPost(@Valid @ModelAttribute LoginForm form, BindingResult bindingResult,
         HttpServletRequest request, @RequestParam(defaultValue = "/") String redirectURL) {
@@ -51,6 +49,11 @@ public class LoginController {
         return "redirect:" + redirectURL;
     }
 
+*/
+
+    // 회원 가입 페이지
+
+
     /**
      * 로그아웃
      */
@@ -58,7 +61,7 @@ public class LoginController {
     public void logoutPost() {
 
 
-        return
+
     }
 
     /**

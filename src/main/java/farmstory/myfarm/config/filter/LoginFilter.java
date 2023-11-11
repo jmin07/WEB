@@ -10,13 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/*
 @Slf4j
 @Configuration
 public class LoginFilter implements Filter {
 
     private static final String[] whiteList =  {"/", "/home", "logout", "/css/*"};
 
-    @Override
+   */
+/* @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String requestURI = httpRequest.getRequestURI();
@@ -46,13 +48,17 @@ public class LoginFilter implements Filter {
             log.info("로그인 인증 체크 필터 종료 {}", requestURI);
         }
 
-    }
+    }*//*
 
-    /**
+
+    */
+/**
      * 화이트 리스트의 경우 인증 X
-     */
+     *//*
+
     private boolean isLoginCheckPath(String requestURI) {
         return !PatternMatchUtils.simpleMatch(whiteList, requestURI);
     }
 
 }
+*/

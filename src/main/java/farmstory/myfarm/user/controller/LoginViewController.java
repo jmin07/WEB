@@ -12,20 +12,27 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class LoginViewController {
     @GetMapping("/")
-    public String homeView(HttpServletRequest request, Model model) {
-
-
-
+    public String homeView() {
         return "home";
     }
 
     @GetMapping("/login")
     public String loginView() {
-        return "homePage/login/login";
+        return "homePage/login/loginPage";
     }
 
     @GetMapping("/join/account")
     public String createAccountView () {
-        return "homePage/login/createAccount";
+        return "homePage/login/joinPage";
+    }
+
+    @GetMapping("/user/help/pwdquery")
+    public String findPasswordView () {
+        return "homePage/login/helpPage/pwdPage";
+    }
+
+    @GetMapping("/user/help/idquery")
+    public String findIdView() {
+        return "homePage/login/helpPage/idPage";
     }
 }

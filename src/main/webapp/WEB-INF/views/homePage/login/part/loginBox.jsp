@@ -1,8 +1,4 @@
-<!-- Login 9 - Bootstrap Brain Component -->
-<%--<section class="bg-primary py-3 py-md-5 py-xl-8">--%>
-<%--<div class="hero-container">--%>
-<%--    <section class="">--%>
-<%--<div class="container">--%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="hero-container">
     <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsla(0, 0%, 25%, 0); margin-top: 45px">
         <div class="container">
@@ -28,7 +24,6 @@
                                 <div class="col-12">
                                     <div class="mb-4">
                                         <h3 style="text-align: center">LOGIN</h3>
-                                        <p>계정이 없으신가요? <a href="#!">회원 가입</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +45,9 @@
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="" name="remember_me" id="remember_me">
                                             <label class="form-check-label text-secondary" for="remember_me">
-                                                Keep me logged in
+                                                <label style="color: black">
+                                                    아이디 기억하기
+                                                </label>
                                             </label>
                                         </div>
                                     </div>
@@ -61,29 +58,37 @@
                                     </div>
                                 </div>
                             </form>
+
                             <div class="row">
                                 <div class="col-12">
                                     <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-end mt-4">
-                                        <a href="">Forgot password</a>
+                                        <ul class="find_wrap" id="find_wrap">
+                                            <li>
+                                                <a href="" class="loginBoxA nobar">비밀번호 찾기</a>
+                                            </li>
+                                            <li>
+                                                <a href="" class="loginBoxA">아이디 찾기</a>
+                                            </li>
+                                            <li>
+                                                <a href="/myfarm/join/account" class="loginBoxA">회원 가입</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-12">
-                                    <p class="mt-4 mb-4 separator" style="text-align: center">OR</p>
-                                    <div class="d-flex gap-2 gap-sm-3" style="flex-direction: column; justify-content: center">
-                                        <button type="button" class="btn btn-outline-warning bsb-btn-circle bsb-btn-circle-sm" style="display: inline-block">
-<%--                                            <img src="${pageContext.request.contextPath}/home_css/assets/img/kakao_login.png" alt="" style="height: auto; max-width: 100%;">--%>
-                                        </button>
-                                        <a href="" class="btn btn-outline-success bsb-btn-circle bsb-btn-circle-2xl">
-<%--                                            <img src="${pageContext.request.contextPath}/home_css/assets/img/naver_login.png" alt="">--%>
-                                        </a>
-                                        <a href="" class="btn btn-outline-light bsb-btn-circle bsb-btn-circle-2xl">
-<%--                                            <img src="${pageContext.request.contextPath}/home_css/assets/img/kakao_login.png">--%>
-                                        </a>
+                                    <p class="mt-4 mb-3 separator" style="text-align: center; font-weight: bold">OR</p>
+                                    <div class="d-flex gap-2 gap-sm-3" style="flex-direction: row; justify-content: center">
+
+                                        <button type="button" class="kakao-login-button"></button>
+                                        <button type="button" class="naver-login-button"></button>
+
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -91,6 +96,3 @@
         </div>
     </div>
 </div>
-<%--    </section>--%>
-<%--</div>--%>
-<%--</section>--%>

@@ -15,20 +15,21 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- css && js files -->
-    <%@include file="../../include/homeScript.jsp"%>
+    <%@include file="../../../include/homeScript.jsp"%>
 </head>
-
 <body>
+    <style>
 
-<!-- ======= Header ======= -->
-<header id="header" class="fixed-top">
-    <jsp:include page="part/login_header.jsp" flush="false"/>
-</header>
+    </style>
 
-<!-- ======= main ======= -->
-<section id="hero">
-    <jsp:include page="part/createAccount_box.jsp" flush="false"/>
-</section>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <jsp:include page="../part/loginHeader.jsp" flush="false"/>
+    </header>
+
+    <!-- ======= main ======= -->
+    <section id="hero">
+        <jsp:include page="../part/helpBox.jsp" flush="false"/>
+    </section>
 
 </body>
-</html>

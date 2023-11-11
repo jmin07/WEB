@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class MainViewController {
 
-    @GetMapping("/main")
+    /*@GetMapping("/main")
     public String mainView(@SessionAttribute(name = "test", required = false) Member loginMember, Model model) {
 
         // 세션에 회원 데이터가 없으면 home
@@ -24,5 +24,5 @@ public class MainViewController {
         // 세션이 유지되면 main 페이지로 이동
         model.addAttribute("member", loginMember);
         return "main";
-    }
+    }*/
 }

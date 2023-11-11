@@ -22,12 +22,12 @@
 
         <!-- ======= Header ======= -->
         <header id="header" class="fixed-top">
-            <jsp:include page="part/login_header.jsp" flush="false"/>
+            <jsp:include page="part/loginHeader.jsp" flush="false"/>
         </header>
 
         <!-- ======= main ======= -->
         <section id="hero">
-            <jsp:include page="part/login_box.jsp" flush="false"/>
+            <jsp:include page="part/joinBox.jsp" flush="false"/>
         </section>
 
     </body>
