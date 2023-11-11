@@ -5,6 +5,8 @@ server:
     context-path: /myfarm
     encoding:
       force-response: true # 한글 깨짐
+    session:
+      tracking-modes: cookie
   error:
     whitelabel:
       enabled: true
