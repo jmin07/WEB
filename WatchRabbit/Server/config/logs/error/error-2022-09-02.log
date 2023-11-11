@@ -1,0 +1,55 @@
+2022-09-02 19:15:08 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-02 19:17:04 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-02 19:17:26 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-02 19:17:44 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-02 19:18:34 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-02 19:19:42 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-02 19:34:59 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-02 19:40:13 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-02 19:53:01 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-02 19:53:01 [WatchRabbit] ERROR : [community Dao readCommunity] 
+ You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0', '6'' at line 1
+2022-09-02 20:12:15 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-02 20:12:15 [WatchRabbit] ERROR : [community Dao readCommunity] 
+ You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0', '6'' at line 1
+2022-09-02 20:17:06 [WatchRabbit] ERROR : [community Dao readCommunity] 
+ You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0', '6'' at line 1
+2022-09-02 20:17:15 [WatchRabbit] ERROR : [passport KakaoStrategy] commonDao.snsCheckUser is not a function
+2022-09-02 20:18:00 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-09-02 20:18:00 [WatchRabbit] ERROR : [community Dao readCommunity] 
+ You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0', '6'' at line 1
+2022-09-02 20:18:49 [WatchRabbit] ERROR : [object Object]
+2022-09-02 20:18:50 [WatchRabbit] ERROR : [commonDao createTraceItem] 
+ Cannot read properties of undefined (reading 'create')
+2022-09-02 20:18:50 [WatchRabbit] ERROR : [commonDao createTraceItem] 
+ Cannot read properties of undefined (reading 'create')
+2022-09-02 20:18:50 [WatchRabbit] ERROR : [commonDao createTraceItem] 
+ Cannot read properties of undefined (reading 'create')
+2022-09-02 20:18:50 [WatchRabbit] ERROR : [commonDao createTraceItem] 
+ Cannot read properties of undefined (reading 'create')
+2022-09-02 20:18:50 [WatchRabbit] ERROR : [commonDao createTraceItem] 
+ Cannot read properties of undefined (reading 'create')
+2022-09-02 20:18:53 [WatchRabbit] ERROR : [community Dao readCommunity] 
+ You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0', '6'' at line 1
+2022-09-02 20:22:53 [WatchRabbit] ERROR : [community Dao readCommunity] 
+ You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0', '6'' at line 1
+2022-09-02 20:29:21 [WatchRabbit] ERROR : [community Dao readCommunity] 
+ You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0', '6'' at line 1
+2022-09-02 20:30:08 [WatchRabbit] ERROR : [community Dao readCommunity] 
+ You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0', '6'' at line 1
+2022-09-02 20:30:33 [WatchRabbit] ERROR : [community Dao readCommunity] 
+ You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''6'' at line 1
+2022-09-02 20:32:35 [WatchRabbit] ERROR : [community Dao readCommunity] 
+ You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0', '6'' at line 1
+2022-09-02 20:32:57 [WatchRabbit] ERROR : [community Dao readCommunity] 
+ You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0', '6'' at line 1
+2022-09-02 20:34:08 [WatchRabbit] ERROR : [community Dao getCommunity] 
+ You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0', '6'' at line 1
+2022-09-02 20:36:28 [WatchRabbit] ERROR : [community Dao getCommunity] 
+ You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0', '6'' at line 1
+2022-09-02 20:37:03 [WatchRabbit] ERROR : [community Dao getCommunity] 
+ You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0', '6'' at line 1
+2022-09-02 20:44:19 [WatchRabbit] ERROR : [community Dao getCommunity] 
+ You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''0', '6'' at line 1
+2022-09-02 20:45:10 [WatchRabbit] ERROR : [community Dao getCommunity] 
+ praseInt is not defined

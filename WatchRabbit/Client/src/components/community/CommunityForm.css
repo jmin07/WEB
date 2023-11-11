@@ -1,0 +1,46 @@
+.CommunityForm {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.CommunityForm > :not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.inputFile {
+    width: 100%;
+    height: 500px;
+}
+
+.inputPrice {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid 1px;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: both;
+}
+.textarea {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid 1px;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: both;
+}
+
+.inputTitle {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid 1px;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: both;
+}

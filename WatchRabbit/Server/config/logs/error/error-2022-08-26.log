@@ -1,0 +1,59 @@
+2022-08-26 17:20:01 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 17:21:53 [WatchRabbit] ERROR : [authProvider userDao LocalStrategyUser] Table 'Schema_Carrot.User' doesn't exist
+2022-08-26 17:21:53 [WatchRabbit] ERROR : undefined
+2022-08-26 17:22:59 [WatchRabbit] ERROR : [authProvider userDao LocalStrategyUser] Table 'Schema_Carrot.User' doesn't exist
+2022-08-26 17:22:59 [WatchRabbit] ERROR : undefined
+2022-08-26 18:20:14 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 18:20:14 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 18:20:14 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 18:20:14 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 18:20:14 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 20:26:19 [WatchRabbit] ERROR : [object Object]
+2022-08-26 20:26:20 [WatchRabbit] ERROR : [authService createUser] authDao.email is not a function
+2022-08-26 20:26:55 [WatchRabbit] ERROR : [object Object]
+2022-08-26 20:26:55 [WatchRabbit] ERROR : [authService createUser] User.findOne is not a function
+2022-08-26 20:29:29 [WatchRabbit] ERROR : [object Object]
+2022-08-26 20:29:29 [WatchRabbit] ERROR : [authService createUser] User.findOne is not a function
+2022-08-26 20:30:24 [WatchRabbit] ERROR : [object Object]
+2022-08-26 20:30:24 [WatchRabbit] ERROR : [authService createUser] User.findOne is not a function
+2022-08-26 20:31:13 [WatchRabbit] ERROR : [object Object]
+2022-08-26 20:31:13 [WatchRabbit] ERROR : [authService createUser] Unknown column 'user_image' in 'field list'
+2022-08-26 20:32:32 [WatchRabbit] ERROR : [object Object]
+2022-08-26 20:32:32 [WatchRabbit] ERROR : [authService createUser] authProvider is not defined
+2022-08-26 20:32:57 [WatchRabbit] ERROR : [object Object]
+2022-08-26 20:32:57 [WatchRabbit] ERROR : [authService createUser] Cannot read properties of null (reading 'length')
+2022-08-26 20:34:47 [WatchRabbit] ERROR : [object Object]
+2022-08-26 20:34:47 [WatchRabbit] ERROR : [authService createUser] authProvider is not defined
+2022-08-26 20:35:56 [WatchRabbit] ERROR : [object Object]
+2022-08-26 20:35:56 [WatchRabbit] ERROR : [authService createUser] authProvider is not defined
+2022-08-26 20:36:29 [WatchRabbit] ERROR : [object Object]
+2022-08-26 20:40:13 [WatchRabbit] ERROR : [object Object]
+2022-08-26 20:41:13 [WatchRabbit] ERROR : [object Object]
+2022-08-26 20:41:13 [WatchRabbit] ERROR : [authService createUser] Unknown column 'User.deletedAt' in 'where clause'
+2022-08-26 20:41:23 [WatchRabbit] ERROR : [object Object]
+2022-08-26 20:42:20 [WatchRabbit] ERROR : [object Object]
+2022-08-26 20:43:06 [WatchRabbit] ERROR : [object Object]
+2022-08-26 20:48:37 [WatchRabbit] ERROR : [object Object]
+2022-08-26 20:49:37 [WatchRabbit] ERROR : [object Object]
+2022-08-26 23:14:32 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:25:16 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:25:16 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:25:16 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:25:16 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:25:16 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:41:46 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:42:02 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:46:19 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:46:37 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:48:14 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:49:13 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:49:33 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:51:05 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:52:37 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:52:40 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:54:23 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:54:23 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:55:33 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:55:34 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:57:49 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
+2022-08-26 23:58:58 [WatchRabbit] ERROR : 로그인이 필요한 요청 입니다.
