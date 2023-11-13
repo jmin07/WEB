@@ -35,20 +35,20 @@
         <main id="main">
 
             <!-- ======= About Section ======= -->
-            <section id="about" class="about">
+           <%-- <section id="about" class="about">
                 <jsp:include page="homePage/section/about.jsp" flush="false"/>
-            </section>
+            </section>--%>
             <!-- End About Section -->
 
             <!-- ======= Services Section ======= -->
-            <section id="services" class="services">
+           <%-- <section id="services" class="services">
                 <jsp:include page="homePage/section/service.jsp" flush="false"/>
-            </section>
+            </section>--%>
             <!-- End Services Section -->
 
 
             <!-- ======= Cta Section ======= -->
-            <section id="cta" class="cta">
+          <%--  <section id="cta" class="cta">
             <div class="container">
                 <div class="text-center">
                     <h3>Call To Action</h3>
@@ -56,26 +56,26 @@
                     <a class="cta-btn" href="#">Call To Action</a>
                 </div>
             </div>
-            </section>
+            </section>--%>
             <!-- End Cta Section -->
 
             <!-- ======= Contact Section ======= -->
-            <section id="contact" class="contact">
+           <%-- <section id="contact" class="contact">
                 <jsp:include page="homePage/section/contact.jsp" flush="false"/>
-            </section>
+            </section>--%>
             <!-- End Contact Section -->
 
         </main>
 
         <!-- ======= Footer ======= -->
-        <footer id="footer">
+       <%-- <footer id="footer">
             <jsp:include page="homePage/part/footer.jsp" flush="false"/>
-        </footer>
+        </footer>--%>
         <!-- End Footer -->
 
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+        <%--<a href="#" class="back-to-top d-flex align-items-center justify-content-center">
             <i class="bi bi-arrow-up-short"></i>
-        </a>
+        </a>--%>
 
     </body>
 

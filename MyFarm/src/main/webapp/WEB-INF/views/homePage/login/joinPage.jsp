@@ -16,6 +16,40 @@
 
         <!-- css && js files -->
         <%@include file="../../include/homeScript.jsp"%>
+        <style>
+            .join-button {
+                display: inline-block;
+                width: 100%;
+                height: 50px;
+                /*background-size: 100% 100%;*/
+                border-radius: 10px;
+                border: none;
+                cursor: pointer;
+            }
+            .kakao-login-button {
+                display: inline-block;
+                width: 225px;
+                height: 50px;
+                background-image: url('${pageContext.request.contextPath}/home_css/assets/img/kakao_login.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                border-radius: 10px;
+                border: none;
+                cursor: pointer;
+            }
+
+            .naver-login-button {
+                display: inline-block;
+                width: 225px;
+                height: 50px;
+                background-image: url('${pageContext.request.contextPath}/home_css/assets/img/naver_login.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                border-radius: 10px;
+                border: none;
+                cursor: pointer;
+            }
+        </style>
     </head>
 
     <body>

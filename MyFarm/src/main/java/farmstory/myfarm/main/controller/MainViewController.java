@@ -12,6 +12,10 @@ import javax.servlet.http.HttpSession;
 @Slf4j
 @Controller
 public class MainViewController {
+    @GetMapping("/main")
+    public String mainView() {
+        return "main";
+    }
 
     /*@GetMapping("/main")
     public String mainView(@SessionAttribute(name = "test", required = false) Member loginMember, Model model) {
