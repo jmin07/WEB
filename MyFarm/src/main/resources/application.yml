@@ -32,14 +32,10 @@ spring:
     driver-class-name: org.h2.Driver
 #    url: jdbc:postgresql://localhost:5433/farmstory
 
-  jpa:
-    hibernate:
-      ddl-auto: create   # option type: create, create-drop, update, validate, none
-    properties:
-      hibernate:
-#        show-sql: true       # sql 쿼리를 보여줍니다.
-        format_sql: true
-    open-in-view: false
+# mybatis
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/**/*.xml
 
 # 로그
 logging:
@@ -54,3 +50,14 @@ springdoc:
     path: /api-docs
   show-actuator: true
   default-produces-media-type: application/json
+
+
+# jpa
+#  jpa:
+#    hibernate:
+#      ddl-auto: create   # option type: create, create-drop, update, validate, none
+#    properties:
+#      hibernate:
+#        #        show-sql: true       # sql 쿼리를 보여줍니다.
+#        format_sql: true
+#    open-in-view: false

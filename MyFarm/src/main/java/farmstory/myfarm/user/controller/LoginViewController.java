@@ -16,12 +16,12 @@ public class LoginViewController {
         return "home";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/user/login")
     public String loginView() {
         return "homePage/login/loginPage";
     }
 
-    @GetMapping("/join/account")
+    @GetMapping("/user/join")
     public String createAccountView () {
         return "homePage/login/joinPage";
     }
