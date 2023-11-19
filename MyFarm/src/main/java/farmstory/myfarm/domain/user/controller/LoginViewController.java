@@ -1,4 +1,4 @@
-package farmstory.myfarm.user.controller;
+package farmstory.myfarm.domain.user.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

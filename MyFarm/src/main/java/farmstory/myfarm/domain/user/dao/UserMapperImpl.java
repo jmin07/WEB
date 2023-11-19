@@ -1,4 +1,4 @@
-package farmstory.myfarm.user.dao;
+package farmstory.myfarm.domain.user.dao;
 
 import org.springframework.stereotype.Repository;
 

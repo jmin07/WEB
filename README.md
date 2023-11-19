@@ -1,10 +1,10 @@
 # WEB-PROJECT
 
-## WatchRabbit
+## 🥕 WatchRabbit
 - Language: javascript
 - FrameWork: node.js
 
 
-## MyFarm
+## 🌽 MyFarm
 - Language: Java
 - FrameWork: Spring Boot

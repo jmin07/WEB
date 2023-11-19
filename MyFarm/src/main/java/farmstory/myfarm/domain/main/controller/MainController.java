@@ -1,4 +1,4 @@
-package farmstory.myfarm.main.controller;
+package farmstory.myfarm.domain.main.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 

@@ -7,7 +7,7 @@
 
     <!-- 별칭 작성 부분 -->
     <typeAliases>
-        <typeAlias type="farmstory.myfarm.user.dao.UserMapperImpl" alias="UserDao" />
+        <typeAlias type="farmstory.myfarm.domain.user.dao.UserMapperImpl" alias="UserDao" />
     </typeAliases>
 
     <!-- SQL이 작성되는 mapper 파일 위치 등록 -->

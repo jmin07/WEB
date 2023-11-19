@@ -1,14 +1,14 @@
-package farmstory.myfarm.user.controller;
+package farmstory.myfarm.domain.user.controller;
 
-import farmstory.myfarm.user.service.LoginServiceInterface;
-import lombok.NoArgsConstructor;
+import farmstory.myfarm.domain.user.dto.CreateAccountForm;
+import farmstory.myfarm.domain.user.service.LoginServiceInterface;
+import farmstory.myfarm.validation.UserValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 @Slf4j
 @RestController
@@ -27,6 +27,12 @@ public class LoginController {
      */
 
     private final LoginServiceInterface loginService;
+    private final UserValidator userValidator;
+
+    @InitBinder
+    public void init(WebDataBinder dataBinder) {
+        dataBinder.addValidators(userValidator);
+    }
 
     /**
      * 로그인
@@ -51,6 +57,8 @@ public class LoginController {
 
 */
 
+
+
     // 회원 가입 페이지
 
 
@@ -66,10 +74,18 @@ public class LoginController {
 
     /**
      * 회원 가입
+     * PRG
      */
-    @PostMapping("")
-    public void createUser() {
+    @PostMapping("/add/user")
+    public String createUser(@Validated @ModelAttribute CreateAccountForm createAccountForm, BindingResult bindingResult) {
+
+        // 에러가 있으면 다시 회원가입 페이지로
+        if (bindingResult.hasErrors()) {
+
+            return "homePage/login/joinPage";
+        }
 
 
+        return "redirect:main";
     }
 }
