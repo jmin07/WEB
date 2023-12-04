@@ -1,4 +1,6 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <div class="hero-container">
     <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsla(0, 0%, 25%, 0); margin-top: 45px">
         <div class="container">
@@ -27,37 +29,43 @@
                                     </div>
                                 </div>
                             </div>
-                            <form action="#!">
+
+                            <form:errors path="errors.ObjectField.loginForm"/>
+                            <form:form modelAttribute="loginForm" action="/myfarm/login" method="post" autocomplete="off">
                                 <div class="row gy-3 overflow-hidden">
                                     <div class="col-12">
                                         <div class="form-floating mb-3">
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
-                                            <label for="email" class="form-label">Email</label>
+                                            <form:input class="form-control" path="userId" placeholder="name@example.com"/>
+                                            <form:label for="email" class="form-label" path="userId">Email</form:label>
                                         </div>
+                                        <form:errors path="userId"/>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating mb-3">
-                                            <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
-                                            <label for="password" class="form-label">Password</label>
+                                            <form:input type="password" class="form-control" path="userPassword" placeholder="Password" />
+                                            <form:label for="password" class="form-label" path="userPassword">Password</form:label>
                                         </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" name="remember_me" id="remember_me">
-                                            <label class="form-check-label text-secondary" for="remember_me">
-                                                <label style="color: black">
-                                                    아이디 기억하기
-                                                </label>
-                                            </label>
-                                        </div>
+                                        <form:errors path="userPassword"/>
                                     </div>
                                     <div class="col-12">
                                         <div class="d-grid">
-                                            <button class="btn btn-primary btn-lg" type="submit">LOG IN</button>
+                                            <form:button class="btn btn-primary btn-lg" type="submit">LOG IN</form:button>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </form:form>
+<%--                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <checkbox class="form-check-input" value="" id="rememberMe" name="rememberMe" />
+                                        <label for="rememberMe" class="form-check-label text-secondary" path="checkLabel">
+                                            <label style="color: black">
+                                                아이디 기억하기
+                                            </label>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>--%>
 
                             <div class="row">
                                 <div class="col-12">

@@ -20,7 +20,17 @@ public class GlobalExceptionHandler {
     protected ResponseEntity<ErrorResponseDto> handlerSQLException(SQLException sqlE) {
         logger.error("[handlerSQLException] Error >>> " + sqlE);
         final ErrorResponseDto response = ErrorResponseDto.setError(sqlE.getErrorCode(), sqlE.getMessage(), sqlE.getSQLState());
-        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+
+        // return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        return ResponseEntity.internalServerError().body(response);
     }
 
+    /*
+    @ExceptionHandler(Exception.class)
+    protected ResponseEntity<ErrorResponseDto> handlerException(Exception error) {
+        logger.error("[handlerSQLException] Error >>> " + error);
+
+        return ResponseEntity.internalServerError().body(response);
+    }
+    */
 }

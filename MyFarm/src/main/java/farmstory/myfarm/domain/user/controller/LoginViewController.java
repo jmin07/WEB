@@ -1,5 +1,6 @@
 package farmstory.myfarm.domain.user.controller;
 
+import farmstory.myfarm.domain.user.dto.LoginForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +18,9 @@ public class LoginViewController {
     }
 
     @GetMapping("/user/login")
-    public String loginView() {
+    public String loginView(Model model) {
+        LoginForm loginForm = LoginForm.builder().build();
+        model.addAttribute("loginForm", loginForm);
         return "homePage/login/loginPage";
     }
 

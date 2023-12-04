@@ -31,6 +31,8 @@ spring:
     password: 1234
     driver-class-name: org.h2.Driver
 #    url: jdbc:postgresql://localhost:5433/farmstory
+  messages:
+    basename: messages, errors
 
 # mybatis
 mybatis:

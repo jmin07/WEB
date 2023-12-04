@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <div class="hero-container">
     <div class="px-4 py-5 px-md-4 text-center text-lg-start" style=" margin-top: 45px; width: 33%;">
@@ -9,6 +10,7 @@
             <div class="col-12 col-md-6 col-xl-12">
                 <div class="card border-0 rounded-4" style="background-color: rgba(255, 255, 255, 0.1); border: 3px" >
                     <div class="card-body p-3 p-md-4 p-xl-5">
+
                         <form>
 
                             <div class="row">

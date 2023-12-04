@@ -1,6 +1,7 @@
 HELP.md
 *.yml
 application.yml
+mybatis-config.xml
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
