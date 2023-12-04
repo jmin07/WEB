@@ -13,7 +13,6 @@ server:
     include-stacktrace: never
     path: /error
 
-
 # 스프링
 spring:
   mvc:
@@ -33,6 +32,11 @@ spring:
 #    url: jdbc:postgresql://localhost:5433/farmstory
   messages:
     basename: messages, errors
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
 
 # mybatis
 mybatis:
