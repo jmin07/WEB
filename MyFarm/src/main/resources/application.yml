@@ -19,8 +19,8 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
-  #    pathmatch:
-  #      matching-strategy: ant_path_matcher
+      # pathmatch:
+      # matching-strategy: ant_path_matcher
   web:
     resources:
       static-locations: /WEB-INF/resources/
@@ -29,7 +29,7 @@ spring:
     username: sa
     password: 1234
     driver-class-name: org.h2.Driver
-#    url: jdbc:postgresql://localhost:5433/farmstory
+    # url: jdbc:postgresql://localhost:5433/farmstory
   messages:
     basename: messages, errors
   sql:
@@ -40,8 +40,10 @@ spring:
 
 # mybatis
 mybatis:
-  config-location: classpath:mybatis-config.xml
+  # config-location: classpath:mybatis-config.xml
   mapper-locations: classpath:mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
 
 # 로그
 logging:

@@ -1,4 +1,4 @@
-package farmstory.myfarm.domain.user.validation;
+package farmstory.myfarm.domain.user.dto.validation;
 
 import lombok.Data;
 

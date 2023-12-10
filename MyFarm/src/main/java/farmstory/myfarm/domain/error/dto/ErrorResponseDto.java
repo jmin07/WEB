@@ -1,9 +1,8 @@
-package farmstory.myfarm.error.dto;
+package farmstory.myfarm.domain.error.dto;
 
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.springframework.lang.Nullable;
 
 @Getter

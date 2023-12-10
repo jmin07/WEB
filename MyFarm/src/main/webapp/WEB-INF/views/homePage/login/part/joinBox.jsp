@@ -5,8 +5,43 @@
     <div class="px-4 py-5 px-md-4 text-center text-lg-start" style=" margin-top: 45px; width: 33%;">
 
 
+        <div class="container-md mx-auto mt-5">
+            <div class="text-center">
+                <h1 class="display-4 fw-bold">Sign Up</h1>
+                <p class="text-muted">
+                    Enter your information to create an account
+                </p>
+            </div>
+            <div class="card border bg-light">
+                <div class="card-body">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="first-name" class="form-label">First name</label>
+                                <input type="text" class="form-control" id="first-name" placeholder="Lee" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="last-name" class="form-label">Last name</label>
+                                <input type="text" class="form-control" id="last-name" placeholder="Robinson" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="m@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                            Sign Up
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-        <div class="container">
+        <!-- div class="container">
             <div class="col-12 col-md-6 col-xl-12">
                 <div class="card border-0 rounded-4" style="background-color: rgba(255, 255, 255, 0.1); border: 3px" >
                     <div class="card-body p-3 p-md-4 p-xl-5">
@@ -87,7 +122,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div -->
+
+
     </div>
 </div>
 

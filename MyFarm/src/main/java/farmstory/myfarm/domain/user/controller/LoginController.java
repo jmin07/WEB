@@ -3,7 +3,7 @@ package farmstory.myfarm.domain.user.controller;
 import farmstory.myfarm.domain.user.dto.CreateAccountForm;
 import farmstory.myfarm.domain.user.dto.LoginForm;
 import farmstory.myfarm.domain.user.service.LoginServiceInterface;
-import farmstory.myfarm.validation.LoginValidator;
+//import farmstory.myfarm.validation.LoginValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,6 @@ import javax.validation.Valid;
 
 @Slf4j
 @Controller
-@RequiredArgsConstructor
 public class LoginController {
 
     /**
@@ -33,6 +32,10 @@ public class LoginController {
      */
 
     private final LoginServiceInterface loginService;
+
+    public LoginController(LoginServiceInterface loginService) {
+        this.loginService = loginService;
+    }
 
     /**
      * 로그인
@@ -88,10 +91,10 @@ public class LoginController {
     /**
      * 인증 번호 확인
      */
-    @PostMapping("/")
-    public ResponseEntity verifyAuthNumber(String authNumber) {
-
-        //
-        return
-    }
+//    @PostMapping("/")
+//    public ResponseEntity verifyAuthNumber(String authNumber) {
+//
+//        //
+//        return
+//    }
 }

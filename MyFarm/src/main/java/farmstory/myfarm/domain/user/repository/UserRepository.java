@@ -1,17 +1,24 @@
 package farmstory.myfarm.domain.user.repository;
 
 import farmstory.myfarm.domain.user.dto.UserVo;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.data.repository.query.Param;
+import farmstory.myfarm.domain.user.mapper.UserMapper;
 
-@Mapper
-public interface UserRepository {
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Repository;
 
-    UserVo selectUser(@Param("email") String email);
+@Slf4j
+@Repository
+public class UserRepository {
 
-    Integer createUser(@Param("userVo") UserVo uservo);
+    private final UserMapper userMapper;
 
-    Integer updateUser(@Param("userVo") UserVo uservo);
+    public UserRepository(UserMapper userMapper) {
+        this.userMapper = userMapper;
+    }
 
-    Integer deleteUser(@Param("email") String email);
+    public UserVo selectUserByEmail(String email) {
+
+        return userMapper.selectUserByEmail(email);
+    }
+
 }
