@@ -7,7 +7,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Data
-public class SignValidation {
+public class SignUpValidation {
 
     @Size(min = 2, max = 6, message = "최소 2자 ~ 최대 6자 이상으로 작성해주세요.")
     @NotEmpty(message = "닉네임은 필수입니다.")

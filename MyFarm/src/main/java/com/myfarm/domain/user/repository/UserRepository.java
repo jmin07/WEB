@@ -1,14 +1,16 @@
 package com.myfarm.domain.user.repository;
 
-import com.myfarm.domain.user.dto.UserVo;
+import com.myfarm.domain.user.dto.SignUpForm;
 import com.myfarm.domain.user.mapper.UserMapper;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
 
 @Slf4j
+@Transactional(rollbackFor = SQLException.class)
 @Repository
 public class UserRepository {
 
@@ -18,23 +20,16 @@ public class UserRepository {
         this.userMapper = userMapper;
     }
 
-
-    public Integer createUser(UserVo userVo) {
-        Integer result;
-
-        try {
-            result = userMapper.createUser(userVo);
-        } catch (SQLException error) {
-            return new 커스텀예외클래스()
-        }
-
-        return result;
+    public Integer createUser(SignUpForm signUpForm) {
+        return userMapper.createUser(signUpForm);
     }
 
-
-    public UserVo selectUserByEmail(String email) {
-
+    public SignUpForm selectUserByEmail(String email) {
         return userMapper.selectUserByEmail(email);
+    }
+
+    public SignUpForm selectUserByPassword(String pwd) {
+        return userMapper.selectUserByPassword(pwd);
     }
 
 }
