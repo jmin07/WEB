@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserServiceInterface {
                 .userEmail(signUpValidation.getUserEmail())
                 .userPassword(signUpValidation.getUserRegion())
                 .userPassword(encodedPassword)
-                .userImageUrl()
+                // .userImageUrl()
                 .build();
 
         Integer newUser = userRepository.createUser(user);
@@ -51,16 +51,9 @@ public class UserServiceImpl implements UserServiceInterface {
     @Override
     public Member checkLogin(SignInValidation signInValidation) {
 
-        // 아이디 확인
         String userEmail = signInValidation.getEmail();
-        SignUpForm userByEmail = userRepository.selectUserByEmail(userEmail);
-
-        // 비밀번호 확인
         String userPwd = signInValidation.getPassword();
-        SignUpForm userByPwd = userRepository.selectUserByPassword(userPwd);
 
-        UserVo
-
-        return rtnPage;
+        return userRepository.selectUserByPwdEmail(userEmail, userPwd);
     }
 }

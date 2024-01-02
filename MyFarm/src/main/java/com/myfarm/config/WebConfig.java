@@ -3,13 +3,10 @@ package farmstory.myfarm.config;
 //import farmstory.myfarm.config.filter.LoginFilter;
 import com.myfarm.config.interceptor.LogInterceptor;
 import com.myfarm.config.interceptor.LoginInterceptor;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.annotation.Bean;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import javax.servlet.Filter;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {

@@ -5,6 +5,8 @@ import com.myfarm.domain.user.validation.SignUpValidation;
 import com.myfarm.domain.user.service.UserServiceInterface;
 import com.myfarm.domain.user.validation.SignInValidation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,8 +14,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @Slf4j
 @Controller
@@ -63,7 +66,7 @@ public class UserController {
 
 
     @PostMapping("/logout")
-    public String logoutPost(HttpServletRequest request) {
+    public String logoutPost(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
 
         // 01. Session 불러오기
         HttpSession session = request.getSession(false);
