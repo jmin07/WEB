@@ -20,12 +20,15 @@
                 </div>
 
                 <div class="col-12 col-md-6 col-xl-5">
-                    <div class="card border-0 rounded-4" style="background-color: rgba(255, 255, 255, 0.3)">
+                    <div class="card border-0 rounded-4" style="
+                        background: transparent;
+                        border: 1px solid rgba(255, 255, 255, .5) !important;
+                        backdrop-filter: blur(15px);">
                         <div class="card-body p-3 p-md-4 p-xl-5">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="mb-4">
-                                        <h3 style="text-align: center">LOGIN</h3>
+                                        <h3 style="text-align: center; font-weight: bold">로그인</h3>
                                     </div>
                                 </div>
                             </div>
@@ -34,51 +37,39 @@
                             <form:form modelAttribute="loginForm" action="/myfarm/login" method="post" autocomplete="off">
                                 <div class="row gy-3 overflow-hidden">
                                     <div class="col-12">
-                                        <div class="form-floating mb-3">
-                                            <form:input class="form-control" path="userId" placeholder="name@example.com"/>
-                                            <form:label for="email" class="form-label" path="userId">Email</form:label>
+                                        <form:label for="email" path="userId" cssStyle="color: #fff">Email</form:label>
+                                        <div class="form-floating mb-3" style="border-bottom: 2px solid #ccc;">
+                                            <form:input class="custom-form-control" path="userId" cssStyle="color: #fff;" placeholder="이메일을 입력해주세요"/>
                                         </div>
                                         <form:errors path="userId"/>
                                     </div>
                                     <div class="col-12">
-                                        <div class="form-floating mb-3">
-                                            <form:input type="password" class="form-control" path="userPassword" placeholder="Password" />
-                                            <form:label for="password" class="form-label" path="userPassword">Password</form:label>
+                                        <form:label for="password" path="userPassword" cssStyle="color: #fff">Password</form:label>
+                                        <div class="form-floating mb-3" style="border-bottom: 2px solid #ccc;">
+                                            <form:input type="password" class="custom-form-control" path="userPassword" cssStyle="color: #fff;" placeholder="비밀번호를 입력해주세요" />
                                         </div>
                                         <form:errors path="userPassword"/>
                                     </div>
                                     <div class="col-12">
                                         <div class="d-grid">
-                                            <form:button class="btn btn-primary btn-lg" type="submit">LOG IN</form:button>
+                                            <form:button class="btn btn-primary btn-lg" type="submit">로그인</form:button>
                                         </div>
                                     </div>
                                 </div>
                             </form:form>
-<%--                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-check">
-                                        <checkbox class="form-check-input" value="" id="rememberMe" name="rememberMe" />
-                                        <label for="rememberMe" class="form-check-label text-secondary" path="checkLabel">
-                                            <label style="color: black">
-                                                아이디 기억하기
-                                            </label>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>--%>
 
                             <div class="row">
                                 <div class="col-12">
                                     <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-end mt-4">
                                         <ul class="find_wrap" id="find_wrap">
                                             <li>
-                                                <a href="" class="loginBoxA nobar">비밀번호 찾기</a>
+                                                <a href="" class="loginBoxA nobar" style="color: #fff">비밀번호 찾기</a>
                                             </li>
                                             <li>
-                                                <a href="" class="loginBoxA">아이디 찾기</a>
+                                                <a href="" class="loginBoxA" style="color: #fff">아이디 찾기</a>
                                             </li>
                                             <li>
-                                                <a href="/myfarm/join/account" class="loginBoxA">회원 가입</a>
+                                                <a href="/myfarm/signup" class="loginBoxA" style="color: #fff">회원 가입</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -87,7 +78,7 @@
 
                             <div class="row">
                                 <div class="col-12">
-                                    <p class="mt-4 mb-3 separator" style="text-align: center; font-weight: bold">OR</p>
+                                    <p class="mt-4 mb-3 separator" style="text-align: center; font-weight: bold; color: #fff">OR</p>
                                     <div class="d-flex gap-2 gap-sm-3" style="flex-direction: row; justify-content: center">
 
                                         <button type="button" class="kakao-login-button"></button>

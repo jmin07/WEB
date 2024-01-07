@@ -30,7 +30,7 @@ public class UserViewController {
             @SessionAttribute(name = LOGIN_MEMBER, required = false) Member member) {
 
         if (member == null) {
-            return "redirect:/homePage/login/loginPage";
+            return "redirect:/login";
         }
 
         return "main";
@@ -40,15 +40,15 @@ public class UserViewController {
     /**
      * 로그인 페이지 View
      */
-    @GetMapping("/user/login")
-    public String loginView(@ModelAttribute("signInForm") SignInForm form) {
-        return "homePage/login/loginPage";
+    @GetMapping("/login")
+    public String loginView(@ModelAttribute("loginForm") SignInForm form) {
+        return "/homePage/login/loginPage";
     }
 
     /**
      * 회원가입 페이지 View
      */
-    @GetMapping("/user/join")
+    @GetMapping("/signup")
     public String createAccountView (@ModelAttribute("signUpForm")SignUpForm form) {
         return "homePage/login/joinPage";
     }
@@ -56,7 +56,7 @@ public class UserViewController {
     /**
      * 비밀번호 찾는 페이지 View
      */
-    @GetMapping("/user/help/pwdquery")
+    @GetMapping("/help?password")
     public String findPasswordView () {
         return "homePage/login/helpPage/pwdPage";
     }
@@ -64,7 +64,7 @@ public class UserViewController {
     /**
      * 아이디 찾는 페이지 View
      */
-    @GetMapping("/user/help/idquery")
+    @GetMapping("/help?id")
     public String findIdView() {
         return "homePage/login/helpPage/idPage";
     }

@@ -11,6 +11,6 @@ import jakarta.validation.constraints.Size;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class SignInForm {
 
-    private String userEmail;
+    private String userId;
     private String userPassword;
 }

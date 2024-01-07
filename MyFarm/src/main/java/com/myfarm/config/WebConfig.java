@@ -1,4 +1,4 @@
-package farmstory.myfarm.config;
+package com.myfarm.config;
 
 //import farmstory.myfarm.config.filter.LoginFilter;
 import com.myfarm.config.interceptor.LogInterceptor;
@@ -20,10 +20,9 @@ public class WebConfig implements WebMvcConfigurer {
 
 
         registry.addInterceptor(new LoginInterceptor())
-                .order(2)
-                .addPathPatterns("/**")
-                .excludePathPatterns("/", "/members/add", "/login", "/logout",
-                        "/css/**", "/*.ico", "/error");
+            .order(2)
+            .addPathPatterns("/myfarm/main/**")
+            .excludePathPatterns("/**");
     }
 
 

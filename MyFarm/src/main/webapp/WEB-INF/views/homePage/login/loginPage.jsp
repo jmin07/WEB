@@ -22,6 +22,20 @@
 
     <body>
         <style>
+            .custom-form-control {
+                width: 100%;
+                height: 50px;
+                background: transparent;
+                border: none;
+                outline: none;
+                font-size: 1rem;
+            }
+
+            input::placeholder {color:#ccc;}
+            input::-webkit-input-placeholder {color:#ccc;}
+            input:-ms-input-placeholder {color:#ccc;}
+
+
             .find_wrap {
                 list-style: none;
                 padding: 0;
