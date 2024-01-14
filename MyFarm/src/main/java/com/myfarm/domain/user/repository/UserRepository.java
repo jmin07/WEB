@@ -1,6 +1,7 @@
 package com.myfarm.domain.user.repository;
 
 import com.myfarm.domain.user.dto.Member;
+import com.myfarm.domain.user.dto.SignInForm;
 import com.myfarm.domain.user.dto.SignUpForm;
 import com.myfarm.domain.user.mapper.UserMapper;
 
@@ -45,12 +46,11 @@ public class UserRepository {
 
     /**
      * 이메일과 패스워드 정보로 유저 조회
-     * @param email
-     * @param pwd
+     * @param signInForm
      * @return Member
      */
-    public Member selectUserByPwdEmail(String email, String pwd) {
-        return userMapper.selectUserByPwdEmail(email, pwd);
+    public Member selectUserByPwdEmail(SignInForm signInForm) {
+        return userMapper.selectUserByPwdEmail(signInForm);
     }
 
 }

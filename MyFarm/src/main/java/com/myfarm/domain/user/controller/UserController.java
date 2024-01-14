@@ -1,12 +1,12 @@
 package com.myfarm.domain.user.controller;
 
 import com.myfarm.domain.user.dto.Member;
+import com.myfarm.domain.user.dto.SignInForm;
 import com.myfarm.domain.user.validation.SignUpValidation;
 import com.myfarm.domain.user.service.UserServiceInterface;
-import com.myfarm.domain.user.validation.SignInValidation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+// import org.springframework.security.core.Authentication;
+// import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -39,7 +39,7 @@ public class UserController {
 
     @PostMapping("/login")
     public String loginPost(
-            @Validated @ModelAttribute("UserValidation") SignInValidation signInValidation, BindingResult bindingResult,
+            @Validated @ModelAttribute("signInForm") SignInForm signInForm, BindingResult bindingResult,
             @RequestParam(defaultValue = "/", name = "redirectURL") String redirectURL,
             HttpServletRequest request) {
 
@@ -51,7 +51,7 @@ public class UserController {
         }
 
         // 02. 로그인 정보 DB 확인
-        Member member = loginService.checkLogin(signInValidation);
+        Member member = loginService.checkLogin(signInForm);
         if (member == null) {
             bindingResult.reject("ObjectError", "아이디 또는 비밀번호가 틀렸습니다.");
             return "homePage/login/loginPage";
@@ -66,7 +66,7 @@ public class UserController {
 
 
     @PostMapping("/logout")
-    public String logoutPost(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
+    public String logoutPost(HttpServletRequest request, HttpServletResponse response) {
 
         // 01. Session 불러오기
         HttpSession session = request.getSession(false);

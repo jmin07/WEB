@@ -1,3 +1,4 @@
+/*
 package com.myfarm.config.security;
 
 //import com.myfarm.domain.user.service.CustomOAuth2UserService;
@@ -58,20 +59,25 @@ public class WebSecurity {
                         .requestMatchers(new AntPathRequestMatcher("/main/**")).authenticated()
                         .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
             );
+*/
 /*            .formLogin(
                 formLogin -> formLogin
                     .loginPage("/myfarm/login")
                     .failureUrl("/myfarm/login")
-            );*/
+            );*//*
+
 //            .formLogin(
 //                formLogin -> formLogin
 //                    .loginPage("/login")                            // login 페이지
-                /*    .usernameParameter("userId")                       // form 의 name 명 userId
+                */
+/*    .usernameParameter("userId")                       // form 의 name 명 userId
                     .passwordParameter("userPassword")                       // form 의 name 명 password
                     .failureUrl("/login")        // 로그인 실패 시, 다시 로그인 페이지로
-                    .loginProcessingUrl("/login")*/
+                    .loginProcessingUrl("/login")*//*
+
 //            );
-            /*
+            */
+/*
             .logout(
                 logout -> logout
                     .logoutUrl("/logout")
@@ -83,9 +89,11 @@ public class WebSecurity {
                             response.sendRedirect("/");
                         }
                     })
-            );*/
+            );*//*
+
 
         return http.build();
     }
 
 }
+*/

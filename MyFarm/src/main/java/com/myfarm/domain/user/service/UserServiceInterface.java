@@ -1,8 +1,8 @@
 package com.myfarm.domain.user.service;
 
 import com.myfarm.domain.user.dto.Member;
+import com.myfarm.domain.user.dto.SignInForm;
 import com.myfarm.domain.user.validation.SignUpValidation;
-import com.myfarm.domain.user.validation.SignInValidation;
 
 public interface UserServiceInterface {
     // public abstract
@@ -13,7 +13,7 @@ public interface UserServiceInterface {
 
 
     // 로그인
-    Member checkLogin(SignInValidation signInValidation);
+    Member checkLogin(SignInForm signInForm);
 
 
     // 비밀번호

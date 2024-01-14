@@ -1,13 +1,13 @@
 package com.myfarm.domain.user.service;
 
 import com.myfarm.domain.user.dto.Member;
+import com.myfarm.domain.user.dto.SignInForm;
 import com.myfarm.domain.user.dto.SignUpForm;
 
 import com.myfarm.domain.user.validation.SignUpValidation;
 import com.myfarm.domain.user.repository.UserRepository;
-import com.myfarm.domain.user.validation.SignInValidation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.crypto.password.PasswordEncoder;
+// import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Slf4j
@@ -15,12 +15,12 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserServiceInterface {
 
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
+    // private final PasswordEncoder passwordEncoder;
 
     // 생성자로 주입받을 객체가 빈으로 등록되어 있다면 @Autowired를 생략 할 수 있다.
-    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
+        // this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -30,14 +30,14 @@ public class UserServiceImpl implements UserServiceInterface {
         // aws s3 적용이 필요.
 
         // 01. 비밀번호 암호화
-        String encodedPassword = passwordEncoder.encode(signUpValidation.getUserPassword());
+        // String encodedPassword = passwordEncoder.encode(signUpValidation.getUserPassword());
 
         // 02. 회원 정보 DB 저장
         SignUpForm user = SignUpForm.builder()
                 .userNickName(signUpValidation.getUserNickName())
                 .userEmail(signUpValidation.getUserEmail())
                 .userPassword(signUpValidation.getUserRegion())
-                .userPassword(encodedPassword)
+                .userPassword(signUpValidation.getUserPassword())
                 // .userImageUrl()
                 .build();
 
@@ -49,11 +49,8 @@ public class UserServiceImpl implements UserServiceInterface {
     }
 
     @Override
-    public Member checkLogin(SignInValidation signInValidation) {
+    public Member checkLogin(SignInForm signInForm) {
 
-        String userEmail = signInValidation.getEmail();
-        String userPwd = signInValidation.getPassword();
-
-        return userRepository.selectUserByPwdEmail(userEmail, userPwd);
+        return userRepository.selectUserByPwdEmail(signInForm);
     }
 }

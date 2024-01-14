@@ -5,6 +5,7 @@ import com.myfarm.domain.user.dto.SignInForm;
 import com.myfarm.domain.user.dto.SignUpForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -41,7 +42,8 @@ public class UserViewController {
      * 로그인 페이지 View
      */
     @GetMapping("/login")
-    public String loginView(@ModelAttribute("loginForm") SignInForm form) {
+    public String loginView(@ModelAttribute("signInForm") SignInForm signInForm, Model model) {
+        model.addAttribute("signInForm", signInForm);
         return "/homePage/login/loginPage";
     }
 

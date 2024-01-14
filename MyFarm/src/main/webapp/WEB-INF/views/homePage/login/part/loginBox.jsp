@@ -1,5 +1,6 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="hero-container">
     <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsla(0, 0%, 25%, 0); margin-top: 45px">
@@ -33,30 +34,60 @@
                                 </div>
                             </div>
 
-                            <form:errors path="errors.ObjectField.loginForm"/>
-                            <form:form modelAttribute="loginForm" action="/myfarm/login" method="post" autocomplete="off">
+                            <spring:hasBindErrors name="signInForm">
+                                <c:if test="${errors.hasGlobalErrors()}">
+                                    <p style="margin: 0 12px; padding: 0; text-align: center;">
+                                        <span style="font-weight: bold; color: #cc0000; display: inline-block;">
+                                            ${errors.globalError.defaultMessage}
+                                        </span>
+                                    </p>
+                                </c:if>
+                            </spring:hasBindErrors>
+                            <form action="${pageContext.request.contextPath}/login" method="post" >
                                 <div class="row gy-3 overflow-hidden">
+
+
                                     <div class="col-12">
-                                        <form:label for="email" path="userId" cssStyle="color: #fff">Email</form:label>
+                                        <label for="userEmail" style="color: #fff">Email</label>
                                         <div class="form-floating mb-3" style="border-bottom: 2px solid #ccc;">
-                                            <form:input class="custom-form-control" path="userId" cssStyle="color: #fff;" placeholder="이메일을 입력해주세요"/>
+                                            <input type="email" class="custom-form-control" id="userEmail" name="userEmail" value="${signInForm.userEmail}" style="color: #fff;" placeholder="이메일을 입력해주세요" required/>
                                         </div>
-                                        <form:errors path="userId"/>
                                     </div>
+                                    <spring:hasBindErrors name="signInForm">
+                                        <c:if test="${errors.hasFieldErrors('userEmail')}">
+                                            <p style="padding: 0 12px; margin: 0">
+                                                <span style="font-weight: bold; color: #cc0000;">
+                                                    ${errors.getFieldError('userEmail').defaultMessage}
+                                                </span>
+                                            </p>
+                                        </c:if>
+                                    </spring:hasBindErrors>
+
+
                                     <div class="col-12">
-                                        <form:label for="password" path="userPassword" cssStyle="color: #fff">Password</form:label>
+                                        <label for="userPassword" style="color: #fff">Password</label>
                                         <div class="form-floating mb-3" style="border-bottom: 2px solid #ccc;">
-                                            <form:input type="password" class="custom-form-control" path="userPassword" cssStyle="color: #fff;" placeholder="비밀번호를 입력해주세요" />
+                                            <input type="password" class="custom-form-control" id="userPassword" name="userPassword" value="${signInForm.userPassword}" style="color: #fff;" placeholder="비밀번호를 입력해주세요" required/>
                                         </div>
-                                        <form:errors path="userPassword"/>
                                     </div>
+                                    <spring:hasBindErrors name="signInForm">
+                                        <c:if test="${errors.hasFieldErrors('userPassword')}">
+                                            <p style="padding: 0 12px; margin: 0">
+                                                <span style="font-weight: bold; color: #cc0000;">
+                                                    ${errors.getFieldError('userPassword').defaultMessage}
+                                                </span>
+                                            </p>
+                                        </c:if>
+                                    </spring:hasBindErrors>
+
                                     <div class="col-12">
                                         <div class="d-grid">
-                                            <form:button class="btn btn-primary btn-lg" type="submit">로그인</form:button>
+                                            <button type="submit" class="btn btn-primary btn-lg">로그인</button>
                                         </div>
                                     </div>
+
                                 </div>
-                            </form:form>
+                            </form>
 
                             <div class="row">
                                 <div class="col-12">
