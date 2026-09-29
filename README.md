@@ -1,10 +1,5 @@
-# WEB-PROJECT
+# BOOTCAMP
 
 ## 🥕 WatchRabbit
 - Language: javascript
 - FrameWork: node.js
-
-
-## 🌽 MyFarm
-- Language: Java
-- FrameWork: Spring Boot
