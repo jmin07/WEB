@@ -13,7 +13,7 @@
 
 **WatchRabbit** 은 중고거래 플랫폼 '당근마켓' 의 중고물품 게시글을 항상 감시하여 사용자들에게 더 나은 정보를 제공하는 서비스입니다.
 
-👉 [프로젝트 소개 및 구현 내용](https://github.com/jmin07/BootCamp/blob/main/README.md)  
+👉 [프로젝트 소개 및 구현 내용](https://github.com/jmin07/BootCamp/blob/main/WatchRabbit/README.md)  
 
 ### 🗂️ Node.js Express Boilerplate
 
